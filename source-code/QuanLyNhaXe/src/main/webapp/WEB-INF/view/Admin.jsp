@@ -12,10 +12,12 @@
 </head>
 
 <body>
-<h1>Trang chủ</h1>
+<h1>Admin</h1>
 <h1>Menu</h1>
 
 <%@ include file="menu.jsp" %>
+
+
 </body>
 
 </html>

@@ -31,10 +31,10 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-   <!--   <session-config>
+    <session-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
-    -->
+
 	<!--  QUy định trang nào được load lên đầu tiên -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
