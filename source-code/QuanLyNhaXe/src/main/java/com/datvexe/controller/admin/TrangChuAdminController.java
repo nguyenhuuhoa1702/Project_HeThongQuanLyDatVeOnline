@@ -9,7 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class TrangChuAdminController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
-		ModelAndView mav = new ModelAndView("admin/Admin");
+		ModelAndView mav = new ModelAndView("admin/admin");
+		return mav;
+	}
+	@RequestMapping(value = "/quanlytaikhoan", method = RequestMethod.GET)
+	public ModelAndView quanlytaikhoanPage() {
+		ModelAndView mav = new ModelAndView("admin/QuanLyTaiKhoan");
 		return mav;
 	}
 }

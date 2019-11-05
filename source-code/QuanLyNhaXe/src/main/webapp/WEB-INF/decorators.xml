@@ -5,9 +5,12 @@
     <decorator name="trang-chu" page="web.jsp">
        <pattern>/trang-chu</pattern>
     </decorator>
-    
+    	<!--đường dẫn tới file thư mục decorators master
+    		dưới đây là những đường dẫn sử dụng master page
+
+    	 -->
     <decorator name="admin" page="admin.jsp">
        <pattern>/admin</pattern>
+       <pattern>/quanlytaikhoan</pattern>
     </decorator>
-
 </decorators>

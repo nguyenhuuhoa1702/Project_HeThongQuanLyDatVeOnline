@@ -35,5 +35,5 @@
 	</bean>
 	
 	<mvc:resources mapping="/template/**" location="/template/" />
-<!--  	<mvc:default-servlet-handler/>  -->
-</beans>
+ 	<mvc:default-servlet-handler/>
+ </beans>

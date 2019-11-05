@@ -13,4 +13,10 @@ public class TrangChuWebController {
 	      ModelAndView mav = new ModelAndView("web/TrangChu");
 	      return mav;
 	   }	 
+	 
+	 @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
+	   public ModelAndView loginPage() {
+	      ModelAndView mav = new ModelAndView("web/Login");
+	      return mav;
+	   }	 
 }
