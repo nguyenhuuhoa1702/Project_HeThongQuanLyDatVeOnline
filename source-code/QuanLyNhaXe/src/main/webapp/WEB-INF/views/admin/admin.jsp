@@ -28,7 +28,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 					<li class="breadcrumb-item active">Overview</li>
-					<li class="breadcrumb-item active"><a href ="/QuanLyNhaXe/quanlytaikhoan">Quản lý tài khoản</a></li>
+					<li class="breadcrumb-item active"><a href ="/QuanLyNhaXe/admin/quanlytaikhoan">Quản lý tài khoản</a></li>
 				</ol>
 
 				<!-- Icon Cards-->
