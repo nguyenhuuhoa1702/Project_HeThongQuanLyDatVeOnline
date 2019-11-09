@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 // Cấu hình để dùng tất cả hàm chung do JpaRepository cung cấp
-@EnableJpaRepositories(basePackages = {"com.datvexe.repository"})
+@EnableJpaRepositories(basePackages = { "com.datvexe.repository" })
 // Entity Transaction không cần phải thực hiện thủ công như mở kết nối, đóng kết nói ,..
 @EnableTransactionManagement
 
@@ -29,17 +29,20 @@ public class JPAConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		// DataSource()  là nơi cung cấp : user - pass - diver - url mà csdl dùng
+		// DataSource() là nơi cung cấp : user - pass - diver - url mà csdl dùng
 		em.setDataSource(dataSource());
 		// setPersistenceUnitName là chất xúc tác giữa table và entity
 		em.setPersistenceUnitName("persistence-data");
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
-		//JpaProperties sẽ không dùng cơ chế dùng những đoạn để nó tạo table, sẽ tạo các table dựa trên
-		//các entity đã định nghĩa trong project. Tính năng tự động tạo table từ các class.
+		// JpaProperties sẽ không dùng cơ chế dùng những đoạn để nó tạo table, sẽ tạo
+		// các table dựa trên
+		// các entity đã định nghĩa trong project. Tính năng tự động tạo table từ các
+		// class.
 		em.setJpaProperties(additionalProperties());
 		return em;
 	}
+
 	// Cấu hình transaction Etity
 	@Bean
 	JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
@@ -67,7 +70,7 @@ public class JPAConfig {
 		dataSource.setPassword("1234");
 		return dataSource;
 	}
-	
+
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
@@ -76,11 +79,11 @@ public class JPAConfig {
 //		properties.setProperty("hibernate.default_schema", environment.getProperty("hibernate.default_schema"));
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		// lệnh tọa table Khi database ổn định thì đóng lệnh "create-drop".
-		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		//sau khi tạo thành công thì kích hoạt "none"
-		//properties.setProperty("hibernate.hbm2ddl.auto", "none");
+	//	properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		// sau khi tạo thành công thì kích hoạt "none"
+		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+
 		return properties;
 	}
-
 
 }

@@ -6,6 +6,8 @@
 	<!-- File xúc tác mapping giữa table entity  và cơ sở dữ liệu--> 
 	<persistence-unit name="persistence-data">
 		<class>com.datvexe.entity.NewRouteEntity</class>
+		<class>com.datvexe.entity.UserRoleEntity</class>
+		<class>com.datvexe.entity.UserAccountEntity</class>
 	</persistence-unit>
 </persistence>
 

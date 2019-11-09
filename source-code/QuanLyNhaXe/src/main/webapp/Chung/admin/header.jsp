@@ -1,3 +1,4 @@
+<%@ page import="com.datvexe.util.SecurityUtil" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -14,7 +15,7 @@
 	<form
 		class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search for..."
+			<input type="text" class="form-control" placeholder="Search for..." 
 				aria-label="Search" aria-describedby="basic-addon2">
 			<div class="input-group-append">
 				<button class="btn btn-primary" type="button">
@@ -34,8 +35,8 @@
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="alertsDropdown">
-				<a class="dropdown-item" href="#">Action</a> <a
-					class="dropdown-item" href="#">Another action</a>
+				<a class="dropdown-item" href="#">Hello <%=SecurityUtil.getPrincipal().getActive() %></a> <a
+					class="dropdown-item" href="<c:url value='/thoat'/>">Thoát</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Something else here</a>
 			</div></li>

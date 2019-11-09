@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<a href = "/QuanLyNhaXe/admin/login" >Đăng nhập</a>
+	<a href = "/QuanLyNhaXe/admin/dang-nhap" >Đăng nhập</a>
 	<a href = "/QuanLyNhaXe/admin" > admin </a>
 	<!-- Page Content -->
 	<div class="container">
