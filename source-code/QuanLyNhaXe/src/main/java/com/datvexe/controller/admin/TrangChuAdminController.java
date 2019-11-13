@@ -17,4 +17,5 @@ public class TrangChuAdminController {
 		ModelAndView mav = new ModelAndView("admin/QuanLyTaiKhoan");
 		return mav;
 	}
+	
 }

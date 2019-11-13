@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "phanQuyen")
-public class UserRoleEntity extends BaseEntity {
+public class PhanQuyenNguoiDung extends BaseEntity {
 	
 	@Column(name = "tenQuyen")
 	private String tenQuyen;
@@ -19,7 +19,7 @@ public class UserRoleEntity extends BaseEntity {
 	private String code;
 
 	@ManyToMany(mappedBy = "roles")
-    private List<UserAccountEntity> user = new ArrayList<>();
+    private List<TaiKhoan> user = new ArrayList<>();
 
 
 	public String getTenQuyen() {
@@ -38,11 +38,11 @@ public class UserRoleEntity extends BaseEntity {
 		this.code = code;
 	}
 	
-	public List<UserAccountEntity> getUser() {
+	public List<TaiKhoan> getUser() {
 		return user;
 	}
 
-	public void setUser(List<UserAccountEntity> user) {
+	public void setUser(List<TaiKhoan> user) {
 		this.user = user;
 	}
 	

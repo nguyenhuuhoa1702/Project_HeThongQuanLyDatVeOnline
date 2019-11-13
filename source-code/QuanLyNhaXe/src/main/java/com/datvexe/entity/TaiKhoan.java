@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TaiKhoan")
-public class UserAccountEntity extends BaseEntity{
+public class TaiKhoan extends BaseEntity{
 	@Column(name ="tenTaiKhoan")
 	private String tenTaiKhoan;
 	
@@ -27,17 +27,17 @@ public class UserAccountEntity extends BaseEntity{
 	// Tự động tạo bảng trung gian có tên là user_role với 2 khóa chính là userId và roleId
 	@JoinTable(name ="user_role",	joinColumns = @JoinColumn(name="userId"), 
 							inverseJoinColumns = @JoinColumn(name = "roleId"))
-	private List<UserRoleEntity> roles = new ArrayList<>();
+	private List<PhanQuyenNguoiDung> roles = new ArrayList<>();
 	
 	public String getTenTaiKhoan() {
 		return tenTaiKhoan;
 	}
 
-	public List<UserRoleEntity> getRoles() {
+	public List<PhanQuyenNguoiDung> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<UserRoleEntity> roles) {
+	public void setRoles(List<PhanQuyenNguoiDung> roles) {
 		this.roles = roles;
 	}
 
@@ -52,13 +52,10 @@ public class UserAccountEntity extends BaseEntity{
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
 	}
-
 	public Integer getActive() {
 		return active;
 	}
-
 	public void setActive(Integer active) {
 		this.active = active;
-	}
-	
+	}	
 }

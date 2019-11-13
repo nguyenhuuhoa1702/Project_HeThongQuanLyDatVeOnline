@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.datvexe.constant.SystemConstant;
 import com.datvexe.dto.MyUser;
-import com.datvexe.entity.UserAccountEntity;
-import com.datvexe.entity.UserRoleEntity;
+import com.datvexe.entity.TaiKhoan;
+import com.datvexe.entity.PhanQuyenNguoiDung;
 import com.datvexe.repository.UserRepository;
 
 @Service
@@ -25,23 +25,23 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserAccountEntity userAccountEntity = userRepository.findOneByTenTaiKhoanAndActive(username, SystemConstant.ACTIVE);
-		if (userAccountEntity == null)
+		TaiKhoan taiKhoan = userRepository.findOneByTenTaiKhoanAndActive(username, SystemConstant.ACTIVE);
+		if (taiKhoan == null)
 		{
 			throw new UsernameNotFoundException("Không tồn tại tài khoản");
 		}
 		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (UserRoleEntity role : userAccountEntity.getRoles())
+		for (PhanQuyenNguoiDung role : taiKhoan.getRoles())
 		{
 			authorities.add(new SimpleGrantedAuthority(role.getCode()));
 		}
 		// put thông tin vào security duy trì thông báo  khi user login vào hệ thống
 //		User user  = new User(userAccountEntity.getTenTaiKhoan(), userAccountEntity.getMatKhau(),
 //								true, true, true, true, authorities);
-		MyUser myuser  = new MyUser(userAccountEntity.getTenTaiKhoan(), userAccountEntity.getMatKhau(),
+		MyUser myuser  = new MyUser(taiKhoan.getTenTaiKhoan(), taiKhoan.getMatKhau(),
 				true, true, true, true, authorities);
 		
-		myuser.setActive(userAccountEntity.getActive());
+		myuser.setActive(taiKhoan.getActive());
 		return myuser;
 	}
 	
