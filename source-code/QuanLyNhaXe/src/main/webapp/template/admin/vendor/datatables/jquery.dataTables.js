@@ -11613,7 +11613,7 @@
 			 *  @example
 			 *    // Language and options change
 			 *    $(document).ready( function() {
-			 *      $('#example').dataTable( {
+			 *      $('#dataTable').dataTable( {
 			 *        "language": {
 			 *          "lengthMenu": 'Display <select>'+
 			 *            '<option value="10">10</option>'+
@@ -11629,7 +11629,7 @@
 			 */
 			"sLengthMenu": "Show _MENU_ entries",
 	
-	
+				
 			/**
 			 * When using Ajax sourced data and during the first draw when DataTables is
 			 * gathering the data, this message is shown in an empty row in the table to

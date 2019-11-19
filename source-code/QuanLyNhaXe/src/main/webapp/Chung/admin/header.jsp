@@ -35,7 +35,9 @@
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="alertsDropdown">
-				<a class="dropdown-item" href="#">Hello <%=SecurityUtil.getPrincipal().getActive() %></a> <a
+				<a class="dropdown-item" href="#">Hello 
+<%-- 				<%=SecurityUtil.getPrincipal().getActive() %> --%>
+				</a> <a
 					class="dropdown-item" href="<c:url value='/thoat'/>">Thoát</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Something else here</a>

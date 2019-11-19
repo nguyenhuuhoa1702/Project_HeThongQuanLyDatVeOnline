@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -17,7 +20,7 @@ import javax.persistence.Table;
 
  // Với @table nó sẽ tự tạo 1 bảng có name = "TuyenXe" trong cdsl tương ý 
 @Table(name = "TuyenXe") 
-public class TuyenXe extends BaseEntity {
+public class TuyenXe {
 	
 //  Với @id thực hiện định nghĩa id là khóa chính và not null	
 //	@Id
@@ -27,19 +30,43 @@ public class TuyenXe extends BaseEntity {
 	
 //  @colum đại diện cho 1 cột trong bảng @table có tên là maTuyenXe
 //  name = "tenTuyenXe" định nghĩa cho cái tên cột thực tế trong table
-	
+
+	@Id
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
 	@Column(name="tuyenXeId")
-	private String tuyenXeId;
+	private Long tuyenXeId;
 	
+	@Column(name = "tenTuyenXe")
+	private String tenTuyenXe;
 	
-	@Column(name = "tenTuyen")
-	private String tenTuyen;
-	
-	@Column(name = "diemDen", columnDefinition = "TEXT")
-	private String diemDen;
-	
-	@Column(name = "diemDi", columnDefinition = "TEXT")
-	private String diemDi;
+	public Long getTuyenXeId() {
+		return tuyenXeId;
+	}
+
+
+	public void setTuyenXeId(Long tuyenXeId) {
+		this.tuyenXeId = tuyenXeId;
+	}
+
+
+	public List<ViTriDonTra> getVitri() {
+		return vitri;
+	}
+
+
+	public void setVitri(List<ViTriDonTra> vitri) {
+		this.vitri = vitri;
+	}
+
+
+	public List<LichTrinh> getChuyendi() {
+		return chuyendi;
+	}
+
+
+	public void setChuyendi(List<LichTrinh> chuyendi) {
+		this.chuyendi = chuyendi;
+	}
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	// Tự động tạo bảng trung gian có tên là ViTri_TuyenXe
@@ -49,32 +76,18 @@ public class TuyenXe extends BaseEntity {
 	private List<ViTriDonTra> vitri = new ArrayList<>();
 
 	@OneToMany(mappedBy = "tuyenxe")
-	private List<ChuyenDi> chuyendi = new ArrayList<ChuyenDi>();
+	private List<LichTrinh> chuyendi = new ArrayList<LichTrinh>();
+
+	public String getTenTuyenXe() {
+		return tenTuyenXe;
+	}
+
+
+	public void setTenTuyenXe(String tenTuyenXe) {
+		this.tenTuyenXe = tenTuyenXe;
+	}
+
 	
-	public String getTenTuyen() {
-		return tenTuyen;
-	}
-
-
-	public void setTenTuyen(String tenTuyen) {
-		this.tenTuyen = tenTuyen;
-	}
-
-
-	public String getDiemDen() {
-		return diemDen;
-	}
-
-	public void setDiemDen(String diemDen) {
-		this.diemDen = diemDen;
-	}
-
-	public String getDiemDi() {
-		return diemDi;
-	}
-
-	public void setDiemDi(String diemDi) {
-		this.diemDi = diemDi;
-	}
+	
 	
 }

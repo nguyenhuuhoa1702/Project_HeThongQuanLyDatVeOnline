@@ -5,12 +5,19 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "phanQuyen")
-public class PhanQuyenNguoiDung extends BaseEntity {
+public class PhanQuyenNguoiDung{
+	
+	@Id
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
+	private Long id;
 	
 	@Column(name = "tenQuyen")
 	private String tenQuyen;

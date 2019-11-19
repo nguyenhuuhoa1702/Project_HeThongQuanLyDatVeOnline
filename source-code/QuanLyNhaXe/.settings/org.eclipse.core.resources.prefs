@@ -1,8 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/datvexe/config/JPAConfig.java=UTF-8
 encoding//src/main/java/com/datvexe/controller/web/TrangChuWebController.java=UTF-8
-encoding//src/main/java/com/datvexe/entity/BaseEntity.java=UTF-8
 encoding//src/main/java/com/datvexe/entity/TaiKhoan.java=UTF-8
 encoding//src/main/java/com/datvexe/entity/TuyenXe.java=UTF-8
-encoding//src/main/java/com/datvexe/repository/NewRepository.java=UTF-8
-encoding//src/main/java/com/datvexe/service/impl/homeServiceimpl.java=UTF-8
+encoding//src/main/java/com/datvexe/repository/TuyenXeRepository.java=UTF-8
+encoding//src/main/java/com/datvexe/service/impl/LichTrinhService.java=UTF-8

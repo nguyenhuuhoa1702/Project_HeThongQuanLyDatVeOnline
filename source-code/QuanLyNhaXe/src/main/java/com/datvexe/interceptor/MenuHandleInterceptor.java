@@ -7,17 +7,17 @@
 //import org.springframework.web.servlet.HandlerInterceptor;
 //import org.springframework.web.servlet.ModelAndView;
 //
-//import com.datvexe.service.homeService;
+//import com.datvexe.service.ILichTrinhService;
 //
 //public class MenuHandleInterceptor implements HandlerInterceptor {
 //	
 //	@Autowired
-//	private homeService homeService;
+//	private ILichTrinhService ILichTrinhService;
 //
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 //			throws Exception {
-//		request.setAttribute("menu",homeService.loadMenu());
+//		request.setAttribute("menu",ILichTrinhService.loadMenu());
 //		return true;
 //	}
 //
