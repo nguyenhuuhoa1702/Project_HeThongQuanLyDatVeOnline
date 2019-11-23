@@ -7,8 +7,8 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	private Long id;
 	private Long tuyenXeId;
 	private String tenTuyenXe;
-	private Time thoiGian;
-	private Date ngayDi;
+	private String thoiGian;
+	private String ngayDi;
 	
 	
 	public Long getId() {
@@ -27,21 +27,22 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	public String getTenTuyenXe() {
 		return tenTuyenXe;
 	}
+	public String getThoiGian() {
+		return thoiGian;
+	}
+	public void setThoiGian(String thoiGian) {
+		this.thoiGian = thoiGian;
+	}
+	public String getNgayDi() {
+		return ngayDi;
+	}
+	public void setNgayDi(String ngayDi) {
+		this.ngayDi = ngayDi;
+	}
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
 	}
-	public Time getThoiGian() {
-		return thoiGian;
-	}
-	public void setThoiGian(Time thoiGian) {
-		this.thoiGian = thoiGian;
-	}
-	public Date getNgayDi() {
-		return ngayDi;
-	}
-	public void setNgayDi(Date ngayDi) {
-		this.ngayDi = ngayDi;
-	}
+
 
 	
 

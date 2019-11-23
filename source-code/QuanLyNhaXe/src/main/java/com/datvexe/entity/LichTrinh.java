@@ -3,7 +3,6 @@ package com.datvexe.entity;
 import java.sql.Date;
 import java.sql.Time;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,28 +21,29 @@ public class LichTrinh {
 	private Long id;
 	
 	@Column(name = "ngayDi")
-	private Date ngayDi;
+	private String ngayDi;
 
 	@Column(name = "thoiGian")
-	private Time thoiGian;
+	private String thoiGian;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "tuyenXeId")
 	private TuyenXe tuyenxe;
 
-	public Date getNgayDi() {
+	
+	public String getNgayDi() {
 		return ngayDi;
 	}
 
-	public void setNgayDi(Date ngayDi) {
+	public void setNgayDi(String ngayDi) {
 		this.ngayDi = ngayDi;
 	}
 
-	public Time getThoiGian() {
+	public String getThoiGian() {
 		return thoiGian;
 	}
 
-	public void setThoiGian(Time thoiGian) {
+	public void setThoiGian(String thoiGian) {
 		this.thoiGian = thoiGian;
 	}
 

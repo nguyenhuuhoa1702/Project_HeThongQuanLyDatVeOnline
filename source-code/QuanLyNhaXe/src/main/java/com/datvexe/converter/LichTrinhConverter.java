@@ -28,4 +28,13 @@ public class LichTrinhConverter {
 		result.setThoiGian(dto.getThoiGian());
 		return result;
 	}
+	
+	public LichTrinh toEntity(LichTrinh result, LichTrinhDTO dto)
+	{	
+		result.setNgayDi(dto.getNgayDi());
+		result.setThoiGian(dto.getThoiGian());
+		return result;
+	}
+	
+	
 }

@@ -79,7 +79,7 @@ public class JPAConfig {
 //		properties.setProperty("hibernate.default_schema", environment.getProperty("hibernate.default_schema"));
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		// lệnh tọa table Khi database ổn định thì đóng lệnh "create-drop".
-	//	properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+//		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 	//	properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		// sau khi tạo thành công thì kích hoạt "none"
 		properties.setProperty("hibernate.hbm2ddl.auto", "none");
