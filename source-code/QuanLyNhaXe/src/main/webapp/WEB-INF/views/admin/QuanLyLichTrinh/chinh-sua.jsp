@@ -3,6 +3,7 @@
 <%@ include file="/Chung/taglib.jsp"%>
 <c:url var="newAPI" value="/api/new" />
 <c:url var="newURL" value="/admin/quan-ly-lich-trinh/danh-sach" />
+<c:url var="chinhsuaURL" value="/admin/quan-ly-lich-trinh/chinh-sua" />
 <c:url var="newURLloi" value="/admin" />
 <!DOCTYPE html>
 
@@ -21,8 +22,12 @@
 			<div class="card card-login mx-auto mt-5">
 				<div class="card-header">Giao diện thêm lịch trình mới</div>
 				<div class="card-body">
+					<c:if test="${not empty message }">
+						<div class="alert alert-${alert}">${message}</div>
+					</c:if>
 					<form:form modelAttribute="model" id="formSubmit" role="form"
 						action="check" method="POST">
+
 						<!--  Nơi lựa chọn loại tuyến xe -->
 						<div class="form-group">
 							<div class="form-group">
@@ -86,10 +91,10 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}";
+					window.location.href = "${chinhsuaURL}?id="+result.id+"&message=insert_success";
 				},
 				error : function(error) {
-					window.location.href = "${newURLloi}";
+					window.location.href = "${newURL}?message=error_system";
 				}
 			});
 		}
@@ -102,13 +107,12 @@
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
-					window.location.href = "${newURL}";
+					window.location.href = "${chinhsuaURL}?id="+result.id+"&message=update_success";
 				},
 				error : function(error) {
 					console.log(error);
-					window.location.href = "${newURLloi}";
+					window.location.href = "${chinhsuaURL}"+result.id+"&message=error_system";
 				}
-
 			});
 		}
 	</script>

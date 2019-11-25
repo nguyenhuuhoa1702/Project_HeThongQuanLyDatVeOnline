@@ -14,6 +14,7 @@ import com.datvexe.entity.TuyenXe;
 import com.datvexe.repository.LichTrinhRepository;
 import com.datvexe.repository.TuyenXeRepository;
 import com.datvexe.service.ILichTrinhService;
+import com.google.protobuf.Empty;
 
 @Service
 public class LichTrinhService implements ILichTrinhService {
@@ -59,7 +60,10 @@ public class LichTrinhService implements ILichTrinhService {
 			// Nếu là cập nhật sẽ lấy cái cũ lên
 			LichTrinh oldlichtrinh = LichTrinhRepository.findOne(dto.getId());
 			// lấy dữ liệu thêm vào cái cũ 
+			if(tuyenXe != null )
+			{
 			oldlichtrinh.setTuyenxe(tuyenXe);
+			}
 			// Chuyển cái dữ liệu vừa thêm vào , chuyển sang dữ liệu mới
 			lichTrinhEntity = new LichTrinhConverter().toEntity(oldlichtrinh,dto);
 		}
@@ -71,5 +75,14 @@ public class LichTrinhService implements ILichTrinhService {
 			lichTrinhEntity.setTuyenxe(tuyenXe);
 		}
 		return lichTrinhConverter.toDTO(LichTrinhRepository.save(lichTrinhEntity));
+	}
+
+	@Override
+	@Transactional
+	public void delete(long[] ids) {
+		for(long id: ids)
+		{
+			LichTrinhRepository.delete(id);
+		}
 	}
 }
