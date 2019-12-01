@@ -25,6 +25,9 @@ public class TuyenXeService implements ITuyenXeService {
 	private TuyenXeRepository tuyenXeRepository;
 	@Autowired
 	private TuyenXeConverter tuyenXeConverter;
+	
+	
+	// hàm hiển thị danh sách tuyến xe
 	@Override
 	public List<TuyenXeDTO> finalAll() {
 		// convert data từ DTO sang entity và entity -> DTO
@@ -37,12 +40,14 @@ public class TuyenXeService implements ITuyenXeService {
 			models.add(tuyenXeDTO);
 		}
 		return models;	}
-
+	
+	// nơi hiển thị danh sách tuyến xe
 	public Map<String, String> finalAllMap() {
 		Map<String, String>  result = new HashMap<>();
 		List<TuyenXe> entity = tuyenXeRepository.findAll();
 		for (TuyenXe item : entity) {
-			result.put(item.getTuyenXeId().toString(), item.getTenTuyenXe());
+			result.put(item.getTenTuyenXe(), item.getTenTuyenXe());
+//			result.put(key, value)
 		}	
 		return result;
 	}

@@ -36,58 +36,52 @@ public class TuyenXe {
 	@Column(name="tuyenXeId")
 	private Long tuyenXeId;
 	
+	@Column(name = "maTuyenXe")
+	private String maTuyenXe;
+	
 	@Column(name = "tenTuyenXe")
 	private String tenTuyenXe;
-	
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	// Tự động tạo bảng trung gian có tên là ViTri_TuyenXe
+//	// 1 tuyến xe có nhiều vị trí đón trả và 1 vị trí đón trả chỉ tương ứng với 1 tuyến xe 
+//	@JoinTable(name ="vitridontra_tuyenxe",	joinColumns = @JoinColumn(name="viTriId"), 
+//							inverseJoinColumns = @JoinColumn(name = "tuyenXeId"))
+//	private List<ViTriDonTra> vitri = new ArrayList<>();
+
+	@OneToMany(mappedBy = "idTuyenXe")
+	private List<ViTriDonTra> vitri = new ArrayList<ViTriDonTra>();
+
 	public Long getTuyenXeId() {
 		return tuyenXeId;
 	}
-
 
 	public void setTuyenXeId(Long tuyenXeId) {
 		this.tuyenXeId = tuyenXeId;
 	}
 
-
-	public List<ViTriDonTra> getVitri() {
-		return vitri;
-	}
-
-
-	public void setVitri(List<ViTriDonTra> vitri) {
-		this.vitri = vitri;
-	}
-
-
-	public List<LichTrinh> getChuyendi() {
-		return chuyendi;
-	}
-
-
-	public void setChuyendi(List<LichTrinh> chuyendi) {
-		this.chuyendi = chuyendi;
-	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	// Tự động tạo bảng trung gian có tên là ViTri_TuyenXe
-	// 1 tuyến xe có nhiều vị trí đón trả và 1 vị trí đón trả chỉ tương ứng với 1 tuyến xe 
-	@JoinTable(name ="vitridontra_tuyenxe",	joinColumns = @JoinColumn(name="viTriId"), 
-							inverseJoinColumns = @JoinColumn(name = "tuyenXeId"))
-	private List<ViTriDonTra> vitri = new ArrayList<>();
-
-	@OneToMany(mappedBy = "tuyenxe")
-	private List<LichTrinh> chuyendi = new ArrayList<LichTrinh>();
-
 	public String getTenTuyenXe() {
 		return tenTuyenXe;
 	}
-
 
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
 	}
 
-	
+	public List<ViTriDonTra> getVitri() {
+		return vitri;
+	}
+
+	public void setVitri(List<ViTriDonTra> vitri) {
+		this.vitri = vitri;
+	}
+
+	public String getMaTuyenXe() {
+		return maTuyenXe;
+	}
+
+	public void setMaTuyenXe(String maTuyenXe) {
+		this.maTuyenXe = maTuyenXe;
+	}
 	
 	
 }

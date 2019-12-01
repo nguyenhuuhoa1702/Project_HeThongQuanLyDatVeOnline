@@ -15,10 +15,4 @@ public class TrangChuAdminController {
 		ModelAndView mav = new ModelAndView("admin/admin");
 		return mav;
 	}
-	@RequestMapping(value = "/admin/quanlytaikhoan", method = RequestMethod.GET)
-	public ModelAndView quanlytaikhoanPage() {
-		ModelAndView mav = new ModelAndView("admin/QuanLyTaiKhoan");
-		return mav;
-	}
-	
 }

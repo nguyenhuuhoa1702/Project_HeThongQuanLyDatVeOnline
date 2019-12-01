@@ -13,17 +13,22 @@ values('nguyenvanb','$2a$10$/RUbuT9KIqk6f8enaTQiLOXzhnUkiwEidJRdtzdrMXXwU7dgnLKT
 INSERT INTO user_role(userId,roleId) VALUES (1,1);
 INSERT INTO user_role(userId,roleId) VALUES (2,2);
 INSERT INTO user_role(userId,roleId) VALUES (3,2);
- 
- INSERT INTO `mysqldb`.`tuyenxe` (`tuyenXeId`, `tenTuyenXe`) VALUES ('1', 'Bình Định - Nha Trang');
-INSERT INTO `mysqldb`.`tuyenxe` (`tuyenXeId`, `tenTuyenXe`) VALUES ('2', 'Sài Gò - Hải Phòng');
-INSERT INTO `mysqldb`.`tuyenxe` (`tuyenXeId`, `tenTuyenXe`) VALUES ('3', 'Nha Trang - Hà Nội');
-INSERT INTO `mysqldb`.`tuyenxe` (`tuyenXeId`, `tenTuyenXe`) VALUES ('4', 'Quy Nhơn - Quãng Ngãi');
+
+/* Thêm dữ liệu cho bảng Tuyến Xe */ 
+INSERT INTO `mysqldb`.`tuyenxe` (`maTuyenXe`, `tenTuyenXe`) VALUES ('Binh Dinh', 'Bình Định');
+INSERT INTO `mysqldb`.`tuyenxe` (`maTuyenXe`, `tenTuyenXe`) VALUES ('Quy Nhon', 'Quy Nhơn');
+INSERT INTO `mysqldb`.`tuyenxe` (`maTuyenXe`, `tenTuyenXe`) VALUES ('Nha Trang', 'Nha Trang');
+INSERT INTO `mysqldb`.`tuyenxe` (`maTuyenXe`, `tenTuyenXe`) VALUES ('Phu Yen', 'Phú Yên');
+
+INSERT INTO `mysqldb`.`nhansu` (`idNhanSu`, `HoTen`, `Email`, `NamSinh`, `SoDienThoai`, `idTenTaiKhoan`) VALUES ('1', 'Nguyễn Nhân Tài', 'nguyennhantai@gmail.com', '1986', '0964140530', '2');
+INSERT INTO `mysqldb`.`nhansu` (`idNhanSu`, `HoTen`, `Email`, `NamSinh`, `SoDienThoai`, `idTenTaiKhoan`) VALUES ('2', 'Nguyễn Tài Nhân', 'nguyentainhan@gmail.com', '1988', '0964140530', '2');
+
+INSERT INTO `mysqldb`.`xe` (`BienSoXe`, `TongGhe`, `idNhanSu`) VALUES ('77H-K55948', '20', '1');
+INSERT INTO `mysqldb`.`xe` (`BienSoXe`, `TongGhe`, `idNhanSu`) VALUES ('78H-F42345', '30', '2');
+
+
+INSERT INTO `mysqldb`.`lichtrinh` (`idLichTrinh`, `DiemDen`, `DiemDi`, `ngayDi`, `thoiGian`, `BienSoXe`) VALUES ('1', 'Bình Đinh', 'Nha Trang', '17-02-2020', '07:00', '77H-K55948');
+INSERT INTO `mysqldb`.`lichtrinh` (`idLichTrinh`, `DiemDen`, `DiemDi`, `ngayDi`, `thoiGian`, `BienSoXe`) VALUES ('2', 'Nha Trang', 'Bình Đinh', '17-02-2020', '13:00', '78H-F42345');
+
     
-INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`,`thoiGian`, `tuyenXeId`) VALUES ('2019-11-02',  '11:59:59', '1');
-INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`, `thoiGian`, `tuyenXeId`) VALUES ('2019-11-02', '12:59:59', '2');
-INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`,`thoiGian`, `tuyenXeId`) VALUES ('2019-02-02', '13:59:59', '3');
-INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`,`thoiGian`, `tuyenXeId`) VALUES ('2019-02-02',  '14:59:59', '4');
-
-
-
-phanquyen
+/* INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`,`thoiGian`, `tuyenXeId`) VALUES ('2019-11-02',  '11:59:59', '1'); */

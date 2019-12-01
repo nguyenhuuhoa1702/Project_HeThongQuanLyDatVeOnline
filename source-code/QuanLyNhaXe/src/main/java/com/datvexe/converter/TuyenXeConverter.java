@@ -10,7 +10,7 @@ public class TuyenXeConverter {
 	public TuyenXeDTO toDTO(TuyenXe entity)
 	{
 		TuyenXeDTO result = new TuyenXeDTO();
-		result.setTuyenXeId(entity.getTuyenXeId());
+		result.setTuyenXeId(entity.getTuyenXeId());	
 		result.setTenTuyenXe(entity.getTenTuyenXe());
 		return result;
 	}

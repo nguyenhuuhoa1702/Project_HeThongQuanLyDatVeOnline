@@ -2,36 +2,52 @@ package com.datvexe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ViTriDonTra")
 public class ViTriDonTra {
 	@Id
-	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	private Long viTriId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idViTri;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idTuyenXe")
+	private TuyenXe idTuyenXe;
 	
-	@Column(name="noiDon")
-	private String noiDon;
-	
-	@Column(name ="noiTra")
-	private String noiTra;
-	
-	public String getNoiDon() {
-		return noiDon;
+	@Column(name = "diaChi")
+	private String diaChi;
+
+	public Long getIdViTri() {
+		return idViTri;
 	}
-	public void setNoiDon(String noiDon) {
-		this.noiDon = noiDon;
+
+	public void setIdViTri(Long idViTri) {
+		this.idViTri = idViTri;
 	}
-	public String getNoiTra() {
-		return noiTra;
+
+	public TuyenXe getIdTuyenXe() {
+		return idTuyenXe;
 	}
-	public void setNoiTra(String noiTra) {
-		this.noiTra = noiTra;
+
+	public void setIdTuyenXe(TuyenXe idTuyenXe) {
+		this.idTuyenXe = idTuyenXe;
 	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
 	
 	
 }

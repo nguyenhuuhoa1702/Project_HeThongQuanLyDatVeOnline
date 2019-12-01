@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 public class TaiKhoan {
 	@Id
 	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	private Long id;
+	private Long idTaiKhoan;
 	
 	@Column(name ="tenTaiKhoan")
 	private String tenTaiKhoan;
@@ -36,6 +37,27 @@ public class TaiKhoan {
 							inverseJoinColumns = @JoinColumn(name = "roleId"))
 	private List<PhanQuyenNguoiDung> roles = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "idTaiKhoan")
+ 	private List<NhanSu> nhanSu = new ArrayList<NhanSu>();
+
+	
+	
+	public Long getIdTaiKhoan() {
+		return idTaiKhoan;
+	}
+
+	public void setIdTaiKhoan(Long idTaiKhoan) {
+		this.idTaiKhoan = idTaiKhoan;
+	}
+
+	public List<NhanSu> getNhanSu() {
+		return nhanSu;
+	}
+
+	public void setNhanSu(List<NhanSu> nhanSu) {
+		this.nhanSu = nhanSu;
+	}
+
 	public String getTenTaiKhoan() {
 		return tenTaiKhoan;
 	}
@@ -65,4 +87,5 @@ public class TaiKhoan {
 	public void setActive(Integer active) {
 		this.active = active;
 	}	
+	
 }

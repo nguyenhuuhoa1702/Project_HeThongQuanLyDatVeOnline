@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.service.ILichTrinhService;
 import com.datvexe.service.ITuyenXeService;
+import com.datvexe.service.IXeService;
 import com.datvexe.util.MessageUtil;
 
 @Controller(value = "quanlylichtrinhControllerOfAdmin")
@@ -25,13 +26,16 @@ public class QuanLyLichTrinhController {
 	@Autowired
 	private ITuyenXeService ituyenXeService;
 	@Autowired
+	private IXeService iXeService;
+	
+	@Autowired
 	private MessageUtil messageUtil;
 
 	@RequestMapping(value = "/admin/quan-ly-lich-trinh/danh-sach", method = RequestMethod.GET)
-	public ModelAndView danhSachTuyenXePage(@ModelAttribute("model") LichTrinhDTO model,HttpServletRequest req) {
+	public ModelAndView danhSachTuyenXePage(@ModelAttribute("model") LichTrinhDTO model, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView("admin/QuanLyLichTrinh/danh-sach");
 		if (req.getParameter("message") != null) {
-			Map<String,String> message  = messageUtil.getMessage(req.getParameter("message"));
+			Map<String, String> message = messageUtil.getMessage(req.getParameter("message"));
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
@@ -49,16 +53,18 @@ public class QuanLyLichTrinhController {
 			model = ilichTrinhService.findById(id);
 		}
 		if (req.getParameter("message") != null) {
-			Map<String,String> message  = messageUtil.getMessage(req.getParameter("message"));
+			Map<String, String> message = messageUtil.getMessage(req.getParameter("message"));
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
 		// Cần 1 model chứa id
 		mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
+		mav.addObject("xe", iXeService.finalAllMap());
 //		mav.addObject(attributeName, attributeValue)
 		mav.addObject("model", model);
 		return mav;
 	}
+
 	// sử dụng form
 	@RequestMapping(value = "admin/quan-ly-lich-trinh/check", method = RequestMethod.POST)
 	public String test(@RequestParam(value = "id", required = false) Long id, @ModelAttribute LichTrinhDTO dto) {

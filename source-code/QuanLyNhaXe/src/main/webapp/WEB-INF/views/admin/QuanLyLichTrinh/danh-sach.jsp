@@ -45,8 +45,10 @@
 								<thead>
 									<tr>
 										<th><input type="checkbox" id="checkAll"></th>
-										<th>ID</th>
-										<th>Tên Tuyến</th>
+										<th>ID Lịch Trình</th>
+										<th>Biển Số Xe </th>
+										<th>Điểm đi</th>
+										<th>Điểm đến</th>
 										<th>Ngày Đi</th>
 										<th>Thời gian đi</th>
 										<th>Thao tác</th>
@@ -55,10 +57,12 @@
 								<tbody>
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
-											<td><input type="checkbox" id="checkbox_${item.id}"
-												value="${item.id}"></td>
-											<td>${item.id}</td>
-											<td>${item.tenTuyenXe}</td>
+											<td><input type="checkbox" id="checkbox_${item.idLichTrinh}"
+												value="${item.idLichTrinh}"></td>
+											<td>${item.idLichTrinh}</td>
+											<td>${item.bienSoXe}</td>
+											<td>${item.diemDi}</td>
+											<td>${item.diemDen}</td>
 											<td>${item.ngayDi}</td>
 											<td>${item.thoiGian}</td>
 											<td>
@@ -66,7 +70,7 @@
 
 												<c:url var="updateURL"
 													value="/admin/quan-ly-lich-trinh/chinh-sua">
-													<c:param name="id" value="${item.id}"></c:param>
+													<c:param name="id" value="${item.idLichTrinh}"></c:param>
 												</c:url> <a href='${updateURL}'>Cập nhật</a>
 											</td>
 										</tr>

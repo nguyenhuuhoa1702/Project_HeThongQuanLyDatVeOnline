@@ -5,7 +5,7 @@ import java.util.Map;
 public class TuyenXeDTO extends AbstractDTO<TuyenXeDTO> {
 	
 	private String tenTuyenXe;
-	private Long id;
+	private String maTuyenXe;
 	private Long tuyenXeId;
 	
 	public String getTenTuyenXe() {
@@ -14,13 +14,13 @@ public class TuyenXeDTO extends AbstractDTO<TuyenXeDTO> {
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
+	public String getMaTuyenXe() {
+		return maTuyenXe;
+	}
+	public void setMaTuyenXe(String maTuyenXe) {
+		this.maTuyenXe = maTuyenXe;
+	}
 	public Long getTuyenXeId() {
 		return tuyenXeId;
 	}
@@ -32,7 +32,6 @@ public class TuyenXeDTO extends AbstractDTO<TuyenXeDTO> {
 		
 	}
 	
-	
-	
+
 	
 }

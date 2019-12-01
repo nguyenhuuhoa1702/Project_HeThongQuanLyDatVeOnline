@@ -1,28 +1,45 @@
 package com.datvexe.dto;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
-	private Long id;
-	private Long tuyenXeId;
+	private Long idLichTrinh;
+	private String maTuyenXe;
 	private String tenTuyenXe;
 	private String thoiGian;
 	private String ngayDi;
+	private String diemDi;
+	private String diemDen;
+	private String bienSoXe;
 	
+	public String getBienSoXe() {
+		return bienSoXe;
+	}
+	public void setBienSoXe(String bienSoXe) {
+		this.bienSoXe = bienSoXe;
+	}
+	public String getMaTuyenXe() {
+		return maTuyenXe;
+	}
+	public void setMaTuyenXe(String maTuyenXe) {
+		this.maTuyenXe = maTuyenXe;
+	}
 	
-	public Long getId() {
-		return id;
+	public String getDiemDi() {
+		return diemDi;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setDiemDi(String diemDi) {
+		this.diemDi = diemDi;
 	}
-	
-	public Long getTuyenXeId() {
-		return tuyenXeId;
+	public String getDiemDen() {
+		return diemDen;
 	}
-	public void setTuyenXeId(Long tuyenXeId) {
-		this.tuyenXeId = tuyenXeId;
+	public void setDiemDen(String diemDen) {
+		this.diemDen = diemDen;
+	}
+	public Long getIdLichTrinh() {
+		return idLichTrinh;
+	}
+	public void setIdLichTrinh(Long idLichTrinh) {
+		this.idLichTrinh = idLichTrinh;
 	}
 	public String getTenTuyenXe() {
 		return tenTuyenXe;
@@ -42,15 +59,5 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
 	}
-
-
-	
-
-	
-	
-
-	
-	
-	
 
 }

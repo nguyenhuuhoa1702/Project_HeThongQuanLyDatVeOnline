@@ -1,13 +1,18 @@
 package com.datvexe.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,18 +20,31 @@ import javax.persistence.Table;
 public class LichTrinh {
 	@Id
 	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	private Long id;
+	private Long idLichTrinh;
+
+	@Column(name="DiemDi")
+	private String diemDi;
+	
+	@Column(name="DiemDen")
+	private String diemDen;
 	
 	@Column(name = "ngayDi")
 	private String ngayDi;
 
 	@Column(name = "thoiGian")
 	private String thoiGian;
-
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "tuyenXeId")
-	private TuyenXe tuyenxe;
-
+	@JoinColumn(name = "BienSoXe")
+	private Xe BienSoXe;
+	
+	
+	
+	// Nơi lưu vào mapping với idVe
+	@OneToMany(mappedBy = "idLichTrinh")
+	private List<Ve> ve = new ArrayList<Ve>();
+	
+	
 	
 	public String getNgayDi() {
 		return ngayDi;
@@ -44,20 +62,47 @@ public class LichTrinh {
 		this.thoiGian = thoiGian;
 	}
 
-	public TuyenXe getTuyenxe() {
-		return tuyenxe;
+	public Long getIdLichTrinh() {
+		return idLichTrinh;
 	}
 
-	public void setTuyenxe(TuyenXe tuyenxe) {
-		this.tuyenxe = tuyenxe;
+	public void setIdLichTrinh(Long idLichTrinh) {
+		this.idLichTrinh = idLichTrinh;
 	}
-	
-	public Long getId() {
-		return id;
+
+	public String getDiemDi() {
+		return diemDi;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setDiemDi(String diemDi) {
+		this.diemDi = diemDi;
 	}
+
+	public String getDiemDen() {
+		return diemDen;
+	}
+
+	public void setDiemDen(String diemDen) {
+		this.diemDen = diemDen;
+	}
+
+	public List<Ve> getVe() {
+		return ve;
+	}
+
+	public void setVe(List<Ve> ve) {
+		this.ve = ve;
+	}
+
+	public Xe getBienSoXe() {
+		return BienSoXe;
+	}
+
+	public void setBienSoXe(Xe bienSoXe) {
+		BienSoXe = bienSoXe;
+	}
+
+
 
 
 }

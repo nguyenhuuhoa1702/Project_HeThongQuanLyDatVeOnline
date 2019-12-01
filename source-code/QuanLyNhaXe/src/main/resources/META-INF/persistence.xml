@@ -10,6 +10,10 @@
 		<class>com.datvexe.entity.TaiKhoan</class>
 		<class>com.datvexe.entity.LichTrinh</class>
 		<class>com.datvexe.entity.ViTriDonTra</class>
+		<class>com.datvexe.entity.Ve</class>
+		<class>com.datvexe.entity.Xe</class>
+		<class>com.datvexe.entity.NhanSu</class>
+		<class>com.datvexe.entity.KhachHang</class>
 	</persistence-unit>
 </persistence>
 <!-- persistence.xml -->
