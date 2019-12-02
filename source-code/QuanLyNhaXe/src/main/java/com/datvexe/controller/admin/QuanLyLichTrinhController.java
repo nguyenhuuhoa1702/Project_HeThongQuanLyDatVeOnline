@@ -33,7 +33,7 @@ public class QuanLyLichTrinhController {
 
 	@RequestMapping(value = "/admin/quan-ly-lich-trinh/danh-sach", method = RequestMethod.GET)
 	public ModelAndView danhSachTuyenXePage(@ModelAttribute("model") LichTrinhDTO model, HttpServletRequest req) {
-		ModelAndView mav = new ModelAndView("admin/QuanLyLichTrinh/danh-sach");
+		ModelAndView mav = new ModelAndView("admin/QuanLyLichTrinh/danh-sach-lich-trinh");
 		if (req.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(req.getParameter("message"));
 			mav.addObject("message", message.get("message"));
@@ -47,7 +47,7 @@ public class QuanLyLichTrinhController {
 	@RequestMapping(value = "/admin/quan-ly-lich-trinh/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView chinhSuaTuyenXePage(@RequestParam(value = "id", required = false) Long id,
 			HttpServletRequest req) {
-		ModelAndView mav = new ModelAndView("admin/QuanLyLichTrinh/chinh-sua");
+		ModelAndView mav = new ModelAndView("admin/QuanLyLichTrinh/chinh-sua-lich-trinh");
 		LichTrinhDTO model = new LichTrinhDTO();
 		if (id != null) {
 			model = ilichTrinhService.findById(id);
@@ -71,5 +71,4 @@ public class QuanLyLichTrinhController {
 		ilichTrinhService.save(dto);
 		return "redirect:/admin/quan-ly-lich-trinh/danh-sach";
 	}
-
 }

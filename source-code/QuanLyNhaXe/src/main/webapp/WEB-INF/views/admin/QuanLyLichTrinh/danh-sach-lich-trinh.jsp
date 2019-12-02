@@ -11,7 +11,7 @@
 
 <meta charset="UTF-8">
 
-<title>Quản lý tuyến xe</title>
+<title>Quản lý lịch trình</title>
 
 </head>
 
@@ -30,7 +30,7 @@
 				<!-- DataTables Example -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<i class="fas fa-table"></i> Danh sách tuyến xe
+						<i class="fas fa-table"></i> Danh sách lịch trình
 
 					</div>
 
@@ -66,12 +66,12 @@
 											<td>${item.ngayDi}</td>
 											<td>${item.thoiGian}</td>
 											<td>
-												<Button onclick="warningBeforeDelete()" type="button">Xóa</Button>
+												<Button onclick="warningBeforeDelete()" type="button" class="btn btn-primary btn-block">Xóa</Button>
 
 												<c:url var="updateURL"
 													value="/admin/quan-ly-lich-trinh/chinh-sua">
 													<c:param name="id" value="${item.idLichTrinh}"></c:param>
-												</c:url> <a href='${updateURL}'>Cập nhật</a>
+												</c:url> <a href='${updateURL}' class="btn btn-primary btn-block">Cập nhật</a>
 											</td>
 										</tr>
 									</c:forEach>

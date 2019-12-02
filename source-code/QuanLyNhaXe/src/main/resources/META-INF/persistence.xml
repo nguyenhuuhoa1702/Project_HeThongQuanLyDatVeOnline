@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<!-- File xúc tác mapping giữa table entity và cơ sở dữ liệu -->
-	<persistence-unit name="persistence-data">							
+	<persistence-unit name="persistence-data">
 		<class>com.datvexe.entity.TuyenXe</class>
 		<class>com.datvexe.entity.PhanQuyenNguoiDung</class>
 		<class>com.datvexe.entity.TaiKhoan</class>
@@ -13,7 +13,7 @@
 		<class>com.datvexe.entity.Ve</class>
 		<class>com.datvexe.entity.Xe</class>
 		<class>com.datvexe.entity.NhanSu</class>
-		<class>com.datvexe.entity.KhachHang</class>
+		<class>com.datvexe.entity.ViTriGheNgoi</class>
 	</persistence-unit>
 </persistence>
 <!-- persistence.xml -->

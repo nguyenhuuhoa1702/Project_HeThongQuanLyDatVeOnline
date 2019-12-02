@@ -9,6 +9,7 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	private String diemDi;
 	private String diemDen;
 	private String bienSoXe;
+	private int donGia;
 	
 	public String getBienSoXe() {
 		return bienSoXe;
@@ -59,5 +60,12 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
 	}
+	public int getDonGia() {
+		return donGia;
+	}
+	public void setDonGia(int donGia) {
+		this.donGia = donGia;
+	}
 
+	
 }

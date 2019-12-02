@@ -25,6 +25,7 @@
 					<c:if test="${not empty message }">
 						<div class="alert alert-${alert}">${message}</div>
 					</c:if>
+					
 					<form:form modelAttribute="model" id="formSubmit" role="form"
 						action="check" method="POST">
 
@@ -42,7 +43,7 @@
 						<!--  Nơi lựa chọn vị trí tuyến đi -->
 						<div class="form-group">
 							<div class="form-group">
-								<label for="tuyenXeId1">Chọn điểm đi</label>
+								<label>Chọn điểm đi</label>
 								<form:select path="diemDi" id="diemDi">
 									<form:option value="" label="Chọn điểm đi" />
 									<form:options items="${tuyenXe}" />
@@ -52,7 +53,7 @@
 						<!--  Hiển thị vị trí điểm đến  -->
 						<div class="form-group">
 							<div class="form-group">
-								<label for="tuyenXeId">Chọn điểm đến</label>
+								<label>Chọn điểm đến</label>
 								<form:select path="diemDen" id="diemDen">
 									<form:option value="" label="Chọn điểm đến" />
 									<form:options items="${tuyenXe}" />

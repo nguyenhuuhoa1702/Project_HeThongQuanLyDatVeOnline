@@ -42,10 +42,6 @@ public class NhanSu {
  	private List<Xe> xe = new ArrayList<Xe>();
  	
  	
- 	
- 	
- 	
- 	
 	public Long getIdNhanSu() {
 		return idNhanSu;
 	}

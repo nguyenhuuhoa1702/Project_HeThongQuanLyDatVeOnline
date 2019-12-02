@@ -29,11 +29,21 @@ public class Ve {
 	@Column(name ="SoVeDat")
 	private int soVeDat;
 	
-	@Column(name="DonVe")
-	private int donGia;
-	
 	@OneToMany(mappedBy = "idVe")
 	private List<KhachHang> khachHang = new ArrayList<KhachHang>();
+	
+	@OneToMany(mappedBy = "idVe")
+	private List<ViTriGheNgoi> viTri = new ArrayList<ViTriGheNgoi>();
+
+	
+	
+	public List<ViTriGheNgoi> getViTri() {
+		return viTri;
+	}
+
+	public void setViTri(List<ViTriGheNgoi> viTri) {
+		this.viTri = viTri;
+	}
 
 	public Long getIdVe() {
 		return idVe;
@@ -57,14 +67,6 @@ public class Ve {
 
 	public void setSoVeDat(int soVeDat) {
 		this.soVeDat = soVeDat;
-	}
-
-	public int getDonGia() {
-		return donGia;
-	}
-
-	public void setDonGia(int donGia) {
-		this.donGia = donGia;
 	}
 
 	public List<KhachHang> getKhachHang() {

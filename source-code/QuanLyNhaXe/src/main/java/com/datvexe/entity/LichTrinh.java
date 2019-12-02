@@ -38,14 +38,13 @@ public class LichTrinh {
 	@JoinColumn(name = "BienSoXe")
 	private Xe BienSoXe;
 	
-	
+	@Column(name="DonVe")
+	private int donGia;
 	
 	// Nơi lưu vào mapping với idVe
 	@OneToMany(mappedBy = "idLichTrinh")
 	private List<Ve> ve = new ArrayList<Ve>();
-	
-	
-	
+
 	public String getNgayDi() {
 		return ngayDi;
 	}
@@ -100,6 +99,14 @@ public class LichTrinh {
 
 	public void setBienSoXe(Xe bienSoXe) {
 		BienSoXe = bienSoXe;
+	}
+
+	public int getDonGia() {
+		return donGia;
+	}
+
+	public void setDonGia(int donGia) {
+		this.donGia = donGia;
 	}
 
 

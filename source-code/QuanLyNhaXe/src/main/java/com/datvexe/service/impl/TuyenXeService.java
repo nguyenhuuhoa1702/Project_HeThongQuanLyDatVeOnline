@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.datvexe.converter.LichTrinhConverter;
 import com.datvexe.converter.TuyenXeConverter;
-import com.datvexe.dto.TuyenXeDTO;
 import com.datvexe.dto.TuyenXeDTO;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.TuyenXe;
+import com.datvexe.repository.LichTrinhRepository;
 import com.datvexe.repository.TuyenXeRepository;
 import com.datvexe.service.ITuyenXeService;
 
@@ -51,8 +52,6 @@ public class TuyenXeService implements ITuyenXeService {
 		}	
 		return result;
 	}
-
-	
 	public List<TuyenXeDTO> finaAll(Pageable pageable) {
 
 		List<TuyenXeDTO> models = new ArrayList<>();
@@ -69,6 +68,30 @@ public class TuyenXeService implements ITuyenXeService {
 	@Override
 	public int getTotalItem() {
 		return (int) tuyenXeRepository.count();
+	}
+
+	@Override
+	public TuyenXeDTO findById(Long id) {
+		TuyenXe entity = tuyenXeRepository.findOne(id);
+		return tuyenXeConverter.toDTO(entity);
+	}
+
+	@Override
+	public TuyenXeDTO save(TuyenXeDTO dto) {
+		TuyenXe tuyenXeEntity = new TuyenXe();
+		if (dto.getTuyenXeId() != null){
+			TuyenXe tuyenXe = tuyenXeRepository.findOne(dto.getTuyenXeId());
+			tuyenXeEntity = new TuyenXeConverter().toEntity(tuyenXe, dto);
+		} else {
+			tuyenXeEntity = new TuyenXeConverter().toEntity(dto);
+		}
+		return tuyenXeConverter.toDTO(tuyenXeRepository.save(tuyenXeEntity));
+	}
+
+	@Override
+	public void delete(long[] ids) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
