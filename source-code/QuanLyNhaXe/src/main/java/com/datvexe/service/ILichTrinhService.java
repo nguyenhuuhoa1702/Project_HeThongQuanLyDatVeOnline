@@ -19,4 +19,5 @@ public interface ILichTrinhService {
 	
 	LichTrinhDTO save(LichTrinhDTO dto);
 	
+	void delete(long[] ids);
 }

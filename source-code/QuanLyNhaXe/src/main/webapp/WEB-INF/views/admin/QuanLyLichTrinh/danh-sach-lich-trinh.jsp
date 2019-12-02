@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/Chung/taglib.jsp"%>
-
+<c:url var="newAPI" value="/api/new" />
+<c:url var="newURL" value="/admin/quan-ly-lich-trinh/danh-sach" />
 <!DOCTYPE html>
 
 <html>
@@ -10,7 +11,7 @@
 
 <meta charset="UTF-8">
 
-<title>Quản lý tuyến xe</title>
+<title>Quản lý lịch trình</title>
 
 </head>
 
@@ -29,16 +30,25 @@
 				<!-- DataTables Example -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<i class="fas fa-table"></i> Danh sách tuyến xe
+						<i class="fas fa-table"></i> Danh sách lịch trình
+
 					</div>
+
+					<c:if test="${not empty message}">
+						<div class="alert alert-${alert}">${message}</div>
+					</c:if>
+
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTableLichTrinh"
 								width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>Tên Tuyến</th>
+										<th><input type="checkbox" id="checkAll"></th>
+										<th>ID Lịch Trình</th>
+										<th>Biển Số Xe </th>
+										<th>Điểm đi</th>
+										<th>Điểm đến</th>
 										<th>Ngày Đi</th>
 										<th>Thời gian đi</th>
 										<th>Thao tác</th>
@@ -47,16 +57,21 @@
 								<tbody>
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
-											<td>${item.id}</td>
-											<td>${item.tenTuyenXe}</td>
+											<td><input type="checkbox" id="checkbox_${item.idLichTrinh}"
+												value="${item.idLichTrinh}"></td>
+											<td>${item.idLichTrinh}</td>
+											<td>${item.bienSoXe}</td>
+											<td>${item.diemDi}</td>
+											<td>${item.diemDen}</td>
 											<td>${item.ngayDi}</td>
 											<td>${item.thoiGian}</td>
 											<td>
-												<Button>Xoa</Button> 
-												<c:url var="updateURL" value="/admin/quan-ly-lich-trinh/chinh-sua">
-													<c:param name="id" value="${item.id}"></c:param>
-												</c:url>
-													<a href='${updateURL}'>Cập nhật</a>
+												<Button onclick="warningBeforeDelete()" type="button" class="btn btn-primary btn-block">Xóa</Button>
+
+												<c:url var="updateURL"
+													value="/admin/quan-ly-lich-trinh/chinh-sua">
+													<c:param name="id" value="${item.idLichTrinh}"></c:param>
+												</c:url> <a href='${updateURL}' class="btn btn-primary btn-block">Cập nhật</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -103,9 +118,45 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
+
+	<script>
+		function warningBeforeDelete() {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
+										return $(this).val();
+									}).get();
+							deleteData(ids);
+						}
+					});
+		}
+		function deleteData(data) {
+	        $.ajax({
+	            url: '${newAPI}',
+	            type: 'DELETE',
+	            contentType: 'application/json',
+	            data: JSON.stringify(data),
+	            success: function (result) {
+	                window.location.href = "${newURL}?message=delete_success";
+	            },
+	            error: function (error) {
+	            	window.location.href = "${newURL}?message=error_system";
+	            }
+	        });
+	    }
+	</script>
+
 
 </body>
 

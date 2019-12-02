@@ -12,27 +12,34 @@ public class LichTrinhConverter {
 	{
 		LichTrinhDTO result = new LichTrinhDTO();
 		// lấy dữ liệu từ entity ở cột id truyền vào cột id trong dto
-		result.setId(entity.getId());
-		result.setTuyenXeId(entity.getTuyenxe().getTuyenXeId());
-		result.setTenTuyenXe(entity.getTuyenxe().getTenTuyenXe());
+		result.setBienSoXe(entity.getBienSoXe().getBienSoXe());
+		result.setIdLichTrinh(entity.getIdLichTrinh());
 		result.setNgayDi(entity.getNgayDi());
 		result.setThoiGian(entity.getThoiGian());
+		result.setDiemDen(entity.getDiemDen());
+		result.setDiemDi(entity.getDiemDi());
+		result.setDonGia(entity.getDonGia());
 		return result;		    
 	}
 	
 	public LichTrinh toEntity(LichTrinhDTO dto)
 	{
 		LichTrinh result = new LichTrinh();
-		
+		result.setDiemDen(dto.getDiemDen());
+		result.setDiemDi(dto.getDiemDi());
 		result.setNgayDi(dto.getNgayDi());
 		result.setThoiGian(dto.getThoiGian());
+		result.setDonGia(dto.getDonGia());
 		return result;
 	}
 	
 	public LichTrinh toEntity(LichTrinh result, LichTrinhDTO dto)
 	{	
+		result.setDiemDen(dto.getDiemDen());
+		result.setDiemDi(dto.getDiemDi());
 		result.setNgayDi(dto.getNgayDi());
 		result.setThoiGian(dto.getThoiGian());
+		result.setDonGia(dto.getDonGia());
 		return result;
 	}
 	

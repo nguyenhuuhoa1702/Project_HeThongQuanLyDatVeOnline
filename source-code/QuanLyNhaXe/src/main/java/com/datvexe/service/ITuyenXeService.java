@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.data.domain.Pageable;
 
-import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.TuyenXeDTO;
 
 public interface ITuyenXeService {
@@ -16,4 +15,10 @@ public interface ITuyenXeService {
 		
 	Map<String, String> finalAllMap();
 	int getTotalItem();
+
+	TuyenXeDTO findById(Long id);
+	
+	TuyenXeDTO save(TuyenXeDTO dto);
+	
+	void delete(long[] ids);
 }

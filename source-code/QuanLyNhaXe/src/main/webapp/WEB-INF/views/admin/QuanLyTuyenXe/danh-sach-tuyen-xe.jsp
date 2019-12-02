@@ -31,6 +31,9 @@
 					<div class="card-header">
 						<i class="fas fa-table"></i> Danh sách tuyến xe
 					</div>
+					<c:if test="${not empty message}">
+						<div class="alert alert-${alert}">${message}</div>
+					</c:if>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%"
@@ -38,6 +41,7 @@
 								<thead>
 									<tr>
 										<th>ID Tuyến Xe</th>
+										<th>Mã Tuyến Xe</th>
 										<th>Tên Tuyến Xe</th>
 										<th>Thao tác</th>
 									</tr>
@@ -46,10 +50,14 @@
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
 											<td>${item.tuyenXeId}</td>
+											<td>${item.maTuyenXe}</td>
 											<td>${item.tenTuyenXe}</td>
 											<td>
-												<Button>Xoa</Button>
-												<button>Sua</button>
+												<Button onclick="warningBeforeDelete()" type="button">Xóa</Button>
+												<c:url var="updateURL"
+													value="/admin/quan-ly-tuyen-xe/chinh-sua">
+													<c:param name="id" value="${item.tuyenXeId}"></c:param>
+												</c:url> <a href='${updateURL}'>Cập nhật</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -57,7 +65,8 @@
 							</table>
 						</div>
 					</div>
-					<div class="card-footer small text-muted">Đây là một thông báo vớ vẩn nào đó ! Đừng bận tâm</div>
+					<div class="card-footer small text-muted">Đây là một thông
+						báo vớ vẩn nào đó ! Đừng bận tâm</div>
 				</div>
 			</div>
 		</div>
