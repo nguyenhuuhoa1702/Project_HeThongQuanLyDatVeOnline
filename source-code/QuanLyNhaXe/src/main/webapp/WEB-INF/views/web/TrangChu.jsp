@@ -1,5 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/Chung/taglib.jsp"%>
 <!DOCTYPE html>
 
 <html>
@@ -12,91 +14,94 @@
 </head>
 
 <body>
-	<a href = "/QuanLyNhaXe/admin/dang-nhap" >Đăng nhập</a>
-	<a href = "/QuanLyNhaXe/admin" > admin </a>
-	<!-- Page Content -->
-	<div class="container">
-
-		<!-- Heading Row -->
-		<div class="row align-items-center my-5">
-			<div class="col-lg-7">
-				<img class="img-fluid rounded mb-4 mb-lg-0"
-					src="http://placehold.it/900x400" alt="">
-			</div>
-			<!-- /.col-lg-8 -->
-			<div class="col-lg-5">
-				<h1 class="font-weight-light">Business Name or Tagline</h1>
-				<p>This is a template that is great for small businesses. It
-					doesn't have too much fancy flare to it, but it makes a great use
-					of the standard Bootstrap core components. Feel free to use this
-					template for any project you want!</p>
-				<a class="btn btn-primary" href="#">Call to Action!</a>
-			</div>
-			<!-- /.col-md-4 -->
-		</div>
-		<!-- /.row -->
-
-		<!-- Call to Action Well -->
-		<div class="card text-white bg-secondary my-5 py-4 text-center">
-			<div class="card-body">
-				<p class="text-white m-0">This call to action card is a great
-					place to showcase some important information or display a clever
-					tagline!</p>
-			</div>
-		</div>
-
-		<!-- Content Row -->
-		<div class="row">
-			<div class="col-md-4 mb-5">
-				<div class="card h-100">
-					<div class="card-body">
-						<h2 class="card-title">Card One</h2>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Rem magni quas ex numquam, maxime minus quam
-							molestias corporis quod, ea minima accusamus.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary btn-sm">More Info</a>
-					</div>
+	<div class="hero-wrap"
+		style="background-image: url('template/web/images/bg_1.jpg');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="">
+				<div class="">
+					<br> <br>
+					<form action="#" class="request-form ftco-animate"
+						style="margin-top: 100px; box-sizing: border-box;">
+						<div class="row">
+							<div class="col-lg align-items-end">
+								<div class="form-group">
+									<label for="#">Nhập nơi đi</label>
+									<div class="form-field">
+										<div class="select-wrap">
+											<div class="icon" >
+												<span class="ion-ios-arrow-down"></span>
+											</div>
+											<select name="Noi Di" id="NoiDi" class="form-control">
+												<option value="">Nơi đi</option>
+												<option value="">TP HCM</option>
+												<option value="">Đà Lạt</option>
+												<option value="">Nha Trang</option>
+												<option value="">Tuy Hòa</option>
+												<option value="">Quy Nhơn</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg align-items-end">
+								<div class="form-group">
+									<label for="#">Nhập nơi đến</label>
+									<div class="form-field">
+										<div class="select-wrap">
+											<div class="icon">
+												<span class="ion-ios-arrow-down"></span>
+											</div>
+											<select name="Noi Den" id="NoiDen" class="form-control">
+												<option value="">Nơi đến</option>
+												<option value="">TP HCM</option>
+												<option value="">Đà Lạt</option>
+												<option value="">Nha Trang</option>
+												<option value="">Tuy Hòa</option>
+												<option value="">Quy Nhơn</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg align-items-end">
+								<div class="form-group">
+									<label for="#">Chọn ngày đi</label>
+									<div class="form-field">
+										<div class="select-wrap">
+											<div class="md-form">
+												<input  type="date" value="${date}"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg align-items-end">
+								<div class="form-group">
+									<label for="#">Số người</label>
+									<div class="form-field">
+										<div class="text">
+											<input name="So Nguoi" id="SoNguoi" class="form-control">
+											</input>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg align-self-end">
+								<div class="form-group">
+									<div class="form-field">
+										<input type="submit" value="Search"
+											class="form-control btn btn-primary">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
-			<!-- /.col-md-4 -->
-			<div class="col-md-4 mb-5">
-				<div class="card h-100">
-					<div class="card-body">
-						<h2 class="card-title">Card Two</h2>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt
-							pariatur voluptatem sunt quam eaque, vel, non in id dolore
-							voluptates quos eligendi labore.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary btn-sm">More Info</a>
-					</div>
-				</div>
-			</div>
-			<!-- /.col-md-4 -->
-			<div class="col-md-4 mb-5">
-				<div class="card h-100">
-					<div class="card-body">
-						<h2 class="card-title">Card Three</h2>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Rem magni quas ex numquam, maxime minus quam
-							molestias corporis quod, ea minima accusamus.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary btn-sm">More Info</a>
-					</div>
-				</div>
-			</div>
-			<!-- /.col-md-4 -->
-
 		</div>
-		<!-- /.row -->
-
 	</div>
-	<!-- /.container -->
-
 </body>
 
 </html>
