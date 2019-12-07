@@ -5,3 +5,4 @@ encoding//src/main/java/com/datvexe/entity/TaiKhoan.java=UTF-8
 encoding//src/main/java/com/datvexe/entity/TuyenXe.java=UTF-8
 encoding//src/main/java/com/datvexe/repository/TuyenXeRepository.java=UTF-8
 encoding//src/main/java/com/datvexe/service/impl/LichTrinhService.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/web/XemLichTrinh/xem-lich-trinh.jsp=UTF-8

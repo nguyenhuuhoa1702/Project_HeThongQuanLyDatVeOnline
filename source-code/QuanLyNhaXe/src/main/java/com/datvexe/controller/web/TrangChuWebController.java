@@ -1,23 +1,40 @@
 package com.datvexe.controller.web;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.datvexe.dto.LichTrinhDTO;
+import com.datvexe.service.ILichTrinhService;
+import com.datvexe.service.ITuyenXeService;
 
-@Controller
+
+@Controller(value ="trangChuWebController")
 public class TrangChuWebController {
+	@Autowired
+	private ILichTrinhService ilichTrinhService;
+	@Autowired
+	private ITuyenXeService ituyenXeService;
 	 @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	   public ModelAndView homePage() {
 	      ModelAndView mav = new ModelAndView("web/TrangChu");
-	      return mav;
+		
+		  LichTrinhDTO model = new LichTrinhDTO(); // Cần 1 model chứa id
+		  mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
+		  mav.addObject("model", model);
+		 
+	    return mav;
 	   }	 
 	 
 	 @RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
@@ -39,4 +56,13 @@ public class TrangChuWebController {
 	   public ModelAndView accessDenied() {
 		  return new ModelAndView("redirect:/dang-nhap?accessDenied");
 	   }	
+	 
+	 // ----------------------------DUY---------------------------------------------------------
+	 
+	 @RequestMapping(value = "/check", method = RequestMethod.GET)
+	   public ModelAndView data(@ModelAttribute("model") LichTrinhDTO model) {	 
+		 System.out.print(""+ model.getDiemDi() + model.getDiemDen() +model.getNgayDi());
+		 ModelAndView mav = new ModelAndView("web/XemLichTrinh/xem-lich-trinh");
+		 return mav;
+	   }
 }

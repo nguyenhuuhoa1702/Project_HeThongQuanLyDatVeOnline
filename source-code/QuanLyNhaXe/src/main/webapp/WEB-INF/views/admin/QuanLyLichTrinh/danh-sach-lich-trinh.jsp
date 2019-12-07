@@ -51,6 +51,7 @@
 										<th>Điểm đến</th>
 										<th>Ngày Đi</th>
 										<th>Thời gian đi</th>
+										<th>don gia</th>
 										<th>Thao tác</th>
 									</tr>
 								</thead>
@@ -65,6 +66,7 @@
 											<td>${item.diemDen}</td>
 											<td>${item.ngayDi}</td>
 											<td>${item.thoiGian}</td>
+											<td>${item.donGia}</td>
 											<td>
 												<Button onclick="warningBeforeDelete()" type="button" class="btn btn-primary btn-block">Xóa</Button>
 

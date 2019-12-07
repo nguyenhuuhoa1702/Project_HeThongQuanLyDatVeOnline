@@ -1,32 +1,25 @@
-<%@ page import="com.datvexe.util.SecurityUtil" %>
+<%@ page import="com.datvexe.util.SecurityUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav
+	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+	id="ftco-navbar">
 	<div class="container">
-		<a class="navbar-brand" href="#">Start Bootstrap</a>
+		<a class="navbar-brand" href="index.html">DAT VE XE <span>ONLINE</span></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+			<span class="oi oi-menu"></span> Menu
 		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
+
+		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="<c:url value='/trang-chu'/>"> Trang chủ <span
-						class="sr-only">(current)</span>
-				</a></li>
-				<!-- Trước khi đăng nhập thì hiển thị nút đăng nhập -->
-				<security:authorize access = "isAnonymous()">
-						<li class="nav-item"><a class="nav-link" href="<c:url value='/dang-nhap'/>">Đăng nhập</a></li>
-				</security:authorize>
-				<!-- Sau khi đăng nhập thành công thì hiển thị nút thoát và Wecome -->
-				<security:authorize access = "isAuthenticated()">
-					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtil.getPrincipal().getActive()%></a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value='/thoat'/>">Thoát</a></li>
-				</security:authorize>
-				
-				
+				<li class="nav-item active"><a href="index.html"
+					class="nav-link">Trang chu </a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">Thong tin</a></li>
+				<li class="nav-item"><a href="contact.html" class="nav-link">Lien He </a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
+<!-- END nav -->
