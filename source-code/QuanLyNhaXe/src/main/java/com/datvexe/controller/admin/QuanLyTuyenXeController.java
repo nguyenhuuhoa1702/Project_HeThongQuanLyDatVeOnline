@@ -5,9 +5,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.TuyenXeDTO;
 import com.datvexe.service.ITuyenXeService;
 import com.datvexe.util.MessageUtil;
@@ -53,7 +49,7 @@ public class QuanLyTuyenXeController {
 	
 	@RequestMapping(value = "/admin/quan-ly-tuyen-xe/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView chinhSuaTuyenXePage(@RequestParam(value = "id", required = false) Long id,
-			HttpServletRequest req) {
+			HttpServletRequest req,  @ModelAttribute TuyenXeDTO dto) {
 		ModelAndView mav = new ModelAndView("admin/QuanLyTuyenXe/chinh-sua-tuyen-xe");
 		TuyenXeDTO model = new TuyenXeDTO();
 		if (id != null) {
@@ -63,7 +59,7 @@ public class QuanLyTuyenXeController {
 			Map<String, String> message = messageUtil.getMessage(req.getParameter("message"));
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
-		}	
+		}
 		mav.addObject("model", model);
 		return mav;
 	}

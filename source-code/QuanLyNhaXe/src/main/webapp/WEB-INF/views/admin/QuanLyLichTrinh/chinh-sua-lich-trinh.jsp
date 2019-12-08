@@ -25,50 +25,82 @@
 					<c:if test="${not empty message }">
 						<div class="alert alert-${alert}">${message}</div>
 					</c:if>
-					
-					<form:form modelAttribute="model" id="formSubmit" role="form"
-						action="check" method="POST">
+
+					<div class="alert alert-danger" style="display: none"
+						id="notiError"></div>
+
+					<form:form modelAttribute="model" id="formSubmit" role="form">
+<%-- 					<form:form modelAttribute="model" id="formSubmit" role="form" --%>
+<%-- 						action="check" method="POST">						 --%>
 
 						<div class="form-group">
 							<div class="form-group">
-								<label for="tuyenXeId">Chọn xe</label>
-								<form:select path="bienSoXe" id="xe">
-									<form:option value="" label="Chọn xe" />
-									<form:options items="${xe}" />
-								</form:select>
+								<div>
+									<label for="tuyenXeId">Chọn xe</label>
+								</div>
+								<div>
+									<form:select path="bienSoXe" id="xe" style="width:100%">
+										<form:option value="null" label="Chọn xe" />
+										<form:options items="${xe}" />
+									</form:select>
+								</div>
 							</div>
 						</div>
-
-
 						<!--  Nơi lựa chọn vị trí tuyến đi -->
 						<div class="form-group">
 							<div class="form-group">
-								<label>Chọn điểm đi</label>
-								<form:select path="diemDi" id="diemDi">
-									<form:option value="" label="Chọn điểm đi" />
-									<form:options items="${tuyenXe}" />
-								</form:select>
+								<div>
+									<label>Chọn điểm đi</label>
+								</div>
+								<div>
+									<form:select path="diemDi" id="diemDi" style="width:100%">
+										<form:option value="" label="Chọn điểm đi dự kiến" />
+										<form:options items="${tuyenXe}" />
+									</form:select>
+								</div>
 							</div>
 						</div>
 						<!--  Hiển thị vị trí điểm đến  -->
 						<div class="form-group">
 							<div class="form-group">
-								<label>Chọn điểm đến</label>
-								<form:select path="diemDen" id="diemDen">
-									<form:option value="" label="Chọn điểm đến" />
-									<form:options items="${tuyenXe}" />
-								</form:select>
+								<div>
+									<label>Chọn điểm đến</label>
+								</div>
+								<div>
+									<form:select path="diemDen" id="diemDen" style="width:100%">
+										<form:option value="" label="Chọn điểm đến dự kiến" />
+										<form:options items="${tuyenXe}" />
+									</form:select>
+								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label> Ngày đi </label>
 							<!-- Path gồm 2 chức năng của name (để kết nối) và value (để hiển thị) -->
-							<form:input path="ngayDi" cssClass="form-control" />
+							<form:input path="ngayDi" value="2019-12-07" type="date"
+								min="1979-12-31" max="2030-01-02" cssClass="form-control" />
 						</div>
 						<div class="form-group">
-							<label> Thời gian đi</label>
-							<form:input path="thoiGian" cssClass="form-control" />
+							<div>
+								<label> Thời gian đi</label>
+							</div>
+							<%-- 						<form:input path="thoiGian" cssClass="form-control" /> --%>
+<!-- 							<div class='input-group date' id='datetimepicker3'> -->
+<%-- 								<form:input path="thoiGian" class="form-control" /> --%>
+<!-- 							</div> -->
+							<div class="controls input-append date form_time" data-date=""
+								data-date-format="HH:ii:00" data-link-field="dtp_input3"
+								data-link-format="HH:ii">
+								<form:input size="16" type="text" path="thoiGian" readonly="true" style="width:100%" /> <span
+									class="add-on"><i class="icon-remove"></i></span> <span
+									class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="donGia"> Đơn giá vé (VNĐ) </label>
+							<form:input path="donGia" value="99000" type="number"
+								required="required" cssClass="form-control" />
 						</div>
 
 
@@ -80,13 +112,13 @@
 							<c:if test="${not empty model.idLichTrinh }">
 								<Button class="btn btn-primary btn-block" type="button"
 									id="btnOK1">Đồng ý update thêm tuyến API</Button>
-<!-- 								<Button class="btn btn-primary btn-block" type="submit">Đồng -->
-<!-- 									ý update thêm tuyến controller</Button> -->
+								<!-- 								<Button class="btn btn-primary btn-block" type="submit">Đồng -->
+								<!-- 									ý update thêm tuyến controller</Button> -->
 							</c:if>
 							<c:if test="${empty model.idLichTrinh }">
 								<Button class="btn btn-primary btn-block" type="button"
 									id="btnOK1">Đồng ý thêm lịch trình</Button>
-<!-- 								<Button type="submit">Đồng ý thêm tuyến controller</Button> -->
+								<!-- 								<Button type="submit">Đồng ý thêm tuyến controller</Button> -->
 							</c:if>
 						</div>
 					</form:form>
@@ -94,6 +126,13 @@
 			</div>
 		</div>
 	</div>
+	<!-- 	<script> -->
+	<!-- // 		$(function() { -->
+	<!-- // 			$('#datetimepicker3').datetimepicker({ -->
+	<!-- // 				format : 'LT' -->
+	<!-- // 			}); -->
+	<!-- // 		}); -->
+	<!-- 	</script> -->
 	<script>
 		$('#btnOK1').click(function(e) {
 			e.preventDefault();
@@ -103,6 +142,8 @@
 				data["" + v.name + ""] = v.value;
 			});
 			var id = $('#lichTrinhId').val();
+			// xử lý ngoại lệ ở đây sao ???
+
 			if (id == "") {
 				addNew(data);
 			} else {
@@ -111,43 +152,93 @@
 		});
 
 		function addNew(data) {
-			$.ajax({
-				url : '${newAPI}',
-				type : 'POST',
-				contentType : 'application/json',
-				data : JSON.stringify(data),
-				dataType : 'json',
-// 				success : function(result) {
-// 					window.location.href = "${chinhsuaURL}?id=" + result.id
-// 							+ "&message=insert_success";
-// 				},
-				success : function(result) {
-					window.location.href = "${chinhsuaURL}?message=insert_success";
-				},
-				error : function(error) {
-					window.location.href = "${newURL}?message=error_system";
-				}
-			});
+			$
+					.ajax({
+						url : '${newAPI}',
+						type : 'POST',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						dataType : 'json',
+						// 				success : function(result) {
+						// 					window.location.href = "${chinhsuaURL}?id=" + result.id
+						// 							+ "&message=insert_success";
+						// 				},
+						success : function(result, textStatus, xhr) {
+							//if(xhr.status=200) alert("Thanh cong");
+							window.location.href = "${chinhsuaURL}?id="
+									+ result.idLichTrinh
+									+ "&message=insert_success";
+						},
+						error : function(error) {
+							console.log(error);
+							//window.location.href = "${chinhsuaURL}?message=error_system";
+						},
+						complete : function(xhr, textStatus) {
+							if (xhr.status == 403) {
+								$('#notiError').html(
+										'Nơi đi và đến không được trùng');
+							}
+							if (xhr.status == 401) {
+								$('#notiError').html(' Xe này đã được sử dụng');
+							}
+							if (xhr.status == 423)
+								$('#notiError').html(
+										'Vui lòng nhập đầy đủ thông tin !!!');
+							if (xhr.status == 509)
+								$('#notiError').html(
+										'Vui lòng nhập đơn giá vé hợp lệ !!!');
+							document.getElementById("notiError").style.display = 'block'
+							console.log(textStatus);
+						}
+					});
 		}
 
 		function updateNew(data) {
-			$.ajax({
-				url : '${newAPI}',
-				type : 'PUT',
-				contentType : 'application/json',
-				data : JSON.stringify(data),
-				dataType : 'json',
-				success : function(result) {
-					window.location.href = "${chinhsuaURL}?id=" + result.idLichTrinh
-							+ "&message=update_success";
-				},
-				error : function(error) {
-					console.log(error);
-					window.location.href = "${chinhsuaURL}" + result.idLichTrinh
-							+ "&message=error_system";
-				}
-			});
+			$
+					.ajax({
+						url : '${newAPI}',
+						type : 'PUT',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						dataType : 'json',
+						success : function(result) {
+							window.location.href = "${chinhsuaURL}?id="
+									+ result.idLichTrinh
+									+ "&message=update_success";
+						},
+						error : function(error) {
+							console.log(error);
+							// 					window.location.href = "${chinhsuaURL}"
+							// 							+ result.idLichTrinh + "&message=error_system";
+						},
+						complete : function(xhr, textStatus) {
+							if (xhr.status == 403) {
+								$('#notiError').html('Nơi đi và đến không được trùng');
+							}
+							if (xhr.status == 401) {
+								$('#notiError').html(' Xe này đã được sử dụng');
+							}
+							if (xhr.status == 423)
+								$('#notiError').html('Vui lòng nhập đầy đủ thông tin !!!');
+							if (xhr.status == 509)
+								$('#notiError').html('Vui lòng nhập đơn giá vé hợp lệ !!!');
+							document.getElementById("notiError").style.display = 'block'
+							console.log(textStatus);
+						}
+					});
 		}
+
+		$('.form_time').datetimepicker({
+			language : 'fr',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 1,
+			minView : 0,
+			maxView : 1,
+			forceParse : 0
+		});
 	</script>
 </body>
 

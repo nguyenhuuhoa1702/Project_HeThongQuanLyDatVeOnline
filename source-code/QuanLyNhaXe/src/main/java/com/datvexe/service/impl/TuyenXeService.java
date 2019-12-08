@@ -8,6 +8,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 
 import com.datvexe.converter.LichTrinhConverter;
 import com.datvexe.converter.TuyenXeConverter;
@@ -75,20 +77,59 @@ public class TuyenXeService implements ITuyenXeService {
 		TuyenXe entity = tuyenXeRepository.findOne(id);
 		return tuyenXeConverter.toDTO(entity);
 	}
-
+	
 	@Override
-	public TuyenXeDTO save(TuyenXeDTO dto) {
+	@Transactional
+	public String kiemTraData(TuyenXeDTO dto)
+	{
+		TuyenXe tuyenXe = tuyenXeRepository.findOneByTenTuyenXeOrMaTuyenXe(dto.getTenTuyenXe(),dto.getMaTuyenXe());
+		if(tuyenXe == null)
+		{
+			return "Đã thêm thành công";
+		}
+		return "Không thêm thành công";
+	}
+	
+	// Kiểm tra dữ liệu đưa vào có bị trùng hay không ?
+	@Override
+	@Transactional
+	public Boolean CheckDATA(TuyenXeDTO dto)
+	{
+		TuyenXe tuyenXe = tuyenXeRepository.findOneByTenTuyenXeOrMaTuyenXe(dto.getTenTuyenXe(),dto.getMaTuyenXe());
+		if(tuyenXe ==  null)
+		{
+			return true;
+		}
+		return false;
+	}
+	// Kiểm tra các trường dữ liệu có bị rỗng hay không?
+	@Override
+	@Transactional
+	public Boolean CheckNull(TuyenXeDTO dto)
+	{
+		if(dto.getTenTuyenXe() != "" && dto.getMaTuyenXe() != "")
+			return true;
+		return false;
+	}
+	@Override
+	@Transactional
+	public TuyenXeDTO save(TuyenXeDTO dto) 
+	{
 		TuyenXe tuyenXeEntity = new TuyenXe();
-		if (dto.getTuyenXeId() != null){
+		if (dto.getTuyenXeId() != null)
+		{
 			TuyenXe tuyenXe = tuyenXeRepository.findOne(dto.getTuyenXeId());
 			tuyenXeEntity = new TuyenXeConverter().toEntity(tuyenXe, dto);
-		} else {
-			tuyenXeEntity = new TuyenXeConverter().toEntity(dto);
+		} 
+		else
+		{
+			tuyenXeEntity = new TuyenXeConverter().toEntity(dto);	
 		}
 		return tuyenXeConverter.toDTO(tuyenXeRepository.save(tuyenXeEntity));
 	}
-
+	
 	@Override
+	@Transactional
 	public void delete(long[] ids) {
 		// TODO Auto-generated method stub
 		

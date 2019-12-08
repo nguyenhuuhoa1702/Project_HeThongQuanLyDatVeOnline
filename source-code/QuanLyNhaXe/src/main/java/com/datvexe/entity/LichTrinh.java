@@ -1,12 +1,13 @@
 package com.datvexe.entity;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,11 +29,12 @@ public class LichTrinh {
 	@Column(name="DiemDen")
 	private String diemDen;
 	
-	@Column(name = "ngayDi")
-	private String ngayDi;
+//	columnDefinition = ""
+	@Column(name = "ngayDi", columnDefinition="Date")
+	private Date ngayDi;
 
-	@Column(name = "thoiGian")
-	private String thoiGian;
+	@Column(name = "thoiGian", columnDefinition="Time")
+	private Time thoiGian;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BienSoXe")
@@ -45,19 +47,20 @@ public class LichTrinh {
 	@OneToMany(mappedBy = "idLichTrinh")
 	private List<Ve> ve = new ArrayList<Ve>();
 
-	public String getNgayDi() {
+	
+	public Date getNgayDi() {
 		return ngayDi;
 	}
 
-	public void setNgayDi(String ngayDi) {
+	public void setNgayDi(Date ngayDi) {
 		this.ngayDi = ngayDi;
 	}
 
-	public String getThoiGian() {
+	public Time getThoiGian() {
 		return thoiGian;
 	}
 
-	public void setThoiGian(String thoiGian) {
+	public void setThoiGian(Time thoiGian) {
 		this.thoiGian = thoiGian;
 	}
 

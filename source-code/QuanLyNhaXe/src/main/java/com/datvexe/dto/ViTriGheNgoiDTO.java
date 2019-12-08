@@ -6,7 +6,6 @@ public class ViTriGheNgoiDTO  extends AbstractDTO<ViTriGheNgoiDTO>{
 	private Long idVe;
 	private String viTriGheNgoi;
 	
-	
 	public Long getIdGheNgoi() {
 		return idGheNgoi;
 	}

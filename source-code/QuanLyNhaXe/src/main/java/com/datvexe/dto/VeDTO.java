@@ -1,12 +1,21 @@
 package com.datvexe.dto;
 
+import java.util.Date;
+
 public class VeDTO extends AbstractDTO<VeDTO> {
 	private Long idVe;
 	private Long idLichTrinh;
 	private int soVeDat;
-	private int donGia;
+	private Date ngayDatVe;
 	
 	
+	
+	public Date getNgayDatVe() {
+		return ngayDatVe;
+	}
+	public void setNgayDatVe(Date ngayDatVe) {
+		this.ngayDatVe = ngayDatVe;
+	}
 	public Long getIdVe() {
 		return idVe;
 	}
@@ -25,12 +34,4 @@ public class VeDTO extends AbstractDTO<VeDTO> {
 	public void setSoVeDat(int soVeDat) {
 		this.soVeDat = soVeDat;
 	}
-	public int getDonGia() {
-		return donGia;
-	}
-	public void setDonGia(int donGia) {
-		this.donGia = donGia;
-	}
-	
-	
 }

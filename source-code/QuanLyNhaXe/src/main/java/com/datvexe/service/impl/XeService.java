@@ -23,7 +23,7 @@ public class XeService implements IXeService {
 		Map<String, String>  result = new HashMap<>();
 		List<Xe> entity = xeRepository.findAll();
 		for (Xe item : entity) {
-			result.put(item.getBienSoXe(), item.getBienSoXe());
+			result.put(item.getBienSoXe(), item.getBienSoXe().toString());
 //			result.put(key, value)
 		}	
 		return result;

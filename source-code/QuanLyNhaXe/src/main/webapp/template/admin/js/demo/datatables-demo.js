@@ -41,7 +41,7 @@ $(document).ready(
 
 $(document).ready(
 		function() {
-			$('#dataTableTest').DataTable(
+			$('#dataTableKhachHang').DataTable(
 					{
 						"language" : {
 							"lengthMenu" : 'Hiển thị <select >'
@@ -51,7 +51,7 @@ $(document).ready(
 									+ '<option value="25">25</option>'
 									+ '<option value="50">50</option>'
 									+ '<option value="-1">All</option>'
-									+ '</select> kết quả '
+									+ '</select> kết quả ||  '
 						}
 					});
 		});

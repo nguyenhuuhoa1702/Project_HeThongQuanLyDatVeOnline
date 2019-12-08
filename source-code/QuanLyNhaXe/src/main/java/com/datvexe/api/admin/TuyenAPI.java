@@ -1,6 +1,8 @@
 package com.datvexe.api.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,13 +14,19 @@ import com.datvexe.service.ITuyenXeService;
 
 @RestController(value = "tuyenAPIOfAdmin")
 public class TuyenAPI {
-
+	
 	@Autowired
 	private ITuyenXeService tuyenXeService;
 
 	@PostMapping("/api/tuyenXe")
-	public TuyenXeDTO createNew(@RequestBody TuyenXeDTO them) {
-		return tuyenXeService.save(them);
+	public ResponseEntity<TuyenXeDTO> createNew(@RequestBody TuyenXeDTO them) {
+		if(tuyenXeService.CheckDATA(them) == false) {	
+			return new ResponseEntity<>( HttpStatus.FORBIDDEN);
+		}
+		if(tuyenXeService.CheckNull(them) == false)
+			return new ResponseEntity<>(HttpStatus.LOCKED);
+		TuyenXeDTO dto = tuyenXeService.save(them);
+		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 
 	@PutMapping("/api/tuyenXe")

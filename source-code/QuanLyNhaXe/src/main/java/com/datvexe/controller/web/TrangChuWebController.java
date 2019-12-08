@@ -19,50 +19,51 @@ import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.service.ILichTrinhService;
 import com.datvexe.service.ITuyenXeService;
 
-
-@Controller(value ="trangChuWebController")
+@Controller(value = "trangChuWebController")
 public class TrangChuWebController {
 	@Autowired
 	private ILichTrinhService ilichTrinhService;
 	@Autowired
 	private ITuyenXeService ituyenXeService;
-	 @RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	   public ModelAndView homePage() {
-	      ModelAndView mav = new ModelAndView("web/TrangChu");
-		
-		  LichTrinhDTO model = new LichTrinhDTO(); // Cần 1 model chứa id
-		  mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
-		  mav.addObject("model", model);
-		 
-	    return mav;
-	   }	 
-	 
-	 @RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
-	   public ModelAndView loginPage() {
-	      ModelAndView mav = new ModelAndView("login");
-	      return mav;
-	   }	 
-	 
-		@RequestMapping(value = "/thoat", method = RequestMethod.GET)
-		public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			if (auth != null) {
-				new SecurityContextLogoutHandler().logout(request, response, auth);
-			}
-			return new ModelAndView("redirect:/trang-chu");
+
+	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+	public ModelAndView homePage() {
+		ModelAndView mav = new ModelAndView("web/TrangChu");
+		LichTrinhDTO model = new LichTrinhDTO(); // Cần 1 model chứa id
+		mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
+		mav.addObject("model", model);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
+	public ModelAndView loginPage() {
+		ModelAndView mav = new ModelAndView("login");
+		return mav;
+	}
+
+	@RequestMapping(value = "/thoat", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-	 
-	 @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
-	   public ModelAndView accessDenied() {
-		  return new ModelAndView("redirect:/dang-nhap?accessDenied");
-	   }	
-	 
-	 // ----------------------------DUY---------------------------------------------------------
-	 
-	 @RequestMapping(value = "/check", method = RequestMethod.GET)
-	   public ModelAndView data(@ModelAttribute("model") LichTrinhDTO model) {	 
-		 System.out.print(""+ model.getDiemDi() + model.getDiemDen() +model.getNgayDi());
-		 ModelAndView mav = new ModelAndView("web/XemLichTrinh/xem-lich-trinh");
-		 return mav;
-	   }
+		return new ModelAndView("redirect:/trang-chu");
+	}
+
+	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	public ModelAndView accessDenied() {
+		return new ModelAndView("redirect:/dang-nhap?accessDenied");
+	}
+
+	// ----------------------------DUY---------------------------------------------------------
+
+	@RequestMapping(value = "/tim-kiem", method = RequestMethod.GET)
+	public ModelAndView data(@ModelAttribute("model") LichTrinhDTO model) {
+		ModelAndView mav = new ModelAndView("web/XemLichTrinh/xem-lich-trinh");
+		System.out.println(model.getDiemDi()+"-"+ model.getDiemDen() +"-" + model.getNgayDi());
+		model.setListResult(ilichTrinhService.DanhSachKetQuaTimKiem(model));
+		mav.addObject("model", model);
+		return mav;
+	}
 }

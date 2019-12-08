@@ -53,11 +53,11 @@
 											<td>${item.maTuyenXe}</td>
 											<td>${item.tenTuyenXe}</td>
 											<td>
-												<Button onclick="warningBeforeDelete()" type="button">Xóa</Button>
+												<Button onclick="warningBeforeDelete()" class="btn btn-primary btn-block" type="button">Xóa</Button>
 												<c:url var="updateURL"
 													value="/admin/quan-ly-tuyen-xe/chinh-sua">
 													<c:param name="id" value="${item.tuyenXeId}"></c:param>
-												</c:url> <a href='${updateURL}'>Cập nhật</a>
+												</c:url> <a class="btn btn-primary btn-block" href='${updateURL}'>Cập nhật</a>
 											</td>
 										</tr>
 									</c:forEach>

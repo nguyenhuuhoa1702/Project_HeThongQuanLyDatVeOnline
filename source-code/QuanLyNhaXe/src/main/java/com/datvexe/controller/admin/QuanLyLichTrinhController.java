@@ -57,6 +57,8 @@ public class QuanLyLichTrinhController {
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
+		
+		
 		// Cần 1 model chứa id
 		mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
 		mav.addObject("xe", iXeService.finalAllMap());

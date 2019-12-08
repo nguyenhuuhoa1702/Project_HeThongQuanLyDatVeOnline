@@ -44,21 +44,21 @@
 								width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th><input type="checkbox" id="checkAll"></th>
+										<th style="display:none"><input type="checkbox" id="checkAll"></th>
 										<th>ID Lịch Trình</th>
 										<th>Biển Số Xe </th>
 										<th>Điểm đi</th>
 										<th>Điểm đến</th>
 										<th>Ngày Đi</th>
 										<th>Thời gian đi</th>
-										<th>don gia</th>
+										<th>Đơn giá vé</th>
 										<th>Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
-											<td><input type="checkbox" id="checkbox_${item.idLichTrinh}"
+											<td style="display:none"><input type="checkbox" id="checkbox_${item.idLichTrinh}"
 												value="${item.idLichTrinh}"></td>
 											<td>${item.idLichTrinh}</td>
 											<td>${item.bienSoXe}</td>

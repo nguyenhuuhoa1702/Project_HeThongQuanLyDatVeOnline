@@ -26,12 +26,25 @@ public class KhachHang {
 	@Column(name="SoDienThoai")
 	private int soDienThoai;
 	
+	@Column(name = "TinhTrangVe")
+	private String tinhTrangVe;
+	
 	// Tạo khóa ngoại
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idVe")
 	private Ve idVe;
 	
 	
+	
+	
+	public String getTinhTrangVe() {
+		return tinhTrangVe;
+	}
+
+	public void setTinhTrangVe(String tinhTrangVe) {
+		this.tinhTrangVe = tinhTrangVe;
+	}
+
 	public Long getIdKhachHang() {
 		return idKhachHang;
 	}

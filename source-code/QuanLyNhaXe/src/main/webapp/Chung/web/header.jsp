@@ -1,6 +1,6 @@
 <%@ page import="com.datvexe.util.SecurityUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <nav
 	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 	id="ftco-navbar">
@@ -21,5 +21,4 @@
 			</ul>
 		</div>
 	</div>
-</nav>
-<!-- END nav -->
+</nav> 

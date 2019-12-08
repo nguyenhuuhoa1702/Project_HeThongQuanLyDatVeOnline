@@ -32,6 +32,12 @@
 		</a>
 	</li>
 	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-khach-hang/danh-sach">
+			<i class="fas fa-fw fa-folder"></i> 
+			<span>Quản lý khách hàng</span>
+		</a>
+	</li>
+	<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-tai-khoan/danh-sach">
 			<i class="fas fa-fw fa-folder"></i> 
 			<span>Quản lý tài khoản</span>

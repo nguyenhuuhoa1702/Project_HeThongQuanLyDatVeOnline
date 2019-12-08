@@ -65,9 +65,9 @@ public class JPAConfig {
 //		dataSource.setPassword(environment.getProperty("jdbc.password"));
 //		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/mysqldb?useTimezone=true&serverTimezone=UTC");
+		dataSource.setUrl("jdbc:mysql://localhost:3307/mysqldb");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("1234");
 		return dataSource;
 	}
 

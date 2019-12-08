@@ -22,7 +22,7 @@
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form:form action="check" method="GET" modelAttribute="model" class="request-form ftco-animate"
+					<form:form action="tim-kiem" method="GET" modelAttribute="model" class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">
 							<div class="col-lg align-items-end">
@@ -31,7 +31,7 @@
 										<label for="tuyenXeId">Chọn nơi đi</label>
 										<div class="form-field">
 										<form:select path="diemDi" id="diemdi">
-											<form:option value="" label="Chọn nơi đi" />
+											<form:option value="null" label="Chọn nơi đi" />
 											<form:options items="${tuyenXe}" />
 										</form:select>
 										</div>
@@ -44,7 +44,7 @@
 										<label for="tuyenXeId">Chọn nơi đến</label>
 										<div class="form-field">
 										<form:select path="diemDen" id="diemDen">
-											<form:option value="" label="Chọn nơi đến" />
+											<form:option value="null" label="Chọn nơi đến" />
 											<form:options items="${tuyenXe}" />
 										</form:select>
 										</div>
@@ -57,7 +57,7 @@
 									<div class="form-field">
 										<div class="select-wrap">
 											<div class="md-form">
-												<form:input path="ngayDi" type="date" value="${date}" />
+												<form:input path="ngayDi" value="12/11/2019" type="date" />
 											</div>
 										</div>
 									</div>

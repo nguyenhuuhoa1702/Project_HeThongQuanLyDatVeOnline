@@ -37,7 +37,13 @@
 	src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
 <link rel="stylesheet"
 	href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css' />" />
-
+<!-- datetime -->
+<script
+	src="<c:url value='/template/datetime/js/bootstrap-datetimepicker.min.js' />"></script>
+<link rel="stylesheet"
+	href="<c:url value='/template/datetime/css/bootstrap-datetimepicker.min.css' />" />
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<c:url value='/template/datetime/bootstrap/css/bootstrap.min.css' />" /> --%>
 
 </head>
 <body id="page-top">
@@ -91,9 +97,9 @@
 	<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js'/>"></script>
-
-
-
-
+	<script charset="UTF-8"
+		src="<c:url value='/template/datetime/js/bootstrap-datetimepicker.js'/>"></script>
+	<script charset="UTF-8"
+		src="<c:url value='/template/datetime/js/locales/bootstrap-datetimepicker.fr.js '/>"></script>
 </body>
 </html>

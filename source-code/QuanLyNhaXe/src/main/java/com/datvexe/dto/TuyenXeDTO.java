@@ -7,7 +7,14 @@ public class TuyenXeDTO extends AbstractDTO<TuyenXeDTO> {
 	private String tenTuyenXe;
 	private String maTuyenXe;
 	private Long tuyenXeId;
+	private String thongBao;
 	
+	public String getThongBao() {
+		return thongBao;
+	}
+	public void setThongBao(String thongBao) {
+		this.thongBao = thongBao;
+	}
 	public String getTenTuyenXe() {
 		return tenTuyenXe;
 	}

@@ -1,5 +1,6 @@
 package com.datvexe.converter;
 
+
 import org.springframework.stereotype.Component;
 
 import com.datvexe.dto.LichTrinhDTO;
@@ -14,7 +15,14 @@ public class LichTrinhConverter {
 		// lấy dữ liệu từ entity ở cột id truyền vào cột id trong dto
 		result.setBienSoXe(entity.getBienSoXe().getBienSoXe());
 		result.setIdLichTrinh(entity.getIdLichTrinh());
-		result.setNgayDi(entity.getNgayDi());
+		
+//		long millis=System.currentTimeMillis();  
+//		java.sql.Date date = new java.sql.Date(millis); 
+//		if(entity.getNgayDi().equals(""))
+//			result.setNgayDi(date);
+//		else
+			result.setNgayDi(entity.getNgayDi());
+			
 		result.setThoiGian(entity.getThoiGian());
 		result.setDiemDen(entity.getDiemDen());
 		result.setDiemDi(entity.getDiemDi());

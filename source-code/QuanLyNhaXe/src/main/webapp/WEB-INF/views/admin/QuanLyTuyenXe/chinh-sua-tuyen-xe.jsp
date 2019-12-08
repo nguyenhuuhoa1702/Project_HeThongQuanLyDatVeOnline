@@ -30,6 +30,9 @@
 					<c:if test="${not empty message }">
 						<div class="alert alert-${alert}">${message}</div>
 					</c:if>
+<%-- 					<c:if test="${not empty notiError }"> --%>
+						<div class="alert alert-danger" style="display:none" id="notiError"></div>
+<%-- 					</c:if> --%>
 					<form:form modelAttribute="model" id="formSubmit">
 						<div class="form-group">
 							<form:input path="maTuyenXe" class="form-control"
@@ -42,23 +45,16 @@
 						<form:hidden path="tuyenXeId" id="tuyenXeId" />
 						<c:if test="${empty model.tuyenXeId }">
 							<Button class="btn btn-primary btn-block" id="btnOK">
-								Đồng ý thêm tuyến 
-							</Button>
+								Đồng ý thêm tuyến</Button>
 						</c:if>
 						<c:if test="${not empty model.tuyenXeId }">
 							<Button class="btn btn-primary btn-block" id="btnOK">
-								Cập nhật tuyến xe
-							</Button>
+								Cập nhật tuyến xe</Button>
 						</c:if>
 					</form:form>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
 	</div>
 
 
@@ -107,24 +103,33 @@
 		});
 
 		function addNew(data) {
-			$
-					.ajax({
-						url : '${tuyenAPI}',
-						type : 'POST',
-						contentType : 'application/json',
-						data : JSON.stringify(data),
-						dataType : 'json',
-						// 				success : function(result) {
-						// 					window.location.href = "${chinhsuaURL}?id=" + result.id
-						// 							+ "&message=insert_success";
-						// 				},
-						success : function(result) {
-							window.location.href = "${chinhsuaURL}?message=insert_success";
-						},
-						error : function(error) {
-							window.location.href = "${tuyenURL}?message=error_system";
+			$.ajax({
+				url : '${tuyenAPI}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+//	 				success : function(result) {
+// 					window.location.href = "${chinhsuaURL}?id=" + result.id
+// 							+ "&message=insert_success";
+	// 				},
+					success : function(result) {
+						window.location.href = "${tuyenURL}?message=insert_success";
+					},
+					error : function(error) {
+						//console.log(error);
+						//window.location.href = "${chinhsuaURL}";
+					},
+					complete:  function(xhr, textStatus) {
+						if(xhr.status==403){
+							$('#notiError').html('Tên mã hoặc tuyến xe đã tồn tại');
 						}
-					});
+						if(xhr.status==423)
+							$('#notiError').html('Nhập đầy đủ thông tin !!!');
+						document.getElementById("notiError").style.display = 'block'
+						console.log(textStatus);
+					}
+				});
 		}
 
 		function updateNew(data) {
@@ -140,8 +145,17 @@
 				},
 				error : function(error) {
 					console.log(error);
-					window.location.href = "${chinhsuaURL}"
-							+ result.tuyenXeId + "&message=error_system";
+// 					window.location.href = "${chinhsuaURL}" + result.tuyenXeId
+// 							+ "&message=error_system";
+				},
+				complete:  function(xhr, textStatus) {
+					if(xhr.status==403){
+						$('#notiError').html('Tên mã hoặc tuyến xe đã tồn tại');
+					}
+					if(xhr.status==423)
+						$('#notiError').html('Nhập đầy đủ thông tin !!!');
+					document.getElementById("notiError").style.display = 'block'
+					console.log(textStatus);
 				}
 			});
 		}

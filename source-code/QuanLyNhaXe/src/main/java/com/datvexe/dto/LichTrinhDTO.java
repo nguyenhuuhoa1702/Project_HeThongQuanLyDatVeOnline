@@ -1,11 +1,14 @@
 package com.datvexe.dto;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	private Long idLichTrinh;
 	private String maTuyenXe;
 	private String tenTuyenXe;
-	private String thoiGian;
-	private String ngayDi;
+	private Time thoiGian;
+	private Date ngayDi;
 	private String diemDi;
 	private String diemDen;
 	private String bienSoXe;
@@ -44,17 +47,18 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	}
 	public String getTenTuyenXe() {
 		return tenTuyenXe;
-	}
-	public String getThoiGian() {
+	
+	}	
+	public Time getThoiGian() {
 		return thoiGian;
 	}
-	public void setThoiGian(String thoiGian) {
+	public void setThoiGian(Time thoiGian) {
 		this.thoiGian = thoiGian;
 	}
-	public String getNgayDi() {
+	public Date getNgayDi() {
 		return ngayDi;
 	}
-	public void setNgayDi(String ngayDi) {
+	public void setNgayDi(Date ngayDi) {
 		this.ngayDi = ngayDi;
 	}
 	public void setTenTuyenXe(String tenTuyenXe) {

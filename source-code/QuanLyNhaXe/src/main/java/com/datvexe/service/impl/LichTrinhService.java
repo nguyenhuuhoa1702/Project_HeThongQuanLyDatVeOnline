@@ -47,6 +47,47 @@ public class LichTrinhService implements ILichTrinhService {
 		LichTrinh entity = LichTrinhRepository.findOne(id);
 		return lichTrinhConverter.toDTO(entity);
 	}
+	
+	// Kiểm tra dữ liệu 2 ô điểm đi và điểm đến có bị trùng hay không ?
+	@Override
+	@Transactional
+	public Boolean CheckDataDiemDiVaDiemDen(LichTrinhDTO dto) {
+		if(!dto.getDiemDen().equals(dto.getDiemDi()))
+		{
+			return true;
+		}
+	return false;
+	}
+	
+	@Override
+	public Boolean CheckDataXe(LichTrinhDTO dto)
+	{
+		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
+		LichTrinh check = LichTrinhRepository.BienSoXe(biensoxe);
+		if(check == null)
+			return true;
+		return false;
+	}
+	
+	@Override
+	@Transactional
+	public Boolean CheckNull(LichTrinhDTO dto)
+	{
+		if(!dto.getDiemDen().equals("") && !dto.getDiemDi().equals("") && !dto.getBienSoXe().equals("null"))		
+			return true;
+		return false;
+	}
+	
+	@Override
+	public Boolean CheckDonGia(LichTrinhDTO dto)
+	{
+		int check = dto.getDonGia();
+		if(check > 1000 && (check%1000 == 0))
+			return true;
+		return false;
+	}
+	
+	
 
 	@Override
 	// Khi thao tác dữ liệu, khai báo @Transactional để quản lý commit và rollback
@@ -75,5 +116,20 @@ public class LichTrinhService implements ILichTrinhService {
 		for (long id : ids) {
 			LichTrinhRepository.delete(id);
 		}
+	}
+
+	// ---------------------------------------- Xử lý bên web ------------------------------------------------
+	
+	@Override
+	@Transactional
+	public List<LichTrinhDTO> DanhSachKetQuaTimKiem(LichTrinhDTO dto) {
+		List<LichTrinhDTO> models = new ArrayList<>();
+		List<LichTrinh> entity = LichTrinhRepository.findByDiemDiAndDiemDenAndNgayDi(dto.getDiemDi(), dto.getDiemDen(),
+				dto.getNgayDi());
+		for (LichTrinh item : entity) {
+			LichTrinhDTO lichTrinhDTO = lichTrinhConverter.toDTO(item);
+			models.add(lichTrinhDTO);
+		}
+		return models;
 	}
 }

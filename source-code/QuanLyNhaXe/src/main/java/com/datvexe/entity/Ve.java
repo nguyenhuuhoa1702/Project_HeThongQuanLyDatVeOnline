@@ -1,6 +1,7 @@
 package com.datvexe.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
 @Entity
 @Table(name = "Ve")
 public class Ve {
@@ -28,6 +31,10 @@ public class Ve {
 	
 	@Column(name ="SoVeDat")
 	private int soVeDat;
+	
+	@Column(name = "NgayDatVe")
+	@CreatedDate
+	private Date ngayDatVe;
 	
 	@OneToMany(mappedBy = "idVe")
 	private List<KhachHang> khachHang = new ArrayList<KhachHang>();
@@ -76,6 +83,15 @@ public class Ve {
 	public void setKhachHang(List<KhachHang> khachHang) {
 		this.khachHang = khachHang;
 	}
+
+	public Date getNgayDatVe() {
+		return ngayDatVe;
+	}
+
+	public void setNgayDatVe(Date ngayDatVe) {
+		this.ngayDatVe = ngayDatVe;
+	}
+	
 	
 	
 }

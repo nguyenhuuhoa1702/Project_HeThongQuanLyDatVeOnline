@@ -15,9 +15,18 @@ public interface ILichTrinhService {
 
 	// lấy giá trị id
 	LichTrinhDTO findById(long id);
-
+	
+	Boolean CheckDataDiemDiVaDiemDen(LichTrinhDTO dto);
+	
+	Boolean CheckDataXe(LichTrinhDTO dto);
+	
+	Boolean CheckNull(LichTrinhDTO dto);
 	
 	LichTrinhDTO save(LichTrinhDTO dto);
 	
 	void delete(long[] ids);
+
+	Boolean CheckDonGia(LichTrinhDTO dto);
+	
+	List<LichTrinhDTO> DanhSachKetQuaTimKiem(LichTrinhDTO dto);
 }
