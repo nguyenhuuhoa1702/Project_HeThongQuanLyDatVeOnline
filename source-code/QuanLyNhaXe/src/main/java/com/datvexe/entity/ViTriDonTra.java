@@ -17,9 +17,8 @@ public class ViTriDonTra {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idViTri;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idTuyenXe")
-	private TuyenXe idTuyenXe;
+	@Column( name = "tenTuyenXe")
+	private String tenTuyenXe;
 	
 	@Column(name = "diaChi")
 	private String diaChi;
@@ -32,13 +31,6 @@ public class ViTriDonTra {
 		this.idViTri = idViTri;
 	}
 
-	public TuyenXe getIdTuyenXe() {
-		return idTuyenXe;
-	}
-
-	public void setIdTuyenXe(TuyenXe idTuyenXe) {
-		this.idTuyenXe = idTuyenXe;
-	}
 
 	public String getDiaChi() {
 		return diaChi;
@@ -46,6 +38,14 @@ public class ViTriDonTra {
 
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
+	}
+
+	public String getTenTuyenXe() {
+		return tenTuyenXe;
+	}
+
+	public void setTenTuyenXe(String tenTuyenXe) {
+		this.tenTuyenXe = tenTuyenXe;
 	}
 
 	

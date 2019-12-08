@@ -48,9 +48,6 @@ public class TuyenXe {
 //							inverseJoinColumns = @JoinColumn(name = "tuyenXeId"))
 //	private List<ViTriDonTra> vitri = new ArrayList<>();
 
-	@OneToMany(mappedBy = "idTuyenXe")
-	private List<ViTriDonTra> vitri = new ArrayList<ViTriDonTra>();
-
 	public Long getTuyenXeId() {
 		return tuyenXeId;
 	}
@@ -65,14 +62,6 @@ public class TuyenXe {
 
 	public void setTenTuyenXe(String tenTuyenXe) {
 		this.tenTuyenXe = tenTuyenXe;
-	}
-
-	public List<ViTriDonTra> getVitri() {
-		return vitri;
-	}
-
-	public void setVitri(List<ViTriDonTra> vitri) {
-		this.vitri = vitri;
 	}
 
 	public String getMaTuyenXe() {

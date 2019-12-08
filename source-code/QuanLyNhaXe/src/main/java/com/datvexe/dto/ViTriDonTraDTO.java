@@ -2,21 +2,22 @@ package com.datvexe.dto;
 
 public class ViTriDonTraDTO extends AbstractDTO<ViTriDonTraDTO> {
 	private Long idViTri;
-	private Long idTuyenXe;
 	private String diaChi;
+	private String tenTuyenXe;
 	
 	
+	
+	public String getTenTuyenXe() {
+		return tenTuyenXe;
+	}
+	public void setTenTuyenXe(String tenTuyenXe) {
+		this.tenTuyenXe = tenTuyenXe;
+	}
 	public Long getIdViTri() {
 		return idViTri;
 	}
 	public void setIdViTri(Long idViTri) {
 		this.idViTri = idViTri;
-	}
-	public Long getIdTuyenXe() {
-		return idTuyenXe;
-	}
-	public void setIdTuyenXe(Long idTuyenXe) {
-		this.idTuyenXe = idTuyenXe;
 	}
 	public String getDiaChi() {
 		return diaChi;

@@ -8,6 +8,22 @@
 <meta charset="UTF-8">
 <title>Trang chủ</title>
 
+<script
+	src="<c:url value='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
+<script
+	src="<c:url value='/template/admin/assets/js/ace-extra.min.js' />"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type='text/javascript'
+	src='<c:url value="/template/admin/js/jquery-2.2.3.min.js" />'></script>
+<script
+	src="<c:url value='/template/admin/assets/js/jquery.2.1.1.min.js' />"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">

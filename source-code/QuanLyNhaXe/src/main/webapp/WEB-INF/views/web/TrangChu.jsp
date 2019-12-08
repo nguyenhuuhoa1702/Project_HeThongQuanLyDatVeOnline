@@ -69,7 +69,7 @@
 <!-- 										<input type="submit" value="Search" -->
 <!-- 											class="form-control btn btn-primary"> -->
 										<Button class="form-control btn btn-primary" type="submit"> 
-												Tìm Kiếm 
+												TÌM VÉ XE
 										</Button>
 									</div>
 								</div>

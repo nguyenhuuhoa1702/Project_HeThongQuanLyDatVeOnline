@@ -61,7 +61,9 @@ public class TrangChuWebController {
 	@RequestMapping(value = "/tim-kiem", method = RequestMethod.GET)
 	public ModelAndView data(@ModelAttribute("model") LichTrinhDTO model) {
 		ModelAndView mav = new ModelAndView("web/XemLichTrinh/xem-lich-trinh");
-		System.out.println(model.getDiemDi()+"-"+ model.getDiemDen() +"-" + model.getNgayDi());
+	//	System.out.println(model.getIdLichTrinh()+"-"+model.getDiemDi()+"-"+ model.getDiemDen() +"-" + model.getNgayDi());
+	//	System.out.println(ilichTrinhService.DanhSachKetQuaTimKiem(model).toString());
+		mav.addObject("tuyenXe", ituyenXeService.finalAllMap());
 		model.setListResult(ilichTrinhService.DanhSachKetQuaTimKiem(model));
 		mav.addObject("model", model);
 		return mav;
