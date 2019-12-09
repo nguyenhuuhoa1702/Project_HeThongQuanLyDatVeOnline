@@ -41,7 +41,10 @@
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTableLichTrinh"
-								width="100%" cellspacing="0">
+								width="100%" cellspacing="0" 
+								style="hover{
+    									background-color:#ddd;
+   									 		cursor:pointer;">
 								<thead>
 									<tr>
 										<th style="display:none"><input type="checkbox" id="checkAll"></th>

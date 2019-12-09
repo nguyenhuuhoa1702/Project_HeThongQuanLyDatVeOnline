@@ -16,7 +16,7 @@
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form:form action="book" method="GET" modelAttribute="model"
+					<form:form action="thanh-toan" method="GET" modelAttribute="modelve"
 						class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">
@@ -24,6 +24,7 @@
 								<div class="form-group">
 									<div>
 										<table style="width: 100%">
+											
 											<tr>
 												<td colspan="3"><div>Thông tin chuyến đi</div></td>
 												<td><div>Thông tin khách hàng</div></td>
@@ -43,36 +44,38 @@
 													<div>17-02-2019</div>
 												</td>
 												<td rowspan="2">
+													
 													<div>
 														<label>Họ tên khách hàng *</label>
 													</div>
 													<div>
-														<input type="text">
+														<input name="hoten" type="text" />
 													</div>
 													<div>
 														<label>Số điện thoại *</label>
 													</div>
 													<div>
-														<input type="text">
+														<input name="phone" type="text">
 													</div>
-
+													
 												</td>
 											<tr>
 											<tr>
-												<td><label>Chọn nơi đón</label> <form:select
-														path="bienSoXe" id="xe" style="width:100%">
+												<td>
+													<label>Chọn nơi đón</label>
+													<form:select path="noiDon" id="noiDon" style="width:100%">
 														<form:option value="null" label="Chọn nơi đón" />
 														<form:options items="${noiDon}" />
 													</form:select></td>
 												<td><label>Chọn nơi trả</label> <form:select
-														path="bienSoXe" id="xe" style="width:100%">
+														path="noiTra" id="noiTra" style="width:100%">
 														<form:option value="null" label="Chọn nơi đón" />
 														<form:options items="${noiTra}" />
 													</form:select></td>
 												<td>
 													<div>Chọn số vé cần đặt</div>
 													<div>
-														<input type="text">
+														<form:input path="soVeDat" type="text" />
 													</div>
 												</td>
 												<td>
@@ -80,10 +83,10 @@
 														<label>Email</label>
 													</div>
 													<div>
-														<input type="text">
+														<input name="email" type="text">
 													</div>
 												</td>
-
+														
 
 											</tr>
 											<tr>
@@ -91,7 +94,12 @@
 													<div>Nội dung ghi chú</div>
 												</td>
 												<td>
-													<button>ĐẶT VÉ</button>
+<%-- 														<c:url var="updateURL" --%>
+<%-- 															value="/thanh-toan"> --%>
+<%-- 															<c:param name="idLichTrinh" value="1"></c:param> --%>
+<%-- 														</c:url> <a href='${updateURL}' class="btn btn-primary btn-block">ĐẶT --%>
+<!-- 															VÉ</a> -->
+										<button type ="submit">Đặt vé</button>
 												<td>
 											</tr>
 
@@ -105,5 +113,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -57,7 +57,7 @@
 												<div class="form-field">
 													<div class="select-wrap">
 														<div class="md-form">
-															<form:input path="ngayDi" value="12/11/2019" type="date" />
+															<form:input path="ngayDi" type="date" />
 														</div>
 													</div>
 												</div>

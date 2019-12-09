@@ -5,11 +5,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.converter.KhachHangConverter;
+import com.datvexe.converter.LichTrinhConverter;
+import com.datvexe.converter.VeConverter;
 import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.entity.KhachHang;
+import com.datvexe.entity.LichTrinh;
+import com.datvexe.entity.TuyenXe;
+import com.datvexe.entity.Ve;
+import com.datvexe.entity.Xe;
 import com.datvexe.repository.KhachHangRepository;
+import com.datvexe.repository.VeRepository;
 import com.datvexe.service.IKhachHangService;
 
 @Service
@@ -19,6 +27,9 @@ public class KhachHangService implements IKhachHangService {
 	private KhachHangRepository khachHangRepository;
 	@Autowired
 	private KhachHangConverter khachHangConverter;
+	@Autowired
+	private VeRepository veRepository;
+	
 	
 	@Override
 	public List<KhachHangDTO> finalALl() {
@@ -29,6 +40,17 @@ public class KhachHangService implements IKhachHangService {
 			models.add(khachHangDTO);
 		}
 		return models;
+	}
+	
+	@Override
+	@Transactional
+	public KhachHangDTO save(KhachHangDTO dto,Long idVe) 
+	{	
+		Ve ve =  veRepository.findOne(idVe);
+		KhachHang khachHangEntity = new KhachHang();
+		khachHangEntity.setIdVe(ve);
+		khachHangEntity = new KhachHangConverter().toEntity(khachHangEntity, dto);
+		return khachHangConverter.toDTO(khachHangRepository.save(khachHangEntity));
 	}
 
 }

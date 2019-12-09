@@ -7,9 +7,22 @@ public class VeDTO extends AbstractDTO<VeDTO> {
 	private Long idLichTrinh;
 	private int soVeDat;
 	private Date ngayDatVe;
+	private String noiDon;
+	private String noiTra;
 	
 	
-	
+	public String getNoiDon() {
+		return noiDon;
+	}
+	public void setNoiDon(String noiDon) {
+		this.noiDon = noiDon;
+	}
+	public String getNoiTra() {
+		return noiTra;
+	}
+	public void setNoiTra(String noiTra) {
+		this.noiTra = noiTra;
+	}
 	public Date getNgayDatVe() {
 		return ngayDatVe;
 	}

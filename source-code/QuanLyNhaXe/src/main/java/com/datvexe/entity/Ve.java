@@ -36,6 +36,12 @@ public class Ve {
 	@CreatedDate
 	private Date ngayDatVe;
 	
+	@Column(name ="NoiDon")
+	private String noiDon;
+	
+	@Column(name = "NoiTra")
+	private String noiTra;
+	
 	@OneToMany(mappedBy = "idVe")
 	private List<KhachHang> khachHang = new ArrayList<KhachHang>();
 	
@@ -90,6 +96,22 @@ public class Ve {
 
 	public void setNgayDatVe(Date ngayDatVe) {
 		this.ngayDatVe = ngayDatVe;
+	}
+
+	public String getNoiDon() {
+		return noiDon;
+	}
+
+	public void setNoiDon(String noiDon) {
+		this.noiDon = noiDon;
+	}
+
+	public String getNoiTra() {
+		return noiTra;
+	}
+
+	public void setNoiTra(String noiTra) {
+		this.noiTra = noiTra;
 	}
 	
 	

@@ -21,7 +21,19 @@ public class KhachHangConverter {
 	public KhachHang toEntity(KhachHangDTO dto)
 	{
 		KhachHang entity = new KhachHang();
-		
+		entity.setTenKhachHang(dto.getTenKhachHang());
+		entity.setEmail(dto.getEmail());
+		entity.setSoDienThoai(dto.getSoDienThoai());
+		entity.setTinhTrangVe("Đã thanh toán");
 		return entity;
+	}
+	
+	public KhachHang toEntity(KhachHang result, KhachHangDTO dto)
+	{	
+		result.setTenKhachHang(dto.getTenKhachHang());
+		result.setEmail(dto.getEmail());
+		result.setSoDienThoai(dto.getSoDienThoai());
+		result.setTinhTrangVe("Đã thanh toán");
+		return result;
 	}
 }
