@@ -22,7 +22,7 @@
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form:form action="tim-kiem" method="GET" modelAttribute="model" class="request-form ftco-animate"
+					<form:form action="xu-ly-tim-kiem" method="GET" modelAttribute="model" class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">
 							<div class="col-lg align-items-end">

@@ -48,12 +48,13 @@
 								<thead>
 									<tr>
 										<th style="display:none"><input type="checkbox" id="checkAll"></th>
-										<th>ID Lịch Trình</th>
+										<th style="width:10px">ID</th>
 										<th>Biển Số Xe </th>
 										<th>Điểm đi</th>
 										<th>Điểm đến</th>
 										<th>Ngày Đi</th>
 										<th>Thời gian đi</th>
+										<th>Thời gian đến</th>
 										<th>Đơn giá vé</th>
 										<th>Thao tác</th>
 									</tr>
@@ -63,12 +64,13 @@
 										<tr>
 											<td style="display:none"><input type="checkbox" id="checkbox_${item.idLichTrinh}"
 												value="${item.idLichTrinh}"></td>
-											<td>${item.idLichTrinh}</td>
+											<td style="width:10px">${item.idLichTrinh}</td>
 											<td>${item.bienSoXe}</td>
 											<td>${item.diemDi}</td>
 											<td>${item.diemDen}</td>
 											<td>${item.ngayDi}</td>
 											<td>${item.thoiGian}</td>
+											<td>${item.thoiGianDen}</td>
 											<td>${item.donGia}</td>
 											<td>
 												<Button onclick="warningBeforeDelete()" type="button" class="btn btn-primary btn-block">Xóa</Button>

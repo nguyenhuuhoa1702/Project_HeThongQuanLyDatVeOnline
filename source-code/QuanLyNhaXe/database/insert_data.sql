@@ -26,9 +26,13 @@ INSERT INTO `mysqldb`.`nhansu` (`idNhanSu`, `HoTen`, `Email`, `NamSinh`, `SoDien
 INSERT INTO `mysqldb`.`xe` (`BienSoXe`, `TongGhe`, `idNhanSu`) VALUES ('77H-K55948', '20', '1');
 INSERT INTO `mysqldb`.`xe` (`BienSoXe`, `TongGhe`, `idNhanSu`) VALUES ('78H-F42345', '30', '2');
 
+INSERT INTO `mysqldb`.`lichtrinh` (`DiemDen`, `DiemDi`, `DonVe`, `ngayDi`, `thoiGianDi`, `thoiGianDen`, `BienSoXe`) VALUES ('Nha Trang', 'Bình Định', '99000', '2019-12-07', '08:50:00', '12:50:00', '77H-K55948');
+INSERT INTO `mysqldb`.`lichtrinh` (`DiemDen`, `DiemDi`, `DonVe`, `ngayDi`, `thoiGianDi`, `thoiGianDen`, `BienSoXe`) VALUES ('Nha Trang', 'Bình Định', '99000', '2019-12-07', '15:50:00', '18:50:00', '78H-F42345');
 
-INSERT INTO `mysqldb`.`lichtrinh` (`idLichTrinh`, `DiemDen`, `DiemDi`, `ngayDi`, `thoiGian`, `BienSoXe`) VALUES ('1', 'Bình Đinh', 'Nha Trang', '17-02-2020', '07:00', '77H-K55948');
-INSERT INTO `mysqldb`.`lichtrinh` (`idLichTrinh`, `DiemDen`, `DiemDi`, `ngayDi`, `thoiGian`, `BienSoXe`) VALUES ('2', 'Nha Trang', 'Bình Đinh', '17-02-2020', '13:00', '78H-F42345');
+INSERT INTO `mysqldb`.`vitridontra` (`diaChi`, `tenTuyenXe`) VALUES ('Ngã tư tử thần', 'Bình Định');
+INSERT INTO `mysqldb`.`vitridontra` (`diaChi`, `tenTuyenXe`) VALUES ('Ngã sáu vui vẻ', 'Nha Trang');
+INSERT INTO `mysqldb`.`vitridontra` (`diaChi`, `tenTuyenXe`) VALUES ('Vui Vẻ không quậu', 'Bình Định');
+INSERT INTO `mysqldb`.`vitridontra` (`diaChi`, `tenTuyenXe`) VALUES ('Ngã ba thiên nhiên', 'Nha Trang');
 
     
 /* INSERT INTO `mysqldb`.`lichtrinh` (`ngayDi`,`thoiGian`, `tuyenXeId`) VALUES ('2019-11-02',  '11:59:59', '1'); */

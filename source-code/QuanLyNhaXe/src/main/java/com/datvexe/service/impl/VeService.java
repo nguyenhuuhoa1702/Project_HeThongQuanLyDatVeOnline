@@ -34,4 +34,9 @@ public class VeService implements IVeService {
 		return veConverter.toDTO(veRepository.save(Entity));
 	}
 
+	@Override
+	public Long getTotalItem() {
+			return (Long) veRepository.count();
+	}
+
 }

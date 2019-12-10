@@ -16,7 +16,7 @@
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form:form action="thanh-toan" method="GET" modelAttribute="modelve"
+					<form:form action="xu-ly-dat-ve" method="GET" modelAttribute="modelve"
 						class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">

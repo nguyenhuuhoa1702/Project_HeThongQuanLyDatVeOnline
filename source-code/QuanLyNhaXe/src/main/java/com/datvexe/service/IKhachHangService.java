@@ -9,4 +9,6 @@ public interface IKhachHangService {
 	List<KhachHangDTO> finalALl();
 	
 	KhachHangDTO save(KhachHangDTO dto,Long idVe);
+	
+	Long getTotalItem();
 }

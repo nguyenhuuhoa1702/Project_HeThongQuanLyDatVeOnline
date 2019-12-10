@@ -29,12 +29,14 @@ public class LichTrinh {
 	@Column(name="DiemDen")
 	private String diemDen;
 	
-//	columnDefinition = ""
 	@Column(name = "ngayDi", columnDefinition="Date")
 	private Date ngayDi;
 
-	@Column(name = "thoiGian", columnDefinition="Time")
+	@Column(name = "thoiGianDi", columnDefinition="Time")
 	private Time thoiGian;
+	
+	@Column(name = "thoiGianDen" , columnDefinition = "Time")
+	private Time thoiGianDen;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BienSoXe")
@@ -112,7 +114,11 @@ public class LichTrinh {
 		this.donGia = donGia;
 	}
 
+	public Time getThoiGianDen() {
+		return thoiGianDen;
+	}
 
-
-
+	public void setThoiGianDen(Time thoiGianDen) {
+		this.thoiGianDen = thoiGianDen;
+	}	
 }

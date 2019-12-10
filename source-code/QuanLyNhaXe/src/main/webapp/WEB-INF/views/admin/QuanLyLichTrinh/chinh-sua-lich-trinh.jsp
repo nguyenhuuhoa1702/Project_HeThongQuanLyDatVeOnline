@@ -85,14 +85,22 @@
 							<div>
 								<label> Thời gian đi</label>
 							</div>
-							<%-- 						<form:input path="thoiGian" cssClass="form-control" /> --%>
-<!-- 							<div class='input-group date' id='datetimepicker3'> -->
-<%-- 								<form:input path="thoiGian" class="form-control" /> --%>
-<!-- 							</div> -->
 							<div class="controls input-append date form_time" data-date=""
-								data-date-format="HH:ii:00" data-link-field="dtp_input3"
-								data-link-format="HH:ii">
+								data-date-format="hh:ii:00" data-link-field="dtp_input3"
+								data-link-format="hh:ii">
 								<form:input size="16" type="text" path="thoiGian" readonly="true" style="width:100%" /> <span
+									class="add-on"><i class="icon-remove"></i></span> <span
+									class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div>
+								<label> Thời gian đến</label>
+							</div>
+							<div class="controls input-append date form_time" data-date=""
+								data-date-format="hh:ii:00" data-link-field="dtp_input3"
+								data-link-format="hh:ii">
+								<form:input size="16" type="text" path="thoiGianDen" readonly="true" style="width:100%" /> <span
 									class="add-on"><i class="icon-remove"></i></span> <span
 									class="add-on"><i class="icon-th"></i></span>
 							</div>

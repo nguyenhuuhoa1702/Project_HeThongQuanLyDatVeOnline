@@ -13,7 +13,14 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	private String diemDen;
 	private String bienSoXe;
 	private int donGia;
+	private Time thoiGianDen;
 	
+	public Time getThoiGianDen() {
+		return thoiGianDen;
+	}
+	public void setThoiGianDen(Time thoiGianDen) {
+		this.thoiGianDen = thoiGianDen;
+	}
 	public String getBienSoXe() {
 		return bienSoXe;
 	}

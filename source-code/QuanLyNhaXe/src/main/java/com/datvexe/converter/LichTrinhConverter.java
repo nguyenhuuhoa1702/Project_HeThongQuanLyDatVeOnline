@@ -22,7 +22,7 @@ public class LichTrinhConverter {
 //			result.setNgayDi(date);
 //		else
 			result.setNgayDi(entity.getNgayDi());
-			
+			result.setThoiGianDen(entity.getThoiGianDen());
 		result.setThoiGian(entity.getThoiGian());
 		result.setDiemDen(entity.getDiemDen());
 		result.setDiemDi(entity.getDiemDi());
@@ -38,6 +38,7 @@ public class LichTrinhConverter {
 		result.setNgayDi(dto.getNgayDi());
 		result.setThoiGian(dto.getThoiGian());
 		result.setDonGia(dto.getDonGia());
+		result.setThoiGianDen(dto.getThoiGianDen());
 		return result;
 	}
 	
@@ -48,6 +49,7 @@ public class LichTrinhConverter {
 		result.setNgayDi(dto.getNgayDi());
 		result.setThoiGian(dto.getThoiGian());
 		result.setDonGia(dto.getDonGia());
+		result.setThoiGianDen(dto.getThoiGianDen());
 		return result;
 	}
 	

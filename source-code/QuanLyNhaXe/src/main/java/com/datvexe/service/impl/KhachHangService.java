@@ -53,4 +53,9 @@ public class KhachHangService implements IKhachHangService {
 		return khachHangConverter.toDTO(khachHangRepository.save(khachHangEntity));
 	}
 
+	@Override
+	public Long getTotalItem() {
+			return (Long) khachHangRepository.count();
+	}
+
 }

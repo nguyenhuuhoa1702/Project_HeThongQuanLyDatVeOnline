@@ -24,8 +24,10 @@ public class VeConverter {
 	{
 		Ve result = new Ve();
 		result.setNoiDon(dto.getNoiDon());
-		result.setNoiTra(dto.getNoiTra());
-		result.setNgayDatVe(dto.getNgayDatVe());
+		result.setNoiTra(dto.getNoiTra());	
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date=new java.sql.Date(millis);
+		result.setNgayDatVe(date);
 		result.setSoVeDat(dto.getSoVeDat());
 		return result;
 	}
@@ -34,7 +36,9 @@ public class VeConverter {
 	{	
 		result.setNoiDon(dto.getNoiDon());
 		result.setNoiTra(dto.getNoiTra());
-		result.setNgayDatVe(dto.getNgayDatVe());
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date=new java.sql.Date(millis);
+		result.setNgayDatVe(date);
 		result.setSoVeDat(dto.getSoVeDat());
 		return result;
 	}
