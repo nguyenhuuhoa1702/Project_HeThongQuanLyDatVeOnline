@@ -27,6 +27,7 @@ public class LichTrinhConverter {
 		result.setDiemDen(entity.getDiemDen());
 		result.setDiemDi(entity.getDiemDi());
 		result.setDonGia(entity.getDonGia());
+		result.setGheTrong(entity.getGheTrong());
 		return result;		    
 	}
 	
@@ -39,6 +40,7 @@ public class LichTrinhConverter {
 		result.setThoiGian(dto.getThoiGian());
 		result.setDonGia(dto.getDonGia());
 		result.setThoiGianDen(dto.getThoiGianDen());
+		result.setGheTrong(dto.getGheTrong());
 		return result;
 	}
 	

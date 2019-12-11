@@ -21,17 +21,27 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
+<!-- sweetalert -->
+<script
+	src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
+<link rel="stylesheet"
+	href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css' />" />
+	
+	<!------------------------------------- css w3school --------------------------------------------------->
+	
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+	
+	<!-- ------------------------------------------------------------------------------------------------- -->
 
 <link
 	href="<c:url value='/template/web/css/open-iconic-bootstrap.min.css'/>"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="<c:url value='/template/web/css/animate.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/template/web/css/animate.css'/>">
 
 <link rel="stylesheet"
 	href="<c:url value='/template/web/css/owl.carousel.min.css'/>"
@@ -67,7 +77,8 @@
 <link rel="stylesheet"
 	href="<c:url value='/template/web/css/style.css'/>" rel="stylesheet"
 	type="text/css">
-
+<script
+		src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
 
 </head>
 <body>
@@ -103,5 +114,8 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="<c:url value='/template/web/js/google-map.js'/>"></script>
 	<script src="<c:url value='/template/web/js/main.js'/>"></script>
+	
+	<script
+		src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
 </body>
 </html>

@@ -132,4 +132,19 @@ public class LichTrinhService implements ILichTrinhService {
 		}
 		return models;
 	}
+
+	@Override
+	public LichTrinhDTO CapNhatGheTrong(LichTrinhDTO dto, int gheDat) {
+		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
+		LichTrinh lichTrinhEntity = new LichTrinh();
+		if (dto.getIdLichTrinh() != null) {
+			// Nếu là cập nhật sẽ lấy cái cũ lên
+			LichTrinh oldlichtrinh = LichTrinhRepository.findOne(dto.getIdLichTrinh());
+			oldlichtrinh.setBienSoXe(biensoxe);
+			oldlichtrinh.setGheTrong(oldlichtrinh.getGheTrong()-gheDat);
+			// Chuyển cái dữ liệu vừa thêm vào , chuyển sang dữ liệu mới
+			lichTrinhEntity = new LichTrinhConverter().toEntity(oldlichtrinh, dto);
+		}
+		return lichTrinhConverter.toDTO(LichTrinhRepository.save(lichTrinhEntity));
+	}
 }

@@ -1,10 +1,13 @@
 package com.datvexe.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.converter.VeConverter;
+import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.Ve;
@@ -39,4 +42,13 @@ public class VeService implements IVeService {
 			return (Long) veRepository.count();
 	}
 
+	@Override
+	public int getTongVeDat(Long idLichTrinh) {
+		List<Ve> entity = veRepository.findByIdLichTrinh(idLichTrinh);
+		int Tong = 0;
+		for (Ve item : entity) {
+			Tong = item.getSoVeDat() + Tong;
+		}
+		return Tong;
+	}
 }

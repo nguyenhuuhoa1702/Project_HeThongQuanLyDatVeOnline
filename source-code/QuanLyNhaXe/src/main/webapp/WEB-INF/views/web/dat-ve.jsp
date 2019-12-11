@@ -16,90 +16,110 @@
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form:form action="xu-ly-dat-ve" method="GET" modelAttribute="modelve"
-						class="request-form ftco-animate"
+					<form:form id="form" action="xu-ly-dat-ve" method="GET"
+						modelAttribute="modelve" class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">
 							<div class="col-lg align-items-end">
 								<div class="form-group">
 									<div>
 										<table style="width: 100%">
-											
-											<tr>
-												<td colspan="3"><div>Thông tin chuyến đi</div></td>
-												<td><div>Thông tin khách hàng</div></td>
+
+											<tr style="text-align: center; height: 50px;">
+												<td colspan="3"><div>THÔNG TIN CHUYẾN ĐI</div></td>
+												<td><div>THÔNG TIN HÀNH KHÁCH</div></td>
 											</tr>
+
 											<tr>
 												<td>
 													<div>Điểm đi</div>
-													<div>Quy Nhơn</div>
+													<div>${sessionScope.diemdi}</div>
 												</td>
 												<td>
 													<div>Điểm đến</div>
-													<div>Nha Trang</div>
+													<div>${sessionScope.diemden}</div>
 												</td>
 
 												<td>
 													<div>Đơn giá vé</div>
-													<div>17-02-2019</div>
+													<div>${sessionScope.dongia}VNĐ</div>
 												</td>
 												<td rowspan="2">
-													
+
 													<div>
-														<label>Họ tên khách hàng *</label>
+														<label>Họ tên khách hàng * (Bắt buộc)</label>
 													</div>
 													<div>
-														<input name="hoten" type="text" />
-													</div>
-													<div>
-														<label>Số điện thoại *</label>
-													</div>
-													<div>
-														<input name="phone" type="text">
+														<input class="w3-input w3-border w3-round" name="hoten" type="text" style="width: 80%;" placeholder=" ví dụ: Nguyễn Thị Hiền" required />
 													</div>
 													
+													<div>
+														<label>Số điện thoại * (Bắt buộc)</label>
+													</div>
+													<div>
+														<input name="phone" type="number" style="width: 80%;" maxlength="10" placeholder=" ví dụ : 0964140530" required>
+													</div>
+
 												</td>
 											<tr>
 											<tr>
 												<td>
-													<label>Chọn nơi đón</label>
-													<form:select path="noiDon" id="noiDon" style="width:100%">
-														<form:option value="null" label="Chọn nơi đón" />
-														<form:options items="${noiDon}" />
-													</form:select></td>
-												<td><label>Chọn nơi trả</label> <form:select
-														path="noiTra" id="noiTra" style="width:100%">
-														<form:option value="null" label="Chọn nơi đón" />
-														<form:options items="${noiTra}" />
-													</form:select></td>
+													<div>
+														<label>Chọn nơi đón</label>
+													</div>
+													<div>
+														<form:select path="noiDon" id="noiDon" style="width:80%">
+															<form:option value="null" label="Chọn nơi đón" />
+															<form:options items="${noiDon}" />
+														</form:select>
+													</div>
+												</td>
+
+												<td>
+													<div>
+														<label>Chọn nơi trả</label>
+													</div>
+													<div>
+														<form:select path="noiTra" id="noiTra" style="width:80%">
+															<form:option value="null" label="Chọn nơi trả" />
+															<form:options items="${noiTra}" />
+														</form:select>
+													</div>
+												</td>
+
 												<td>
 													<div>Chọn số vé cần đặt</div>
 													<div>
-														<form:input path="soVeDat" type="text" />
+														<form:input path="soVeDat" type="number" 
+															style="width:100px;text-align:center;" required="required" /> 
 													</div>
 												</td>
-												<td>
+												<td >
 													<div>
 														<label>Email</label>
 													</div>
-													<div>
-														<input name="email" type="text">
+													<div >
+														<input name="email" style="width: 80%;" type="email" placeholder=" ví dụ: nhh01629421608">
 													</div>
 												</td>
-														
+
 
 											</tr>
 											<tr>
 												<td colspan="3">
-													<div>Nội dung ghi chú</div>
+													<div>
+														<b>Chú ý:</b> Quý khách vui lòng chọn chính xác nơi cần
+														phải đón - trả
+													</div>
+													<div>Nhà xe sẽ liên hệ khi gần tới địa điểm đón hành
+														khác</div>
+													<div>
+														<b>Mọi thắc mắc liên hệ:</b> 0964140530
+													</div>
 												</td>
 												<td>
-<%-- 														<c:url var="updateURL" --%>
-<%-- 															value="/thanh-toan"> --%>
-<%-- 															<c:param name="idLichTrinh" value="1"></c:param> --%>
-<%-- 														</c:url> <a href='${updateURL}' class="btn btn-primary btn-block">ĐẶT --%>
-<!-- 															VÉ</a> -->
-										<button type ="submit">Đặt vé</button>
+													<button type="submit" style="width: 80%; margin-top: 20px">TIẾP
+														THEO</button>
 												<td>
 											</tr>
 
@@ -113,6 +133,34 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+		var s = "${message}";
+		if (s != "")
+			swal("Thông Báo!", "${message}", "error");
+	</script>
+	<!-- 	<script>
+ 	 $(document).ready(function() {
+		 
+ 	        //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+	        $("#form").validate({
+	            rules: {
+	            	hoten: "required",
+	                phone: "required",
+              email: {
+ 	                    required: true,
+ 	                    minlength: 2
+ 	                }
+ 	            },
+ 	            messages: {
+ 	            	hoten: "Vui lòng nhập họ",
+ 	            	phone: "Vui lòng nhập tên",
+ 	            	email: {
+ 	                    required: "Vui lòng nhập địa chỉ",
+ 	                    minlength: "Địa chỉ ngắn vậy, chém gió ah?"
+ 	                }
+ 	            }
+ 	        });
+ 	    });
+ 	    </script> -->
 </body>
 </html>

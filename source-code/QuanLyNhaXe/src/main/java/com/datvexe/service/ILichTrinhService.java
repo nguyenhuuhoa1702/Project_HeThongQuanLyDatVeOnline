@@ -24,6 +24,8 @@ public interface ILichTrinhService {
 	
 	LichTrinhDTO save(LichTrinhDTO dto);
 	
+	LichTrinhDTO CapNhatGheTrong(LichTrinhDTO dto,int gheDat);
+	
 	void delete(long[] ids);
 
 	Boolean CheckDonGia(LichTrinhDTO dto);

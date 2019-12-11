@@ -38,6 +38,9 @@ public class LichTrinh {
 	@Column(name = "thoiGianDen" , columnDefinition = "Time")
 	private Time thoiGianDen;
 	
+	@Column(name = "gheTrong")
+	private int gheTrong;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BienSoXe")
 	private Xe BienSoXe;
@@ -84,6 +87,15 @@ public class LichTrinh {
 
 	public String getDiemDen() {
 		return diemDen;
+	}
+	
+
+	public int getGheTrong() {
+		return gheTrong;
+	}
+
+	public void setGheTrong(int gheTrong) {
+		this.gheTrong = gheTrong;
 	}
 
 	public void setDiemDen(String diemDen) {

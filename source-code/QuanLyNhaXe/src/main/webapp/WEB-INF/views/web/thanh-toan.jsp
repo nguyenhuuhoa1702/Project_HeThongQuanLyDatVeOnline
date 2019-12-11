@@ -87,13 +87,12 @@
 									border:2px solid blue;">
 									<tr style="border-bottom:2px solid blue;">
 										<td colspan="2" style="border-left:1px solid #ccc;">
-											<div style="text-align:center">Thông tin chuyến đi</div>
+											<div style="text-align:center"><b>Thông tin chuyến đi</b></div>
 										</td>
 									</tr>
-									<form:form modelAttribute="modelkh">
 									<tr>
 										<td style="border-left:1px solid #ccc;">
-											<label>Hành khách</label>
+											<label style="margin-left:10px" >Hành khách</label>
 										</td >
 										<td>
 											<label>${sessionScope.name}</label>
@@ -101,7 +100,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Số điện thoại</label>
+											<label style="margin-left:10px">Số điện thoại</label>
 										</td>
 										<td>
 											<label>${sessionScope.phone}</label>
@@ -109,17 +108,15 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Email</label>
+											<label style="margin-left:10px">Email</label>
 										</td>
 										<td>
 											<label>${sessionScope.email}</label>
 										</td>
 									</tr>
-									</form:form>
-									<form:form modelAttribute="modelve" method="GET">
 									<tr>
 										<td>
-											<label>Biển số xe</label>
+											<label style="margin-left:10px">Biển số xe</label>
 										</td>
 										<td>
 											<label>${sessionScope.biensoxe}</label>
@@ -127,7 +124,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Tuyến đi</label>
+											<label style="margin-left:10px">Tuyến đi</label>
 										</td>
 										<td>
 											<label>${sessionScope.diemdi} - ${sessionScope.diemden}</label>
@@ -135,7 +132,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Đơn giá vé</label>
+											<label style="margin-left:10px">Đơn giá vé</label>
 										</td>
 										<td>
 											<label>${sessionScope.dongia}</label>
@@ -143,7 +140,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Số vé đặt</label>
+											<label style="margin-left:10px">Số vé đặt</label>
 										</td>
 										<td>
 											<label>${sessionScope.sovedat}</label>
@@ -151,7 +148,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Ngày khởi hành</label>
+											<label style="margin-left:10px">Ngày khởi hành</label>
 										</td>
 										<td>
 											<label>${sessionScope.ngaydi}</label>
@@ -160,7 +157,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Nơi đón</label>
+											<label style="margin-left:10px">Nơi đón</label>
 										</td>
 										<td>
 											<label>${sessionScope.noidon}</label>
@@ -168,7 +165,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Thời gian đón dự kiến</label>
+											<label style="margin-left:10px">Thời gian đón dự kiến</label>
 										</td>
 										<td>
 											<label>${sessionScope.thoigiandi}</label>
@@ -176,7 +173,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Nơi Trả</label>
+											<label style="margin-left:10px">Nơi Trả</label>
 										</td>
 										<td>
 											<label>${sessionScope.noitra}</label>
@@ -184,7 +181,7 @@
 									</tr>
 									<tr>
 										<td>
-											<label>Thời gian trả dự kiến</label>
+											<label style="margin-left:10px">Thời gian trả dự kiến</label>
 										</td>
 										<td>
 											<label>${sessionScope.thoigianden}</label>
@@ -192,16 +189,19 @@
 									</tr>
 									<tr style="border-bottom:2px solid blue;">
 										<td>
-											<label>Tổng tiền vé</label>
+											<label style="margin-left:10px">Tổng tiền vé</label>
 										</td>
 										<td>
-											<label>${sessionScope.tongtien} VNĐ</label>
+											<label style="margin-left:10px">${sessionScope.tongtien} VNĐ</label>
 										</td>
 									</tr>
-									</form:form>
 									<tr>
 										<td colspan="2">
-											<div><button style="width:100%">ĐỒNG Ý ĐẶT VÉ</button></div>
+											<div>
+												<button  
+													style="width:100%;font-family:sans-serif; ">ĐỒNG Ý ĐẶT VÉ
+												</button>
+											</div>
 										</td>
 									</tr>
 								</table>

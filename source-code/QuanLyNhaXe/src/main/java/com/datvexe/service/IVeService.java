@@ -6,6 +6,8 @@ public interface IVeService {
 
 	VeDTO save(VeDTO dto,Long idLichTrinh);
 
-	Long getTotalItem(); 
+	Long getTotalItem();
+	
+	int getTongVeDat(Long idLichTrinh);
 	
 }
