@@ -9,11 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.converter.LichTrinhConverter;
 import com.datvexe.dto.LichTrinhDTO;
+import com.datvexe.dto.XeDTO;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.TuyenXe;
 import com.datvexe.entity.Xe;
 import com.datvexe.repository.LichTrinhRepository;
 import com.datvexe.repository.TuyenXeRepository;
+import com.datvexe.repository.VeRepository;
 import com.datvexe.repository.XeRepository;
 import com.datvexe.service.ILichTrinhService;
 
@@ -24,8 +26,12 @@ public class LichTrinhService implements ILichTrinhService {
 	private LichTrinhRepository LichTrinhRepository;
 	@Autowired
 	private LichTrinhConverter lichTrinhConverter;
-	@Autowired
+	@Autowired 
 	private XeRepository xeRepository;
+	@Autowired
+	private VeRepository veRepository;
+	@Autowired 
+	private XeService xeService;
 
 	// Nơi lấy danh sách lịch trình chuyến đi
 	@Override
@@ -106,6 +112,9 @@ public class LichTrinhService implements ILichTrinhService {
 			// nếu thêm mới hoàn toàn
 			lichTrinhEntity = new LichTrinhConverter().toEntity(dto);
 			lichTrinhEntity.setBienSoXe(biensoxe);
+			XeDTO xedto = new XeDTO();
+			xedto = xeService.findById(dto.getBienSoXe());
+			lichTrinhEntity.setGheTrong(xedto.getTongGhe());
 		}
 		return lichTrinhConverter.toDTO(LichTrinhRepository.save(lichTrinhEntity));
 	}

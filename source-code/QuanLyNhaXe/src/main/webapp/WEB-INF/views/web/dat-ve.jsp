@@ -22,88 +22,63 @@
 						<div class="row">
 							<div class="col-lg align-items-end">
 								<div class="form-group">
-									<div>
-										<table style="width: 100%">
-
-											<tr style="text-align: center; height: 50px;">
+									<div style="float: left;">
+										<table style="width: 145%;">
+											<tr
+												style="text-align: center; height: 50px; border-bottom: 1px solid blue;">
 												<td colspan="3"><div>THÔNG TIN CHUYẾN ĐI</div></td>
-												<td><div>THÔNG TIN HÀNH KHÁCH</div></td>
+											</tr>
+											<tr>
+												<td>
+													<div>Điểm đi: ${sessionScope.diemdi}</div>
+												</td>
+												<td>
+													<div>Điểm đến: ${sessionScope.diemden}</div>
+												</td>
+												<td>
+													<div>Đơn giá vé: ${sessionScope.dongia} VNĐ</div>
+												</td>
 											</tr>
 
-											<tr>
-												<td>
-													<div>Điểm đi</div>
-													<div>${sessionScope.diemdi}</div>
-												</td>
-												<td>
-													<div>Điểm đến</div>
-													<div>${sessionScope.diemden}</div>
-												</td>
-
-												<td>
-													<div>Đơn giá vé</div>
-													<div>${sessionScope.dongia}VNĐ</div>
-												</td>
-												<td rowspan="2">
-
-													<div>
-														<label>Họ tên khách hàng * (Bắt buộc)</label>
-													</div>
-													<div>
-														<input class="w3-input w3-border w3-round" name="hoten" type="text" style="width: 80%;" placeholder=" ví dụ: Nguyễn Thị Hiền" required />
-													</div>
-													
-													<div>
-														<label>Số điện thoại * (Bắt buộc)</label>
-													</div>
-													<div>
-														<input name="phone" type="number" style="width: 80%;" maxlength="10" placeholder=" ví dụ : 0964140530" required>
-													</div>
-
-												</td>
-											<tr>
 											<tr>
 												<td>
 													<div>
 														<label>Chọn nơi đón</label>
 													</div>
-													<div>
-														<form:select path="noiDon" id="noiDon" style="width:80%">
-															<form:option value="null" label="Chọn nơi đón" />
+													<div style="width: height:100px">
+														<form:select path="noiDon" id="noiDon"
+															style="width:80%;height:50px;font-size:16px;text-align:center">
+															<form:option style="text-align:center" value="null"
+																label="Chọn nơi đón" />
 															<form:options items="${noiDon}" />
 														</form:select>
 													</div>
 												</td>
-
 												<td>
 													<div>
 														<label>Chọn nơi trả</label>
 													</div>
 													<div>
-														<form:select path="noiTra" id="noiTra" style="width:80%">
+														<form:select path="noiTra" id="noiTra"
+															style="width:80%;height:50px;font-size:16px;text-align:center">
 															<form:option value="null" label="Chọn nơi trả" />
 															<form:options items="${noiTra}" />
 														</form:select>
 													</div>
-												</td>
-
 												<td>
 													<div>Chọn số vé cần đặt</div>
 													<div>
-														<form:input path="soVeDat" type="number" 
-															style="width:100px;text-align:center;" required="required" /> 
+														<form:input path="soVeDat" type="number"
+															style="width:50%;height:50px;font-size:16px;text-align:center;"
+															required="required" />
+
 													</div>
 												</td>
-												<td >
-													<div>
-														<label>Email</label>
-													</div>
-													<div >
-														<input name="email" style="width: 80%;" type="email" placeholder=" ví dụ: nhh01629421608">
-													</div>
+											</tr>
+											<tr>
+												<td colspan="3">
+													<div>&nbsp;</div>
 												</td>
-
-
 											</tr>
 											<tr>
 												<td colspan="3">
@@ -117,17 +92,77 @@
 														<b>Mọi thắc mắc liên hệ:</b> 0964140530
 													</div>
 												</td>
-												<td>
-													<button type="submit" style="width: 80%; margin-top: 20px">TIẾP
-														THEO</button>
-												<td>
 											</tr>
-
 										</table>
 									</div>
 								</div>
+								<!-- Giao diện thông tin khách hàng -->
+								<div class="form-group">
+									<div style="float: right;margin-top:5px ">
+										<table>
+											<tr style="margin-bottom: 10px; border-bottom: 1px solid blue;">
+												<td style="text-align: center;">
+													<div>THÔNG TIN HÀNH KHÁCH</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div>
+														<label>Họ tên khách hàng * (Bắt buộc)</label>
+													</div>
+													<div>
+														<input class="w3-input w3-border w3-round" name="hoten"
+															type="text" style="width: 100%;"
+															placeholder=" ví dụ: Nguyễn Thị Hiền" required
+															pattern="[^0-9]{1,30}"
+															title="Họ tên không chứa ký tự đặc biệt và chữ số. Ví dụ: Nguyễn Thị Hiền" />
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div>
+														<label>Số điện thoại * (Bắt buộc)</label>
+													</div>
+													<div>
+														<input name="phone" type="text" style="width: 100%;"
+															pattern="[0-9]{10}" placeholder=" ví dụ : 0964140530"
+															required
+															title="Số điện thoại chỉ chứa dãy số 10 chữ số Ví dụ: 0964140530">
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div>
+														<label>Email</label>
+													</div>
+													<div>
+														<input name="email" style="width: 100%;" type="email"
+															placeholder=" ví dụ: nhh01629421608"
+															pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div>
+														<Button
+															class="w3-button w3-orange w3-border w3-border-red w3-round-large"
+															type="submit"
+															style="width: 100%; margin-top: 10px; background-color: blue black; font-family: Helvetica">
+															<b>XÁC NHẬN</b>
+														</Button>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+
 							</div>
 						</div>
+
 					</form:form>
 				</div>
 			</div>

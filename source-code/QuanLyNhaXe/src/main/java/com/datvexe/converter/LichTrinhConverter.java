@@ -40,7 +40,7 @@ public class LichTrinhConverter {
 		result.setThoiGian(dto.getThoiGian());
 		result.setDonGia(dto.getDonGia());
 		result.setThoiGianDen(dto.getThoiGianDen());
-		result.setGheTrong(dto.getGheTrong());
+//		result.setGheTrong(dto.getGheTrong());
 		return result;
 	}
 	

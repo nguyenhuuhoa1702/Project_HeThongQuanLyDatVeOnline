@@ -1,5 +1,6 @@
 package com.datvexe.service;
 
+import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
 
 public interface IVeService {
@@ -8,6 +9,6 @@ public interface IVeService {
 
 	Long getTotalItem();
 	
-	int getTongVeDat(Long idLichTrinh);
+	int getTongVeDat(LichTrinhDTO dto);
 	
 }

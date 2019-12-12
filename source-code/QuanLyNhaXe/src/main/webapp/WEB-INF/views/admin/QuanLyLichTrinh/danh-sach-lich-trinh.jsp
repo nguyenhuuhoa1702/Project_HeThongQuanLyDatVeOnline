@@ -42,43 +42,54 @@
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTableLichTrinh"
 								width="100%" cellspacing="0" 
-								style="hover{
-    									background-color:#ddd;
-   									 		cursor:pointer;">
+								style= "cursor: pointer;
+										 
+										text-align: center;">
 								<thead>
 									<tr>
-										<th style="display:none"><input type="checkbox" id="checkAll"></th>
-										<th style="width:10px">ID</th>
-										<th>Biển Số Xe </th>
-										<th>Điểm đi</th>
-										<th>Điểm đến</th>
-										<th>Ngày Đi</th>
-										<th>Thời gian đi</th>
-										<th>Thời gian đến</th>
-										<th>Đơn giá vé</th>
+										<th style="display: none"><input type="checkbox"
+											id="checkAll"></th>
+										<th style="width: 10px;vertical-align: middle;">ID</th>
+										<th style="width: 120px;vertical-align: middle;">Biển Số Xe</th>	
+										<th style="width: 100px;vertical-align: middle;">Điểm đi</th>
+										<th style="width: 100px;vertical-align: middle;"> Thời gian đi</th>						
+										<th style="width: 100px;vertical-align: middle;">Điểm đến</th>
+										<th style="width: 100px;vertical-align: middle;">Thời gian đến</th>
+										<th style="width: 100px;vertical-align: middle;">Ngày Đi</th>
+										<th style="width: 50px;vertical-align: middle;">Đơn giá vé</th>
+										<th style="width: 10px;vertical-align: middle;">Ghế Trống</th>
 										<th>Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
-											<td style="display:none"><input type="checkbox" id="checkbox_${item.idLichTrinh}"
+											<td style="display: none"><input type="checkbox"
+												id="checkbox_${item.idLichTrinh}"
 												value="${item.idLichTrinh}"></td>
-											<td style="width:10px">${item.idLichTrinh}</td>
-											<td>${item.bienSoXe}</td>
-											<td>${item.diemDi}</td>
-											<td>${item.diemDen}</td>
-											<td>${item.ngayDi}</td>
-											<td>${item.thoiGian}</td>
-											<td>${item.thoiGianDen}</td>
-											<td>${item.donGia}</td>
-											<td>
-												<Button onclick="warningBeforeDelete()" type="button" class="btn btn-primary btn-block">Xóa</Button>
-
-												<c:url var="updateURL"
-													value="/admin/quan-ly-lich-trinh/chinh-sua">
-													<c:param name="id" value="${item.idLichTrinh}"></c:param>
-												</c:url> <a href='${updateURL}' class="btn btn-primary btn-block">Cập nhật</a>
+											<td style="width: 10px;vertical-align: middle;">${item.idLichTrinh}</td>
+											<td style="vertical-align: middle;">${item.bienSoXe}</td>
+											<td style="vertical-align: middle;">${item.diemDi}</td>
+											<td style="vertical-align: middle;">${item.thoiGian}</td>
+											<td style="vertical-align: middle;">${item.diemDen}</td>	
+											<td style="vertical-align: middle;">${item.thoiGianDen}</td>
+											<td style="vertical-align: middle;">${item.ngayDi}</td>
+											<td style="vertical-align: middle;">${item.donGia}</td>
+											<td style="vertical-align: middle;">${item.gheTrong}</td>
+											<td style="width: 175px;">
+												<div style="float: left;">
+												<Button onclick="warningBeforeDelete()" type="button"
+													class="btn btn-primary btn-block">Xóa</Button> 
+												</div>
+												<div style="float: left;"> &nbsp;  </div>
+												<div style="float: left;">	
+													<c:url var="updateURL" value="/admin/quan-ly-lich-trinh/chinh-sua">
+														<c:param name="id" value="${item.idLichTrinh}"></c:param>
+													</c:url>
+													<a href='${updateURL}' class="btn btn-primary btn-block">
+														Cập nhật
+													</a>
+												</div>
 											</td>
 										</tr>
 									</c:forEach>
@@ -149,19 +160,19 @@
 					});
 		}
 		function deleteData(data) {
-	        $.ajax({
-	            url: '${newAPI}',
-	            type: 'DELETE',
-	            contentType: 'application/json',
-	            data: JSON.stringify(data),
-	            success: function (result) {
-	                window.location.href = "${newURL}?message=delete_success";
-	            },
-	            error: function (error) {
-	            	window.location.href = "${newURL}?message=error_system";
-	            }
-	        });
-	    }
+			$.ajax({
+				url : '${newAPI}',
+				type : 'DELETE',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				success : function(result) {
+					window.location.href = "${newURL}?message=delete_success";
+				},
+				error : function(error) {
+					window.location.href = "${newURL}?message=error_system";
+				}
+			});
+		}
 	</script>
 
 

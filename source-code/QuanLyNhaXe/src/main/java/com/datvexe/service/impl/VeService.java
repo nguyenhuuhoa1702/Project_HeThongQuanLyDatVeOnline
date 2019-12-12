@@ -19,8 +19,6 @@ import com.datvexe.service.IVeService;
 public class VeService implements IVeService {
 	
 	@Autowired
-	private IVeService veService;
-	@Autowired
 	private VeConverter veConverter;
 	@Autowired
 	private VeRepository veRepository;
@@ -43,9 +41,10 @@ public class VeService implements IVeService {
 	}
 
 	@Override
-	public int getTongVeDat(Long idLichTrinh) {
+	public int getTongVeDat(LichTrinhDTO dto) {
+		LichTrinh idLichTrinh = lichTrinhRepository.findOne(dto.getIdLichTrinh());
 		List<Ve> entity = veRepository.findByIdLichTrinh(idLichTrinh);
-		int Tong = 0;
+		int Tong = 1;
 		for (Ve item : entity) {
 			Tong = item.getSoVeDat() + Tong;
 		}

@@ -81,6 +81,7 @@ public class DatVeController {
 		dtoKH.setTenKhachHang(user);
 		dtoKH.setSoDienThoai(phone);
 		dtoKH.setEmail(email);
+		
 		LichTrinhDTO ltdto = (LichTrinhDTO) request.getSession().getAttribute("modelLichTrinh");
 		
 		if (vedto.getNoiDon().equals("null")) {
@@ -101,17 +102,18 @@ public class DatVeController {
 			return "redirect:/book?idLichTrinh=" + ltdto.getIdLichTrinh();
 		}
 		
-		// test
+		// test ---- tìm ghế trống không dựa vào cột gheTrong
 		
-		int gheTrong = 0;
-		XeDTO xedto = new XeDTO();
-		System.out.println(ltdto.getBienSoXe());
-		xedto = xeService.findById(ltdto.getBienSoXe());
-		System.out.println(xedto.getTongGhe());
-		System.out.println(ltdto.getIdLichTrinh());
-	//	System.out.println(veService.getTongVeDat(ltdto.getIdLichTrinh()));			
-
-		// ket thuc test
+//		int gheTrong = 0;
+//		XeDTO xedto = new XeDTO();
+//		System.out.println(ltdto.getBienSoXe());
+//		xedto = xeService.findById(ltdto.getBienSoXe());
+//		System.out.println(xedto.getTongGhe());
+//		System.out.println(ltdto.getIdLichTrinh());
+//		System.out.println(xedto.getTongGhe()-veService.getTongVeDat(ltdto));		
+//		gheTrong = xedto.getTongGhe()-veService.getTongVeDat(ltdto);
+		
+		// ket thuc test ------ tìm ghế trống không dựa vào cột gheTrong
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("datave", vedto);
