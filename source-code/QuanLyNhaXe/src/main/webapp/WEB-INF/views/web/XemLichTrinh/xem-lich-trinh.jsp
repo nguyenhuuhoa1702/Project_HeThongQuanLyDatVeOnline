@@ -82,7 +82,7 @@
 									</div>
 								</form:form>
 								<div class="form-group">
-									<table style="vertical-align: middle; text-align: center;" class="table">
+									<table style="vertical-align: middle; text-align: center;" class="table table-hover">
 										<thead>
 											<tr class="w3-blue">
 												<th style="width: 150px;">Biển số xe</th>

@@ -67,17 +67,6 @@
 								</div>
 							</div>
 						</div>
-
-						<div>------------------------------------------------------------</div>
-						
-<p><input type="checkbox" id="c1" value="" checked="checked"><label for="c1"><span></span>Australia</label></p>
-<p><input type="checkbox" id="c2" value=""><label for="c2"><span></span>Belgium</label></p>
-<p><input type="checkbox" id="c3" value=""><label for="c3"><span></span>Canada</label></p>
-						
-							
-
-						
-						<ul id="pagination-demo" class="pagination-lg"></ul>
 					</form>
 
 

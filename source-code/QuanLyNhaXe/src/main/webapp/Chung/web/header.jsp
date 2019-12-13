@@ -15,9 +15,12 @@ pageEncoding="UTF-8"%>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a href="index.html"
-					class="nav-link">Trang chu </a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Thong tin</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Lien He </a></li>
+					class="nav-link">Trang chủ </a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">Vé Ngày Tết</a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">Quản lý vé</a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ </a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">Đăng nhập</a></li>
 			</ul>
 		</div>
 	</div>
