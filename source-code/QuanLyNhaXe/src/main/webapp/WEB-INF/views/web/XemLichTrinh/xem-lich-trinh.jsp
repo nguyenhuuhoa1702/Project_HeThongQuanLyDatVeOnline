@@ -33,11 +33,11 @@
 									<div class="row">
 										<div class="col-lg align-items-end" style="width: 230px">
 											<div class="form-group" style="width: 230px">
-												<div class="form-group" style="width: 230px">
+												<div class="form-group" style="width: 230px" >
 													<label for="tuyenXeId">Chọn điểm đi </label>
 
-													<form:select path="diemDi" id="diemdi"
-														style="text-align:center">
+													<form:select path="diemDi" id="diemdi" 
+														style="text-align:center;">
 														<form:option value="null" label="Chọn nơi đi" />
 														<form:options items="${tuyenXe}" />
 													</form:select>

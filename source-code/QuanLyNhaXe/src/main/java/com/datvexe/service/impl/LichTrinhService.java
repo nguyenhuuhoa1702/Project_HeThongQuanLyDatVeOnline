@@ -1,5 +1,6 @@
 package com.datvexe.service.impl;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +27,11 @@ public class LichTrinhService implements ILichTrinhService {
 	private LichTrinhRepository LichTrinhRepository;
 	@Autowired
 	private LichTrinhConverter lichTrinhConverter;
-	@Autowired 
+	@Autowired
 	private XeRepository xeRepository;
 	@Autowired
 	private VeRepository veRepository;
-	@Autowired 
+	@Autowired
 	private XeService xeService;
 
 	// Nơi lấy danh sách lịch trình chuyến đi
@@ -53,48 +54,62 @@ public class LichTrinhService implements ILichTrinhService {
 		LichTrinh entity = LichTrinhRepository.findOne(id);
 		return lichTrinhConverter.toDTO(entity);
 	}
-	
+
 	// Kiểm tra dữ liệu 2 ô điểm đi và điểm đến có bị trùng hay không ?
 	@Override
 	@Transactional
 	public Boolean CheckDataDiemDiVaDiemDen(LichTrinhDTO dto) {
-		if(!dto.getDiemDen().equals(dto.getDiemDi()))
-		{
+		if (!dto.getDiemDen().equals(dto.getDiemDi())) {
 			return true;
 		}
-	return false;
-	}
-	
-	@Override
-	public Boolean CheckDataXe(LichTrinhDTO dto)
-	{
-		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
-		LichTrinh check = LichTrinhRepository.BienSoXe(biensoxe);
-		if(check == null)
-			return true;
 		return false;
 	}
-	
+
+	@SuppressWarnings("null")
+	@Override
+	public Boolean CheckDataXe(LichTrinhDTO dto) {
+		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
+//		LichTrinh check = LichTrinhRepository.BienSoXe(biensoxe);
+		LichTrinh check = LichTrinhRepository.BienSoXe2(biensoxe,dto.getNgayDi());
+//		if(check == null){
+//			return true;
+//		}
+		
+//		if (check == null)	
+				//return true;
+		System.out.println(check.getThoiGianDen() + "--" + dto.getThoiGian());
+		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
+		return false;	
+	}
+
 	@Override
 	@Transactional
-	public Boolean CheckNull(LichTrinhDTO dto)
-	{
-		if(!dto.getDiemDen().equals("") && !dto.getDiemDi().equals("") && !dto.getBienSoXe().equals("null"))		
+	public Boolean CheckNull(LichTrinhDTO dto) {
+		if (!dto.getDiemDen().equals("") && !dto.getDiemDi().equals("") && !dto.getBienSoXe().equals("null"))
 			return true;
 		return false;
 	}
 	
 	@Override
-	public Boolean CheckDonGia(LichTrinhDTO dto)
-	{
+	public Boolean CheckDonGia(LichTrinhDTO dto) {
 		int check = dto.getDonGia();
-		if(check > 1000 && (check%1000 == 0))
+		if (check > 1000 && (check % 1000 == 0))
 			return true;
 		return false;
 	}
 	
-	
+	@Override
+	public Boolean CheckThoiGian(LichTrinhDTO dto) {
+		Time t1 = dto.getThoiGian();
+		Time t2 = dto.getThoiGianDen();
+		if(t2.after(t1)) {
+			return true;
+		}
+		return false;
+	}
 
+	
+	
 	@Override
 	// Khi thao tác dữ liệu, khai báo @Transactional để quản lý commit và rollback
 	@Transactional
@@ -128,16 +143,22 @@ public class LichTrinhService implements ILichTrinhService {
 	}
 
 	// ---------------------------------------- Xử lý bên web ------------------------------------------------
-	
+
 	@Override
 	@Transactional
 	public List<LichTrinhDTO> DanhSachKetQuaTimKiem(LichTrinhDTO dto) {
 		List<LichTrinhDTO> models = new ArrayList<>();
-		List<LichTrinh> entity = LichTrinhRepository.findByDiemDiAndDiemDenAndNgayDi(dto.getDiemDi(), dto.getDiemDen(),
-				dto.getNgayDi());
-		for (LichTrinh item : entity) {
-			LichTrinhDTO lichTrinhDTO = lichTrinhConverter.toDTO(item);
-			models.add(lichTrinhDTO);
+		// Xử lý date - Nếu quá ngày hiện tại, hệ thống sẽ không hiển thị
+		long millis = System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis);
+
+		if (dto.getNgayDi().after(date)) {
+			List<LichTrinh> entity = LichTrinhRepository.findByDiemDiAndDiemDenAndNgayDi(dto.getDiemDi(),
+					dto.getDiemDen(), dto.getNgayDi());
+			for (LichTrinh item : entity) {
+				LichTrinhDTO lichTrinhDTO = lichTrinhConverter.toDTO(item);
+				models.add(lichTrinhDTO);
+			}
 		}
 		return models;
 	}
@@ -150,10 +171,12 @@ public class LichTrinhService implements ILichTrinhService {
 			// Nếu là cập nhật sẽ lấy cái cũ lên
 			LichTrinh oldlichtrinh = LichTrinhRepository.findOne(dto.getIdLichTrinh());
 			oldlichtrinh.setBienSoXe(biensoxe);
-			oldlichtrinh.setGheTrong(oldlichtrinh.getGheTrong()-gheDat);
+			oldlichtrinh.setGheTrong(oldlichtrinh.getGheTrong() - gheDat);
 			// Chuyển cái dữ liệu vừa thêm vào , chuyển sang dữ liệu mới
 			lichTrinhEntity = new LichTrinhConverter().toEntity(oldlichtrinh, dto);
 		}
 		return lichTrinhConverter.toDTO(LichTrinhRepository.save(lichTrinhEntity));
 	}
+
+
 }

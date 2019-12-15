@@ -187,7 +187,7 @@
 										'Nơi đi và đến không được trùng');
 							}
 							if (xhr.status == 401) {
-								$('#notiError').html(' Xe này đã được sử dụng');
+								$('#notiError').html(' Xe này đang hoạt động');
 							}
 							if (xhr.status == 423)
 								$('#notiError').html(
@@ -195,6 +195,12 @@
 							if (xhr.status == 509)
 								$('#notiError').html(
 										'Vui lòng nhập đơn giá vé hợp lệ !!!');
+							if (xhr.status == 400)
+								$('#notiError').html(
+									'Vui lòng nhập đầy đủ thông tin !!!');
+							if (xhr.status == 208)
+								$('#notiError').html(
+									'Thời gian đi không thể trễ hơn thời gian đến');
 							document.getElementById("notiError").style.display = 'block'
 							console.log(textStatus);
 						}

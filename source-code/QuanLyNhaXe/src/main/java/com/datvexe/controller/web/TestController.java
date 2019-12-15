@@ -12,6 +12,9 @@ public class TestController {
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public ModelAndView homePage(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView("web/test");
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date=new java.sql.Date(millis);
+		System.out.println(date);
 		return mav;
 	}
 	@RequestMapping(value = "/test-2", method = RequestMethod.POST)

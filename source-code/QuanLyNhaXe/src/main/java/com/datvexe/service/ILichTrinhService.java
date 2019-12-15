@@ -29,6 +29,7 @@ public interface ILichTrinhService {
 	void delete(long[] ids);
 
 	Boolean CheckDonGia(LichTrinhDTO dto);
+	Boolean CheckThoiGian(LichTrinhDTO dto);
 	
 	List<LichTrinhDTO> DanhSachKetQuaTimKiem(LichTrinhDTO dto);
 }

@@ -15,13 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
-import com.datvexe.dto.XeDTO;
 import com.datvexe.service.IKhachHangService;
 import com.datvexe.service.ILichTrinhService;
 import com.datvexe.service.IVeService;
 import com.datvexe.service.IViTriDonTra;
 import com.datvexe.service.IXeService;
-import com.datvexe.service.impl.XeService;
 import com.datvexe.util.SessionUtil;
 
 @Controller(value = "datveWebController")
@@ -62,17 +60,13 @@ public class DatVeController {
 
 		if (request.getParameter("message") != null) {
 			mav.addObject("message", "Quý khách vui lòng chọn nơi đón");
-//			mav = new ModelAndView("redirect:/book?idLichTrinh="+model.getIdLichTrinh());
 		} else if (request.getParameter("message-2") != null) {
 			mav.addObject("message", "Quý khách vui lòng chọn nơi trả");
-//			mav = new ModelAndView("redirect:/book?idLichTrinh="+model.getIdLichTrinh());
 		} else if (request.getParameter("message-3") != null) {
 			mav.addObject("message", "Quý khách vui lòng chọn ít nhất 1 vé ");
-//			mav = new ModelAndView("redirect:/book?idLichTrinh="+model.getIdLichTrinh());
 		} else if (request.getParameter("message-4") != null) {
 			mav.addObject("message",
 					"Chỉ còn có " + model.getGheTrong() + " ghế trống. Xin quý khách vui lòng chọn lại");
-//			mav = new ModelAndView("redirect:/book?idLichTrinh="+model.getIdLichTrinh());
 		}
 //		session.setAttribute("message", model);
 		return mav;
@@ -163,8 +157,8 @@ public class DatVeController {
 		String code = request.getParameter("code");
 		if(check == null)
 			return "redirect:/thanh-toan?messageError=null-check";
-		if(request.getParameter("code") != null)
-			if(code.equals("")){
+		if(request.getParameter("code") != null && request.getParameter("code-2") != null)
+			if(code.equals("") && request.getParameter("code-2").equals("")){
 				return "redirect:/thanh-toan?messageError=null-code";
 //				ModelAndView mav = new ModelAndView("web/thanh-toan");
 //				model.addAttribute("alert", "danger");
@@ -173,7 +167,7 @@ public class DatVeController {
 			}
 		if (request.getParameter("radio") != null) {
 			if (request.getParameter("radio").equals("on")) {
-				if(code.equals("1234")){
+				if(code.equals("1234") || request.getParameter("code-2").equals("1234")){
 					veService.save(vedto_se, ltdto.getIdLichTrinh());
 					khachHangService.save(khdto, veService.getTotalItem());
 					lichTrinhService.CapNhatGheTrong(ltdto, vedto_se.getSoVeDat());

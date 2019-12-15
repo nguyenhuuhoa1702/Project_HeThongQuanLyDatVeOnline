@@ -58,7 +58,7 @@
 										<td></td>
 										<td>
 											<div id="notiError-2" style="display: none;">
-												<input type="text" placeholder="Nhập mã thanh toán" name="code"
+												<input type="text" placeholder="Nhập mã thanh toán" name="code-2"
 													style="text-align: center;" />
 
 											</div>

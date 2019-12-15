@@ -22,13 +22,15 @@ public class NewAPI {
 	public ResponseEntity<LichTrinhDTO> createNew(@RequestBody LichTrinhDTO dto) {
 //		System.out.println(dto.getThoiGian());
 		if(lichTrinh.CheckNull(dto) == false)
-			return new ResponseEntity<>( HttpStatus.LOCKED);
+			return new ResponseEntity<>( HttpStatus.BAD_REQUEST);
 		if(lichTrinh.CheckDataDiemDiVaDiemDen(dto) == false)
 			return new ResponseEntity<>( HttpStatus.FORBIDDEN);
 		if(lichTrinh.CheckDataXe(dto) == false)
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		if(lichTrinh.CheckDonGia(dto) == false)
 			return new ResponseEntity<>(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED);
+		if(lichTrinh.CheckThoiGian(dto) == false)
+			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
 //		System.out.println(dto.getBienSoXe()+"---"+lichTrinh.CheckDataXe(dto).toString());
 		LichTrinhDTO ltdto = lichTrinh.save(dto);
 		return new ResponseEntity<>(ltdto, HttpStatus.OK);

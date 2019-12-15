@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 	id="ftco-navbar">
 	<div class="container">
-		<a class="navbar-brand" href="index.html">DAT VE XE <span>ONLINE</span></a>
+		<a class="navbar-brand" href="../QuanLyNhaXe/trang-chu">DAT VE XE <span>ONLINE</span></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -14,13 +14,13 @@ pageEncoding="UTF-8"%>
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="index.html"
+				<li class="nav-item active"><a href="../QuanLyNhaXe/trang-chu"
 					class="nav-link">Trang chủ </a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Vé Ngày Tết</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Quản lý vé</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ </a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Đăng nhập</a></li>
+				<li class="nav-item"><a href="" class="nav-link">Vé Ngày Tết</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Quản lý vé</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Liên Hệ </a></li>
+				<li class="nav-item"><a href="../QuanLyNhaXe/dang-nhap" class="nav-link">Đăng nhập</a></li>
 			</ul>
 		</div>
 	</div>

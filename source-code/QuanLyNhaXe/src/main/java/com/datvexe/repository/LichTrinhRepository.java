@@ -10,10 +10,18 @@ import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.Xe;
 
 public interface LichTrinhRepository extends JpaRepository<LichTrinh, Long> {
-	 @Query("select u from LichTrinh u where u.BienSoXe = ?1")
-	 LichTrinh BienSoXe(Xe biensoxe);
+	@Query("select u from LichTrinh u where u.BienSoXe = ?1")
+	LichTrinh BienSoXe(Xe biensoxe);
+	
+	@Query("select u from LichTrinh u where u.BienSoXe = ?1 and u.ngayDi = ?2")
+	LichTrinh BienSoXe2(Xe biensoxe,Date ngayDi);
+	
+//	@Query("select u from LichTrinh u where u.BienSoXe = ?1")
+//	LichTrinh findByBienSoXe(Xe biensoxe);
+
+//	List<LichTrinh> findByNgayDi(Date ngayDi);
 //	 @Query("select u from LichTrinh u where u.DiemDi =?1 and u.DiemDen =?2 and u.ngayDi=?3")
 //	 List<LichTrinh> queryTimKiem(String diemdi,String diemden,Date ngay);
-	 
-	 List<LichTrinh> findByDiemDiAndDiemDenAndNgayDi(String DiemDi,String DiemDen,Date ngayDi);
+
+	List<LichTrinh> findByDiemDiAndDiemDenAndNgayDi(String DiemDi, String DiemDen, Date ngayDi);
 }
