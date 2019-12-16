@@ -11,4 +11,5 @@ public interface IVeService {
 	
 	int getTongVeDat(LichTrinhDTO dto);
 	
+	VeDTO findAllcheck(Long idVe);
 }

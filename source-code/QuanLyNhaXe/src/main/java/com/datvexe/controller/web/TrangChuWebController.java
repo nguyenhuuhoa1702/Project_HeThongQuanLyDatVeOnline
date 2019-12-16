@@ -64,7 +64,7 @@ public class TrangChuWebController {
 		return new ModelAndView("redirect:/dang-nhap?accessDenied");
 	}
 
-	// ----------------------------DUY---------------------------------------------------------
+	// ----------------------------WEB---------------------------------------------------------
 	@RequestMapping(value = "/xu-ly-tim-kiem", method = RequestMethod.GET)
 	public ModelAndView data(@ModelAttribute("model") LichTrinhDTO model,BindingResult bindingResult,
 			HttpServletRequest req) {

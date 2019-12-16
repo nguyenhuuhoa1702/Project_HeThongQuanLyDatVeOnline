@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.datvexe.converter.VeConverter;
 import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
@@ -36,6 +37,8 @@ public class DatVeController {
 	private SessionUtil sessionUtil;
 	@Autowired
 	private IXeService xeService;
+	@Autowired
+	private VeConverter veConverter;
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public ModelAndView data(@RequestParam(value = "idLichTrinh", required = false) Long id,
@@ -157,8 +160,12 @@ public class DatVeController {
 		String code = request.getParameter("code");
 		if(check == null)
 			return "redirect:/thanh-toan?messageError=null-check";
-		if(request.getParameter("code") != null && request.getParameter("code-2") != null)
-			if(code.equals("") && request.getParameter("code-2").equals("")){
+		if(request.getParameter("code") != null && request.getParameter("code-2") != null
+				&& request.getParameter("code-3") != null && request.getParameter("code-4") != null
+				&& request.getParameter("code-5") != null)
+			if(code.equals("") && request.getParameter("code-2").equals("") 
+					&& request.getParameter("code-3").equals("") && request.getParameter("code-5").equals("")
+					&& request.getParameter("code-4").equals("")){
 				return "redirect:/thanh-toan?messageError=null-code";
 //				ModelAndView mav = new ModelAndView("web/thanh-toan");
 //				model.addAttribute("alert", "danger");
@@ -167,9 +174,12 @@ public class DatVeController {
 			}
 		if (request.getParameter("radio") != null) {
 			if (request.getParameter("radio").equals("on")) {
-				if(code.equals("1234") || request.getParameter("code-2").equals("1234")){
+				if(code.equals("1234") || request.getParameter("code-2").equals("1234")
+						|| request.getParameter("code-3").equals("1234") || request.getParameter("code-4").equals("1234")
+						|| request.getParameter("code-5").equals("1234")){
 					veService.save(vedto_se, ltdto.getIdLichTrinh());
 					khachHangService.save(khdto, veService.getTotalItem());
+//					khachHangService.save(khdto, vedto_se.getIdVe());
 					lichTrinhService.CapNhatGheTrong(ltdto, vedto_se.getSoVeDat());
 					HttpSession session = request.getSession();
 					session.setAttribute("idVe", veService.getTotalItem());
@@ -188,6 +198,24 @@ public class DatVeController {
 		session.removeAttribute("datave");
 		session.removeAttribute("dtokh");
 		session.removeAttribute("modelLichTrinh");
+		return mav;
+	}
+
+	@RequestMapping(value = "/xem-chi-tiet-ve", method = RequestMethod.GET)
+	public ModelAndView chitietvePage(HttpServletRequest request)
+	{
+		VeDTO model = new VeDTO();
+		KhachHangDTO dtoKH = new KhachHangDTO();
+		ModelAndView mav = new ModelAndView("web/xem-chi-tiet-ve");
+		if(request.getParameter("code") != null)
+		{
+			String code = request.getParameter("code");
+			model = veService.findAllcheck(Long.parseLong(code));
+			dtoKH = khachHangService.findAllcheck(model.getIdVe());
+		}
+		System.out.println(model.getNoiDon() + "noi tra" + model.getNoiTra());
+		mav.addObject("model", model);
+		mav.addObject("model2",dtoKH);
 		return mav;
 	}
 }

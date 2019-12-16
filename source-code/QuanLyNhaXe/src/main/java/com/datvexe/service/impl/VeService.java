@@ -1,5 +1,6 @@
 package com.datvexe.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,12 @@ public class VeService implements IVeService {
 			Tong = item.getSoVeDat() + Tong;
 		}
 		return Tong;
+	}
+
+	@Override
+	public VeDTO findAllcheck(Long idVe) {
+		Ve models = veRepository.findOne(idVe);
+		VeDTO vedto = veConverter.toDTO(models);
+		return vedto;
 	}
 }

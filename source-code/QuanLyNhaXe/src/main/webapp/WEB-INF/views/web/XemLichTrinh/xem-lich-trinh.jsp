@@ -30,12 +30,12 @@
 									class="request-form ftco-animate"
 									style="margin-top: 100px; box-sizing: border-box;
 									">
+									
 									<div class="row">
 										<div class="col-lg align-items-end" style="width: 230px">
 											<div class="form-group" style="width: 230px">
 												<div class="form-group" style="width: 230px" >
 													<label for="tuyenXeId">Chọn điểm đi </label>
-
 													<form:select path="diemDi" id="diemdi" 
 														style="text-align:center;">
 														<form:option value="null" label="Chọn nơi đi" />
@@ -75,7 +75,7 @@
 										<div class="col-lg align-self-end">
 											<div class="form-group" style="width: 20px">
 												<Button class="w3-button w3-yellow w3-border"
-													style="margin-left: 100px" type="submit">TÌM VÉ XE
+													style="" type="submit">TÌM VÉ XE
 												</Button>
 											</div>
 										</div>

@@ -11,6 +11,7 @@ import com.datvexe.converter.KhachHangConverter;
 import com.datvexe.converter.LichTrinhConverter;
 import com.datvexe.converter.VeConverter;
 import com.datvexe.dto.KhachHangDTO;
+import com.datvexe.dto.VeDTO;
 import com.datvexe.entity.KhachHang;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.TuyenXe;
@@ -56,6 +57,13 @@ public class KhachHangService implements IKhachHangService {
 	@Override
 	public Long getTotalItem() {
 			return (Long) khachHangRepository.count();
+	}
+
+	@Override
+	public KhachHangDTO findAllcheck(Long idVe) {
+		KhachHang models = khachHangRepository.findAllcheck(idVe);
+		KhachHangDTO dto = khachHangConverter.toDTO(models);
+		return dto;
 	}
 
 }

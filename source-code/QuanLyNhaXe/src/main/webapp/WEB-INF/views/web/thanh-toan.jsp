@@ -75,7 +75,7 @@
 										<td></td>
 										<td>
 											<div id="notiError-3" style="display: none;">
-												<input type="text" placeholder="Nhập mã thanh toán" name="code"
+												<input type="text" placeholder="Nhập mã thanh toán" name="code-3"
 													style="text-align: center;" />
 
 											</div>
@@ -91,9 +91,8 @@
 										<td></td>
 										<td>
 											<div id="notiError-4" style="display: none;">
-												<input type="text" placeholder="Nhập mã thanh toán" name="code"
+												<input type="text" placeholder="Nhập mã thanh toán" name="code-4"
 													style="text-align: center;" />
-
 											</div>
 										</td>
 									</tr>
@@ -107,7 +106,7 @@
 										<td></td>
 										<td>
 											<div id="notiError-5" style="display: none;">
-												<input type="text" placeholder="Nhập mã thanh toán" name="code"
+												<input type="text" placeholder="Nhập mã thanh toán" name="code-5"
 													style="text-align: center;" />
 											
 											
@@ -143,7 +142,7 @@
 									<tr>
 										<td><label style="margin-left: 10px">Số điện
 												thoại</label></td>
-										<td><label>${sessionScope.phone}</label></td>
+										<td><label>0${sessionScope.phone}</label></td>
 									</tr>
 									<tr>
 										<td><label style="margin-left: 10px">Email</label></td>

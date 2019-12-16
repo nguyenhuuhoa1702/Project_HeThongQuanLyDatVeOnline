@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
 				<li class="nav-item active"><a href="../QuanLyNhaXe/trang-chu"
 					class="nav-link">Trang chủ </a></li>
 				<li class="nav-item"><a href="" class="nav-link">Vé Ngày Tết</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Quản lý vé</a></li>
+				<li class="nav-item"><a href="../QuanLyNhaXe/xem-chi-tiet-ve" class="nav-link">Quản lý vé</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Liên Hệ </a></li>
 				<li class="nav-item"><a href="../QuanLyNhaXe/dang-nhap" class="nav-link">Đăng nhập</a></li>
