@@ -141,7 +141,7 @@ public class DatVeController {
 			if (request.getParameter("messageError").equals("null-check")) {
 				return mav.addObject("message", "Quý khách vui lòng chọn phương thức thanh toán");
 			} else {
-				if(request.getParameter("messageError").equals("null-code"))
+				if (request.getParameter("messageError").equals("null-code"))
 					return mav.addObject("message", "Quý khách vui lòng nhập mã thanh toán");
 				else {
 					return mav.addObject("message", "Mã thanh toán không đúng");
@@ -152,20 +152,20 @@ public class DatVeController {
 	}
 
 	@RequestMapping(value = "/xu-ly-thanh-toan", method = RequestMethod.GET)
-	public String XuLyDaTa(HttpServletRequest request,ModelMap model) {
+	public String XuLyDaTa(HttpServletRequest request, ModelMap model) {
 		VeDTO vedto_se = (VeDTO) request.getSession().getAttribute("datave");
 		KhachHangDTO khdto = (KhachHangDTO) request.getSession().getAttribute("dtokh");
 		LichTrinhDTO ltdto = (LichTrinhDTO) request.getSession().getAttribute("modelLichTrinh");
 		String check = request.getParameter("radio");
 		String code = request.getParameter("code");
-		if(check == null)
+		if (check == null)
 			return "redirect:/thanh-toan?messageError=null-check";
-		if(request.getParameter("code") != null && request.getParameter("code-2") != null
+		if (request.getParameter("code") != null && request.getParameter("code-2") != null
 				&& request.getParameter("code-3") != null && request.getParameter("code-4") != null
 				&& request.getParameter("code-5") != null)
-			if(code.equals("") && request.getParameter("code-2").equals("") 
+			if (code.equals("") && request.getParameter("code-2").equals("")
 					&& request.getParameter("code-3").equals("") && request.getParameter("code-5").equals("")
-					&& request.getParameter("code-4").equals("")){
+					&& request.getParameter("code-4").equals("")) {
 				return "redirect:/thanh-toan?messageError=null-code";
 //				ModelAndView mav = new ModelAndView("web/thanh-toan");
 //				model.addAttribute("alert", "danger");
@@ -174,19 +174,20 @@ public class DatVeController {
 			}
 		if (request.getParameter("radio") != null) {
 			if (request.getParameter("radio").equals("on")) {
-				if(code.equals("1234") || request.getParameter("code-2").equals("1234")
-						|| request.getParameter("code-3").equals("1234") || request.getParameter("code-4").equals("1234")
-						|| request.getParameter("code-5").equals("1234")){
+				if (code.equals("1234") || request.getParameter("code-2").equals("1234")
+						|| request.getParameter("code-3").equals("1234")
+						|| request.getParameter("code-4").equals("1234")
+						|| request.getParameter("code-5").equals("1234")) {
 					veService.save(vedto_se, ltdto.getIdLichTrinh());
 					khachHangService.save(khdto, veService.getTotalItem());
 //					khachHangService.save(khdto, vedto_se.getIdVe());
 					lichTrinhService.CapNhatGheTrong(ltdto, vedto_se.getSoVeDat());
 					HttpSession session = request.getSession();
 					session.setAttribute("idVe", veService.getTotalItem());
-				}else{
+				} else {
 					return "redirect:/thanh-toan?messageError=faild-code";
 				}
-			}	
+			}
 		}
 		return "redirect:/thong-bao";
 	}
@@ -204,18 +205,51 @@ public class DatVeController {
 	@RequestMapping(value = "/xem-chi-tiet-ve", method = RequestMethod.GET)
 	public ModelAndView chitietvePage(HttpServletRequest request)
 	{
-		VeDTO model = new VeDTO();
+		int tongtien = 0 ;
+		VeDTO dtoVe = new VeDTO();
 		KhachHangDTO dtoKH = new KhachHangDTO();
+		LichTrinhDTO dtoLT = new LichTrinhDTO();
 		ModelAndView mav = new ModelAndView("web/xem-chi-tiet-ve");
-		if(request.getParameter("code") != null)
-		{
-			String code = request.getParameter("code");
-			model = veService.findAllcheck(Long.parseLong(code));
-			dtoKH = khachHangService.findAllcheck(model.getIdVe());
+		if(request.getParameter("message") != null && request.getParameter("alert") != null) {
+			mav.addObject("alert", "error");
+			mav.addObject("alert3", "danger");
+			mav.addObject("message", "Xác thực thất bại ! Vui lòng kiểm tra lại mã vé hoặc số điện thoại");
 		}
-		System.out.println(model.getNoiDon() + "noi tra" + model.getNoiTra());
-		mav.addObject("model", model);
+		else
+		{
+			mav.addObject("message2", "Vui lòng nhập mã vé, số điện thoại và bấm kiểm tra vé");
+			mav.addObject("alert2", "success");
+
+		}
+		if(request.getParameter("code") != null && request.getParameter("phone") != null)
+		{
+			int phone = Integer.parseInt(request.getParameter("phone"));
+			String code = request.getParameter("code");
+			if(!veService.findAllcheckId(Long.parseLong(code)))
+			{
+				ModelAndView mav2 = new ModelAndView("redirect:/xem-chi-tiet-ve?message=a&alert=b");
+				mav.addObject("alert", "error");
+				mav.addObject("message", "Xác thực thất bại ! Vui lòng kiểm tra lại mã vé");
+				return mav2;
+			}
+			if(!khachHangService.findAllcheck(phone, Long.parseLong(code))) {
+				ModelAndView mav2 = new ModelAndView("redirect:/xem-chi-tiet-ve?message=a&alert=b");
+				mav.addObject("alert", "error");
+				mav.addObject("message", "Xác thực thất bại ! Vui lòng kiểm tra lại số điện thoại");
+				return mav2;
+			}
+			dtoVe = veService.findAllcheck(Long.parseLong(code));
+			dtoKH = khachHangService.findAllcheck(dtoVe.getIdVe());
+			dtoLT = lichTrinhService.findById(dtoVe.getIdLichTrinh());
+			tongtien = dtoVe.getSoVeDat() * dtoLT.getDonGia();
+			mav.addObject("message", "Xác thực thành công ! Vui lòng kiểm tra thông tin bên dưới");
+			mav.addObject("alert3", "success");
+		}
+
+		mav.addObject("model", dtoVe);
 		mav.addObject("model2",dtoKH);
+		mav.addObject("model3", dtoLT);
+		mav.addObject("tongtien", tongtien);
 		return mav;
 	}
 }

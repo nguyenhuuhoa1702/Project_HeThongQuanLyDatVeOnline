@@ -53,7 +53,7 @@
 										ĐẶT VÉ THÀNH CÔNG</div>
 									<div>
 										<label>Mã vé khách hàng: </label> <label>${sessionScope.idVe}
-											<a href="#">Xem chi tiết vé </a>
+											<a href="../QuanLyNhaXe/xem-chi-tiet-ve">Xem chi tiết vé </a>
 										</label>
 									</div>
 									<div>

@@ -15,4 +15,6 @@ public interface IKhachHangService {
 	
 
 	KhachHangDTO findAllcheck(Long idVe);
+	
+	Boolean findAllcheck(int SoDienThoai,Long idVe);
 }

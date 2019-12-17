@@ -163,7 +163,7 @@
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>${jsp.api.version}</version>
 		</dependency>
-		
+
 		<!-- json -->
 		<!-- json -->
 		<dependency>
@@ -193,9 +193,15 @@
 			<version>1.9.13</version>
 		</dependency>
 		<!--end json -->
-		
-		<!--end json -->
 
+		<!--end json -->
+		<!-- unit test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 

@@ -8,6 +8,6 @@ import com.datvexe.entity.Ve;
 
 public interface KhachHangRepository extends JpaRepository<KhachHang, Long> {
 	@Query("select u from KhachHang u where u.idVe = ?1")
-	KhachHang findAllcheck(Long idVe);
+	KhachHang findAllcheck(Ve ve);
 
 }

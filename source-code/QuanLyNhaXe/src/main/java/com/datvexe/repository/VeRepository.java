@@ -15,4 +15,7 @@ public interface VeRepository extends JpaRepository<Ve, Long>{
 	
 	 @Query("select u from Ve u where u.idLichTrinh = ?1")
 	 List<Ve> findByIdLichTrinh(LichTrinh idLichTrinh);
+	 
+	 @Query("select u from Ve u where u.idVe = ?1")
+	 Ve findByIdVe(Long idVe);
 }

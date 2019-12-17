@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.converter.LichTrinhConverter;
+import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.XeDTO;
+import com.datvexe.entity.KhachHang;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.TuyenXe;
+import com.datvexe.entity.Ve;
 import com.datvexe.entity.Xe;
 import com.datvexe.repository.LichTrinhRepository;
 import com.datvexe.repository.TuyenXeRepository;
@@ -75,10 +78,10 @@ public class LichTrinhService implements ILichTrinhService {
 //			return true;
 //		}
 		
-//		if (check == null)	
-				//return true;
-		System.out.println(check.getThoiGianDen() + "--" + dto.getThoiGian());
-		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
+		if (check == null)	
+				return true;
+//		System.out.println(check.getThoiGianDen() + "--" + dto.getThoiGian());
+//		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
 		return false;	
 	}
 
@@ -164,6 +167,7 @@ public class LichTrinhService implements ILichTrinhService {
 	}
 
 	@Override
+	@Transactional
 	public LichTrinhDTO CapNhatGheTrong(LichTrinhDTO dto, int gheDat) {
 		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
 		LichTrinh lichTrinhEntity = new LichTrinh();
@@ -178,5 +182,11 @@ public class LichTrinhService implements ILichTrinhService {
 		return lichTrinhConverter.toDTO(LichTrinhRepository.save(lichTrinhEntity));
 	}
 
-
+	@Override
+	@Transactional
+	public LichTrinhDTO findAllcheck(Long idLichTrinh) {
+		LichTrinh lichTrinh = LichTrinhRepository.findAllById(idLichTrinh);
+		LichTrinhDTO dto = lichTrinhConverter.toDTO(lichTrinh);
+		return dto;
+	}
 }

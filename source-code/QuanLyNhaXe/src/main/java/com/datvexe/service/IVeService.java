@@ -2,6 +2,8 @@ package com.datvexe.service;
 
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
+import com.datvexe.entity.KhachHang;
+import com.datvexe.entity.Ve;
 
 public interface IVeService {
 
@@ -12,4 +14,7 @@ public interface IVeService {
 	int getTongVeDat(LichTrinhDTO dto);
 	
 	VeDTO findAllcheck(Long idVe);
+	
+	
+	Boolean findAllcheckId(Long idVe);
 }

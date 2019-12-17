@@ -29,4 +29,6 @@ public interface ITuyenXeService {
 	
 	Boolean CheckNull(TuyenXeDTO dto);
 	
+	
+	
 }

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.datvexe.converter.VeConverter;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
+import com.datvexe.entity.KhachHang;
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.Ve;
 import com.datvexe.repository.LichTrinhRepository;
@@ -57,5 +58,14 @@ public class VeService implements IVeService {
 		Ve models = veRepository.findOne(idVe);
 		VeDTO vedto = veConverter.toDTO(models);
 		return vedto;
+	}
+	@Override
+	public Boolean findAllcheckId(Long idVe) {
+		Ve ve = veRepository.findByIdVe(idVe);
+		if(ve != null)
+		{
+			return true;
+		}
+		return false;
 	}
 }

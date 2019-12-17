@@ -20,7 +20,14 @@ pageEncoding="UTF-8"%>
 				<li class="nav-item"><a href="../QuanLyNhaXe/xem-chi-tiet-ve" class="nav-link">Quản lý vé</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Liên Hệ </a></li>
-				<li class="nav-item"><a href="../QuanLyNhaXe/dang-nhap" class="nav-link">Đăng nhập</a></li>
+				<security:authorize access = "isAnonymous()">
+						<li class="nav-item"><a class="nav-link" href="<c:url value='/dang-nhap'/>">Đăng nhập</a></li>
+				</security:authorize>
+				<!-- Sau khi đăng nhập thành công thì hiển thị nút thoát và Wecome -->
+				<security:authorize access = "isAuthenticated()">
+					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtil.getPrincipal().getActive()%></a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value='/thoat'/>">Thoát</a></li>
+				</security:authorize>
 			</ul>
 		</div>
 	</div>

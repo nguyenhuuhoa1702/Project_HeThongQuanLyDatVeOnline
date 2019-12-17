@@ -24,4 +24,7 @@ public interface LichTrinhRepository extends JpaRepository<LichTrinh, Long> {
 //	 List<LichTrinh> queryTimKiem(String diemdi,String diemden,Date ngay);
 
 	List<LichTrinh> findByDiemDiAndDiemDenAndNgayDi(String DiemDi, String DiemDen, Date ngayDi);
+	
+	@Query("select u from LichTrinh u where u.idLichTrinh = ?1")
+	LichTrinh findAllById(Long idLichTrinh);
 }

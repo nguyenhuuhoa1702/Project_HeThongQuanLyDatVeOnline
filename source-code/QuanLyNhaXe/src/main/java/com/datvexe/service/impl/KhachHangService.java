@@ -61,9 +61,21 @@ public class KhachHangService implements IKhachHangService {
 
 	@Override
 	public KhachHangDTO findAllcheck(Long idVe) {
-		KhachHang models = khachHangRepository.findAllcheck(idVe);
+		//Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
+		Ve ve = veRepository.findOne(idVe);
+		KhachHang models = khachHangRepository.findAllcheck(ve);
 		KhachHangDTO dto = khachHangConverter.toDTO(models);
 		return dto;
 	}
 
+	@Override
+	public Boolean findAllcheck(int SoDienThoai, Long idVe) {
+		Ve ve = veRepository.findOne(idVe);
+		KhachHang models = khachHangRepository.findAllcheck(ve);
+		if(models.getSoDienThoai()==SoDienThoai)
+		{
+			return true;
+		}
+		return false;
+	}
 }
