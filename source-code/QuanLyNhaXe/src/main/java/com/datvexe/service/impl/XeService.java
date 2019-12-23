@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.datvexe.converter.XeConverter;
 import com.datvexe.dto.XeDTO;
+import com.datvexe.entity.LichTrinh;
+import com.datvexe.entity.Ve;
 import com.datvexe.entity.Xe;
 import com.datvexe.repository.XeRepository;
 import com.datvexe.service.IXeService;
@@ -36,5 +38,11 @@ public class XeService implements IXeService {
 	public XeDTO findById(String BienSoXe) {
 		Xe entity = xeRepository.findOne(BienSoXe);
 		return xeConverter.toDTO(entity);
+	}
+
+	@Override
+	public int TongGhe(String BienSoXe) {
+		Xe entity = xeRepository.findOneByXe(BienSoXe);
+		return entity.getTongGhe();
 	}
 }

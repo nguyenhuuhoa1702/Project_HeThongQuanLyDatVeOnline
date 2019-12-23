@@ -8,7 +8,17 @@ public class TuyenXeDTO extends AbstractDTO<TuyenXeDTO> {
 	private String maTuyenXe;
 	private Long tuyenXeId;
 	private String thongBao;
+	private int trangThai;
 	
+	
+	
+	
+	public int getTrangThai() {
+		return trangThai;
+	}
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
+	}
 	public String getThongBao() {
 		return thongBao;
 	}

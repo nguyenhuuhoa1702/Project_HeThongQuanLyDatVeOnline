@@ -9,8 +9,15 @@ public class VeDTO extends AbstractDTO<VeDTO> {
 	private Date ngayDatVe;
 	private String noiDon;
 	private String noiTra;
+	private String ghiChu;
 	
 	
+	public String getGhiChu() {
+		return ghiChu;
+	}
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
 	public String getNoiDon() {
 		return noiDon;
 	}

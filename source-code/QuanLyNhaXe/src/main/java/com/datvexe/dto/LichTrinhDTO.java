@@ -15,9 +15,15 @@ public class LichTrinhDTO extends AbstractDTO<LichTrinhDTO>{
 	private int donGia;
 	private Time thoiGianDen;
 	private int gheTrong;
+	private int trangThai;
 	
 	
-	
+	public int getTrangThai() {
+		return trangThai;
+	}
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
+	}
 	public int getGheTrong() {
 		return gheTrong;
 	}

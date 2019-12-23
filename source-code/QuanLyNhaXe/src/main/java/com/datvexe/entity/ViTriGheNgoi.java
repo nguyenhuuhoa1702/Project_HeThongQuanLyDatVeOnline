@@ -39,6 +39,14 @@ public class ViTriGheNgoi {
 	public void setViTriGheNgoi(String viTriGheNgoi) {
 		this.viTriGheNgoi = viTriGheNgoi;
 	}
+
+	public Ve getIdVe() {
+		return idVe;
+	}
+
+	public void setIdVe(Ve idVe) {
+		this.idVe = idVe;
+	}
 	
 	
 	

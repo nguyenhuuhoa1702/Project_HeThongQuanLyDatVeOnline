@@ -9,16 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.converter.LichTrinhConverter;
-import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.XeDTO;
-import com.datvexe.entity.KhachHang;
 import com.datvexe.entity.LichTrinh;
-import com.datvexe.entity.TuyenXe;
-import com.datvexe.entity.Ve;
 import com.datvexe.entity.Xe;
 import com.datvexe.repository.LichTrinhRepository;
-import com.datvexe.repository.TuyenXeRepository;
 import com.datvexe.repository.VeRepository;
 import com.datvexe.repository.XeRepository;
 import com.datvexe.service.ILichTrinhService;

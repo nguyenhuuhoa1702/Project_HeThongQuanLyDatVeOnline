@@ -1,18 +1,10 @@
 package com.datvexe.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 // @Entity nó sẽ ánh xạ (mapping) table TuyenXe trong tg mysql
@@ -41,6 +33,9 @@ public class TuyenXe {
 	
 	@Column(name = "tenTuyenXe")
 	private String tenTuyenXe;
+	
+	@Column(name = "Status")
+	private int trangThai;
 //	@ManyToMany(fetch = FetchType.LAZY)
 //	// Tự động tạo bảng trung gian có tên là ViTri_TuyenXe
 //	// 1 tuyến xe có nhiều vị trí đón trả và 1 vị trí đón trả chỉ tương ứng với 1 tuyến xe 
@@ -70,6 +65,14 @@ public class TuyenXe {
 
 	public void setMaTuyenXe(String maTuyenXe) {
 		this.maTuyenXe = maTuyenXe;
+	}
+
+	public int getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
 	}
 	
 	

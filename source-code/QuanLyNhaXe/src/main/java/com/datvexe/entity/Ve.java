@@ -42,6 +42,19 @@ public class Ve {
 	@Column(name = "NoiTra")
 	private String noiTra;
 	
+	@Column(name = "ghiChu")
+	private String ghiChu;
+	
+	
+	
+	public String getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
+
 	@OneToMany(mappedBy = "idVe")
 	private List<KhachHang> khachHang = new ArrayList<KhachHang>();
 	

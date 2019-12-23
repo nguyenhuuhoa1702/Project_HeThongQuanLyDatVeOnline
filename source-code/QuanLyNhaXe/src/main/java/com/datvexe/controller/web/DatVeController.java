@@ -16,10 +16,12 @@ import com.datvexe.converter.VeConverter;
 import com.datvexe.dto.KhachHangDTO;
 import com.datvexe.dto.LichTrinhDTO;
 import com.datvexe.dto.VeDTO;
+import com.datvexe.dto.ViTriGheNgoiDTO;
 import com.datvexe.service.IKhachHangService;
 import com.datvexe.service.ILichTrinhService;
 import com.datvexe.service.IVeService;
 import com.datvexe.service.IViTriDonTra;
+import com.datvexe.service.IViTriGheNgoi;
 import com.datvexe.service.IXeService;
 import com.datvexe.util.SessionUtil;
 
@@ -39,6 +41,8 @@ public class DatVeController {
 	private IXeService xeService;
 	@Autowired
 	private VeConverter veConverter;
+	@Autowired
+	private IViTriGheNgoi viTriGheNgoi;
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public ModelAndView data(@RequestParam(value = "idLichTrinh", required = false) Long id,
@@ -55,8 +59,12 @@ public class DatVeController {
 
 		VeDTO vedto = new VeDTO();
 		KhachHangDTO khdto = new KhachHangDTO();
+		ViTriGheNgoiDTO vtgndto = new ViTriGheNgoiDTO();
+		vtgndto.setListResult(viTriGheNgoi.finalAll());
 		mav.addObject("noiDon", viTriDonTra.finalAllMapNoiDon(model));
 		mav.addObject("noiTra", viTriDonTra.finalAllMapNoiTra(model));
+		mav.addObject("tongghe", xeService.TongGhe(model.getBienSoXe()));
+		mav.addObject("vtgndto", vtgndto);
 		mav.addObject("model", model);
 		mav.addObject("modelkh", khdto);
 		mav.addObject("modelve", vedto);
