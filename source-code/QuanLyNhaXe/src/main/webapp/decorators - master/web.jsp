@@ -53,6 +53,10 @@
 	href="<c:url value='/template/web/css/magnific-popup.css'/>"
 	type="text/css">
 
+<link rel="stylesheet"
+	href="<c:url value='/template/web/css/style2.css'/>"
+	type="text/css">	
+
 <link rel="stylesheet" href="<c:url value='/template/web/css/aos.css'/>"
 	type="text/css">
 

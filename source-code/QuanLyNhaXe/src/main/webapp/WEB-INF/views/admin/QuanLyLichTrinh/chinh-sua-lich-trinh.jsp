@@ -78,7 +78,7 @@
 						<div class="form-group">
 							<label> Ngày đi </label>
 							<!-- Path gồm 2 chức năng của name (để kết nối) và value (để hiển thị) -->
-							<form:input path="ngayDi" value="2019-12-07" type="date"
+							<form:input path="ngayDi" type="date"
 								min="1979-12-31" max="2030-01-02" cssClass="form-control" />
 						</div>
 						<div class="form-group">

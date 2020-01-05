@@ -55,6 +55,8 @@ public class LichTrinh {
 	@OneToMany(mappedBy = "idLichTrinh")
 	private List<Ve> ve = new ArrayList<Ve>();
 
+	@OneToMany(mappedBy = "idLichTrinh")
+	private List<ViTriGheNgoi> viTriGheNgoi = new ArrayList<>();
 	
 	public Date getNgayDi() {
 		return ngayDi;
@@ -143,6 +145,14 @@ public class LichTrinh {
 
 	public void setTrangThai(int trangThai) {
 		this.trangThai = trangThai;
+	}
+
+	public List<ViTriGheNgoi> getViTriGheNgoi() {
+		return viTriGheNgoi;
+	}
+
+	public void setViTriGheNgoi(List<ViTriGheNgoi> viTriGheNgoi) {
+		this.viTriGheNgoi = viTriGheNgoi;
 	}
 
 	

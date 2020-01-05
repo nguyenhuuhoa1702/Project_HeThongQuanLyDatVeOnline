@@ -19,7 +19,8 @@
 					<form:form id="form" action="xu-ly-dat-ve" method="GET"
 						modelAttribute="modelve" class="request-form ftco-animate"
 						style="margin-top: 100px; box-sizing: border-box;">
-						<div class="row">
+						<div class="row"
+							style="color: #190707; font-family: Helvetica, Arial, Tahoma, sans-serif;">
 							<div class="col-lg align-items-end">
 								<div class="form-group">
 									<div style="float: left; width: 300px;">
@@ -27,97 +28,116 @@
 											<tr
 												style="text-align: center; height: 50px; border-bottom: 1px solid blue;">
 												<td colspan="5"><div>THÔNG TIN CHỖ NGỒI</div>
-												<div>Đỏ: đã có ; Vàng: trống :</div>
-												</td>
+													<div>Xanh: Ghế không bán - Trắng: Ghế trống</div></td>
 											</tr>
-<%-- 											<c:forEach var="item" items="${model.listResult}"> --%>								
-											<c:forEach var="i" begin="1" end="${tongghe}" step="5" >
+											<%-- 											<c:forEach var="item" items="${model.listResult}"> --%>
+											<c:forEach var="i" begin="1" end="${tongghe}" step="5">
 												<tr>
-													
-													<c:set var="check" value="false"/>
+
+													<c:set var="check" value="false" />
 													<c:forEach var="item" items="${vtgndto.listResult}">
-														<c:set var="blog" value="A${i}"/> 													
-														<c:set var="blog2" value="${item.viTriGheNgoi}"/>
+														<c:set var="blog" value="A${i}" />
+														<c:set var="blog2" value="${item.viTriGheNgoi}" />
 														<c:if test="${blog eq blog2}">
-															<td><input value="A${i}" type="checkbox" disabled="disabled" />A${i}</td>
-														    <c:set var="check" value="true" />
+															<td><div style="background-color: #2E9AFE;">
+																	<input value="A${i}" type="checkbox"
+																		disabled="disabled" /> A${i}
+																</div></td>
+															<c:set var="check" value="true" />
 														</c:if>
 													</c:forEach>
 													<c:if test="${check eq 'false'}">
-														<td><input value="A${i}" type="checkbox" />A${i}</td>
+														<td><input value="A${i}" name="A${i}" type="checkbox" />
+															A${i}</td>
 													</c:if>
-													<c:set var="check" value="false"/>
+													<c:set var="check" value="false" />
 													<c:forEach var="item" items="${vtgndto.listResult}">
-														<c:set var="blog" value="A${i+1}"/> 													
-														<c:set var="blog2" value="${item.viTriGheNgoi}"/>
+														<c:set var="blog" value="A${i+1}" />
+														<c:set var="blog2" value="${item.viTriGheNgoi}" />
 														<c:if test="${blog eq blog2}">
-															<td><input value="A${i+1}" type="checkbox" disabled="disabled" />A${i+1}</td>
-														    <c:set var="check" value="true" />
+															<td><div style="background-color: #2E9AFE;">
+																	<input value="A${i+1}" type="checkbox"
+																		disabled="disabled" /> A${i+1}
+																</div></td>
+															<c:set var="check" value="true" />
 														</c:if>
 													</c:forEach>
 													<c:if test="${check eq 'false'}">
-														<td><input value="A${i+1}" type="checkbox" />A${i+1}</td>
+														<td><input value="A${i+1}" name="A${i+1}"
+															type="checkbox" /> A${i+1}</td>
 													</c:if>
-													<c:set var="check" value="false"/>
+													<c:set var="check" value="false" />
 													<c:forEach var="item" items="${vtgndto.listResult}">
-														<c:set var="blog" value="A${i+2}"/> 													
-														<c:set var="blog2" value="${item.viTriGheNgoi}"/>
+														<c:set var="blog" value="A${i+2}" />
+														<c:set var="blog2" value="${item.viTriGheNgoi}" />
 														<c:if test="${blog eq blog2}">
-															<td><input value="A${i+2}" type="checkbox" disabled="disabled" />A${i+2}</td>
-														    <c:set var="check" value="true" />
+															<td><div style="background-color: #2E9AFE;">
+																	<input value="A${i+2}" type="checkbox"
+																		disabled="disabled" /> A${i+2}
+																</div></td>
+															<c:set var="check" value="true" />
 														</c:if>
 													</c:forEach>
 													<c:if test="${check eq 'false'}">
-														<td><input value="A${i+2}" type="checkbox" />A${i+2}</td>
+														<td><input value="A${i+2}" name="A${i+2}"
+															type="checkbox" /> A${i+2}</td>
 													</c:if>
-													<c:set var="check" value="false"/>
+													<c:set var="check" value="false" />
 													<c:forEach var="item" items="${vtgndto.listResult}">
-														<c:set var="blog" value="A${i+3}"/> 													
-														<c:set var="blog2" value="${item.viTriGheNgoi}"/>
+														<c:set var="blog" value="A${i+3}" />
+														<c:set var="blog2" value="${item.viTriGheNgoi}" />
 														<c:if test="${blog eq blog2}">
-															<td><input value="A${i+3}" type="checkbox" disabled="disabled" />A${i+3}</td>
-														    <c:set var="check" value="true" />
+															<td><div style="background-color: #2E9AFE;">
+																	<input value="A${i+3}" type="checkbox"
+																		disabled="disabled" /> A${i+3}
+																</div></td>
+															<c:set var="check" value="true" />
 														</c:if>
 													</c:forEach>
 													<c:if test="${check eq 'false'}">
-														<td><input value="A${i+3}" type="checkbox" />A${i+3}</td>
+														<td><input value="A${i+3}" type="checkbox"
+															name="A${i+3}" /> A${i+3}</td>
 													</c:if>
-													<c:set var="check" value="false"/>
+													<c:set var="check" value="false" />
 													<c:forEach var="item" items="${vtgndto.listResult}">
-														<c:set var="blog" value="A${i+4}"/> 													
-														<c:set var="blog2" value="${item.viTriGheNgoi}"/>
+														<c:set var="blog" value="A${i+4}" />
+														<c:set var="blog2" value="${item.viTriGheNgoi}" />
 														<c:if test="${blog eq blog2}">
-															<td><input value="A${i+4}" type="checkbox" disabled="disabled" />A${i+4}</td>
-														    <c:set var="check" value="true" />
+															<td><div style="background-color: #2E9AFE;">
+																	<input value="A${i+4}" type="checkbox"
+																		disabled="disabled" /> A${i+4}
+																</div></td>
+															<c:set var="check" value="true" />
 														</c:if>
 													</c:forEach>
 													<c:if test="${check eq 'false'}">
-														<td><input value="A${i+4}" type="checkbox" />A${i+4}</td>
-													</c:if>		
+														<td><input value="A${i+4}" type="checkbox"
+															name="A${i+4}" /> A${i+4}</td>
+													</c:if>
 												</tr>
 											</c:forEach>
-											
+
 										</table>
 									</div>
 									<div style="float: left; width: 500px">
-										<table style="width: 100%;">
+										<table style="width: 100%; margin-left: 10px">
 											<tr
 												style="text-align: center; height: 50px; border-bottom: 1px solid blue">
 												<td colspan="3"><div>THÔNG TIN CHUYẾN ĐI</div>
-												<div>${sessionScope.diemdi} - ${sessionScope.diemden} </div>
-												</td>
+													<div>${sessionScope.diemdi}- ${sessionScope.diemden}
+													</div></td>
 											</tr>
-												<!-- 											<tr> -->
-												<!-- 												<td> -->
-												<%-- 													<div>Điểm đi: ${sessionScope.diemdi}</div> --%>
-												<!-- 												</td> -->
-												<!-- 												<td> -->
-												<%-- 													<div>Điểm đến: ${sessionScope.diemden}</div> --%>
-												<!-- 												</td> -->
-												<!-- 												<td> -->
-												<%-- 													<div>Đơn giá vé: ${sessionScope.dongia} VNĐ</div> --%>
-												<!-- 												</td> -->
-												<!-- 											</tr> -->
+											<!-- 											<tr> -->
+											<!-- 												<td> -->
+											<%-- 													<div>Điểm đi: ${sessionScope.diemdi}</div> --%>
+											<!-- 												</td> -->
+											<!-- 												<td> -->
+											<%-- 													<div>Điểm đến: ${sessionScope.diemden}</div> --%>
+											<!-- 												</td> -->
+											<!-- 												<td> -->
+											<%-- 													<div>Đơn giá vé: ${sessionScope.dongia} VNĐ</div> --%>
+											<!-- 												</td> -->
+											<!-- 											</tr> -->
 
 											<tr>
 												<td>
@@ -161,11 +181,16 @@
 												</td>
 
 											</tr>
-											<tr>
-												<td colspan="3">
-													<div>Đặt vé nhanh</div> <input type="text" style="width:90%" placeholder=" Nhập nội dung đặt vé nhanh" />
-												</td>
-											</tr>
+											<security:authorize access="isAuthenticated()">
+												<tr>
+													<td colspan="3">
+														<div>Đặt vé nhanh</div> <input type="text"
+														style="width: 90%"
+														placeholder=" Nhập nội dung đặt vé nhanh" />
+													</td>
+												</tr>
+											</security:authorize>
+
 											<tr>
 												<td colspan="3">
 													<div>&nbsp;</div>
@@ -189,12 +214,13 @@
 								</div>
 								<!-- Giao diện thông tin khách hàng -->
 								<div class="form-group">
-									<div style="float: left ;">
+									<div style="float: left;">
 										<table style="width: 100%;">
 											<tr
 												style="text-align: center; height: 43px; border-bottom: 1px solid blue;">
-												<td colspan="3" style="margin-bottom: 1000px;"><div>THÔNG TIN KHÁCH HÀNG</div>
-												<div> </div>
+												<td colspan="3" style="margin-bottom: 1000px;"><div>THÔNG
+														TIN KHÁCH HÀNG</div>
+													<div></div>
 											</tr>
 											<tr>
 												<td style="">

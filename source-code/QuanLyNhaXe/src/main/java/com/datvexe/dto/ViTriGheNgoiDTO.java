@@ -5,8 +5,15 @@ public class ViTriGheNgoiDTO  extends AbstractDTO<ViTriGheNgoiDTO>{
 	private Long idGheNgoi;
 	private Long idVe;
 	private String viTriGheNgoi;
+	private Long idLichTrinh;
+		
 	
-	
+	public Long getIdLichTrinh() {
+		return idLichTrinh;
+	}
+	public void setIdLichTrinh(Long idLichTrinh) {
+		this.idLichTrinh = idLichTrinh;
+	}
 	public Long getIdGheNgoi() {
 		return idGheNgoi;
 	}

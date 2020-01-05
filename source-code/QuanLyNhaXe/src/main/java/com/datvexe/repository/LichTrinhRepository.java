@@ -4,7 +4,9 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.datvexe.entity.LichTrinh;
 import com.datvexe.entity.Xe;
@@ -15,6 +17,16 @@ public interface LichTrinhRepository extends JpaRepository<LichTrinh, Long> {
 	
 	@Query("select u from LichTrinh u where u.BienSoXe = ?1 and u.ngayDi = ?2")
 	LichTrinh BienSoXe2(Xe biensoxe,Date ngayDi);
+	
+	@Query("select u from LichTrinh u where u.BienSoXe = ?1 and u.ngayDi = ?2 and u.idLichTrinh <> ?3")
+	LichTrinh  BienSoXe3(Xe biensoxe,Date ngayDi,Long idLichTrinh);
+	
+	@Query("select u from LichTrinh u where u.trangThai = ?1")
+	List<LichTrinh>  finallActive(int active);
+	
+	@Modifying	
+	@Query("update LichTrinh u set u.trangThai = ?1 where u.idLichTrinh=?2")
+	void  deleteActive(int active,Long idLichTrinh);
 	
 //	@Query("select u from LichTrinh u where u.BienSoXe = ?1")
 //	LichTrinh findByBienSoXe(Xe biensoxe);

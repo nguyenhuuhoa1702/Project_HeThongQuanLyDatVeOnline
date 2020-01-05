@@ -38,7 +38,7 @@ public class LichTrinhService implements ILichTrinhService {
 		// convert data từ DTO sang entity và entity -> DTO
 		// chuyển List LichTrinh sang List DTO
 		List<LichTrinhDTO> models = new ArrayList<>();
-		List<LichTrinh> entity = LichTrinhRepository.findAll();
+		List<LichTrinh> entity = LichTrinhRepository.finallActive(1);
 		for (LichTrinh item : entity) {
 			LichTrinhDTO lichTrinhDTO = lichTrinhConverter.toDTO(item);
 			models.add(lichTrinhDTO);
@@ -73,12 +73,46 @@ public class LichTrinhService implements ILichTrinhService {
 //			return true;
 //		}
 		
-		if (check == null)	
-				return true;
+		if (check != null)
+		{
+			if(check.getThoiGianDen().before(dto.getThoiGian()) == true)
+			{
+				if(check.getDiemDen().equals(dto.getDiemDi())== true)				
+					return true;
+			}
+		}
+		else
+		{
+			return true;
+		}
+		System.out.println(check.getDiemDen().equals(dto.getDiemDi()));
 //		System.out.println(check.getThoiGianDen() + "--" + dto.getThoiGian());
-//		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
+		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
 		return false;	
 	}
+	
+	@Override
+	public Boolean CheckCapNhat(LichTrinhDTO dto) {
+		Xe biensoxe = xeRepository.findOneByXe(dto.getBienSoXe());
+		LichTrinh check = LichTrinhRepository.BienSoXe3(biensoxe,dto.getNgayDi(),dto.getIdLichTrinh());
+		if (check != null)
+		{
+			if(check.getThoiGianDen().before(dto.getThoiGian()) == true)
+			{
+				if(check.getDiemDen().equals(dto.getDiemDi())== true)				
+					return true;
+			}
+		}
+		else
+		{
+			return true;
+		}
+		System.out.println(check.getDiemDen().equals(dto.getDiemDi()));
+//		System.out.println(check.getThoiGianDen() + "--" + dto.getThoiGian());
+		System.out.println(check.getThoiGianDen().before(dto.getThoiGian()) + "abc");
+		return false;	
+	}
+	
 
 	@Override
 	@Transactional
@@ -136,7 +170,7 @@ public class LichTrinhService implements ILichTrinhService {
 	@Transactional
 	public void delete(long[] ids) {
 		for (long id : ids) {
-			LichTrinhRepository.delete(id);
+			LichTrinhRepository.deleteActive(0, id);
 		}
 	}
 
@@ -184,4 +218,6 @@ public class LichTrinhService implements ILichTrinhService {
 		LichTrinhDTO dto = lichTrinhConverter.toDTO(lichTrinh);
 		return dto;
 	}
+
+
 }

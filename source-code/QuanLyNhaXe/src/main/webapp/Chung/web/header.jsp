@@ -25,8 +25,20 @@ pageEncoding="UTF-8"%>
 				</security:authorize>
 				<!-- Sau khi đăng nhập thành công thì hiển thị nút thoát và Wecome -->
 				<security:authorize access = "isAuthenticated()">
-					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtil.getPrincipal().getActive()%></a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value='/thoat'/>">Thoát</a></li>
+<%-- 					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtil.getPrincipal().getTenTaiKhoan()%></a></li> --%>
+					<li class="nav-item"><a class="nav-link" href="<c:url value='/thoat'/>">Đăng xuất</a></li>
+				</security:authorize>
+				<security:authorize access = "isAuthenticated()">
+				<li class="nav-item">
+					<div class="dropdown">
+						  <a class="nav-link" style="color: white;margin-top: 5px">Quản lý vé</a>
+						  <div class="dropdown-content">
+						  		<a href="#">Danh sách đặt vé</a>
+						  	<a href="#">Danh sách hủy vé</a>
+						  <a href="#">Danh sách đổi vé</a>
+					  </div>
+					</div>
+				</li>
 				</security:authorize>
 			</ul>
 		</div>

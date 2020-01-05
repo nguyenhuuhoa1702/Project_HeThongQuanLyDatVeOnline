@@ -1,5 +1,7 @@
 package com.datvexe.controller.web;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -60,7 +62,7 @@ public class DatVeController {
 		VeDTO vedto = new VeDTO();
 		KhachHangDTO khdto = new KhachHangDTO();
 		ViTriGheNgoiDTO vtgndto = new ViTriGheNgoiDTO();
-		vtgndto.setListResult(viTriGheNgoi.finalAll());
+		vtgndto.setListResult(viTriGheNgoi.finalAll(model.getIdLichTrinh()));
 		mav.addObject("noiDon", viTriDonTra.finalAllMapNoiDon(model));
 		mav.addObject("noiTra", viTriDonTra.finalAllMapNoiTra(model));
 		mav.addObject("tongghe", xeService.TongGhe(model.getBienSoXe()));
@@ -78,6 +80,8 @@ public class DatVeController {
 		} else if (request.getParameter("message-4") != null) {
 			mav.addObject("message",
 					"Chỉ còn có " + model.getGheTrong() + " ghế trống. Xin quý khách vui lòng chọn lại");
+		} else if (request.getParameter("message-5") != null) {
+			mav.addObject("message", "Vui lòng chọn đúng số lượng ghế với số vé đặt");
 		}
 //		session.setAttribute("message", model);
 		return mav;
@@ -89,7 +93,9 @@ public class DatVeController {
 		String user = request.getParameter("hoten");
 		int phone = Integer.parseInt(request.getParameter("phone"));
 		String email = request.getParameter("email");
-
+		
+		HttpSession session = request.getSession();
+		
 		KhachHangDTO dtoKH = new KhachHangDTO();
 		dtoKH.setTenKhachHang(user);
 		dtoKH.setSoDienThoai(phone);
@@ -110,7 +116,27 @@ public class DatVeController {
 			model.addAttribute("message-4", "error-data-ve");
 			return "redirect:/book?idLichTrinh=" + ltdto.getIdLichTrinh();
 		}
-
+		
+		int count = 0 ;
+		ArrayList<String> listCheck = new ArrayList<>();
+		for(int i = 1 ; i <=  xeService.TongGhe(ltdto.getBienSoXe()); i++ )
+		{
+			boolean check = request.getParameter("A"+i) != null;
+			if(check == true)
+			{	
+				listCheck.add(request.getParameter("A"+i))  ;
+				count++;
+			}
+			
+			session.setAttribute("listCheck", listCheck);
+			
+		}
+		
+		if(count > vedto.getSoVeDat() || count < vedto.getSoVeDat())
+		{
+			model.addAttribute("message-5", "error-data-check");
+			return "redirect:/book?idLichTrinh=" + ltdto.getIdLichTrinh();
+		}
 		// test ---- tìm ghế trống không dựa vào cột gheTrong
 
 //		int gheTrong = 0;
@@ -124,11 +150,12 @@ public class DatVeController {
 
 		// ket thuc test ------ tìm ghế trống không dựa vào cột gheTrong
 
-		HttpSession session = request.getSession();
+		
 		session.setAttribute("datave", vedto);
 		session.setAttribute("dtokh", dtoKH);
 		sessionUtil.SaveSessionKhachHang(request, dtoKH);
 		sessionUtil.SaveSessionVe(request, vedto);
+	
 		session.setAttribute("tongtien", ltdto.getDonGia() * vedto.getSoVeDat());
 		return "redirect:/thanh-toan";
 	}
@@ -159,20 +186,26 @@ public class DatVeController {
 		return mav;
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/xu-ly-thanh-toan", method = RequestMethod.GET)
 	public String XuLyDaTa(HttpServletRequest request, ModelMap model) {
 		VeDTO vedto_se = (VeDTO) request.getSession().getAttribute("datave");
 		KhachHangDTO khdto = (KhachHangDTO) request.getSession().getAttribute("dtokh");
 		LichTrinhDTO ltdto = (LichTrinhDTO) request.getSession().getAttribute("modelLichTrinh");
+		ArrayList<String> listCheck = (ArrayList<String>) request.getSession().getAttribute("listCheck");
+		
 		String check = request.getParameter("radio");
 		String code = request.getParameter("code");
 		if (check == null)
 			return "redirect:/thanh-toan?messageError=null-check";
-		if (request.getParameter("code") != null && request.getParameter("code-2") != null
-				&& request.getParameter("code-3") != null && request.getParameter("code-4") != null
+		if (request.getParameter("code") != null 
+				&& request.getParameter("code-2") != null
+				&& request.getParameter("code-3") != null 
+				&& request.getParameter("code-4") != null
 				&& request.getParameter("code-5") != null)
 			if (code.equals("") && request.getParameter("code-2").equals("")
-					&& request.getParameter("code-3").equals("") && request.getParameter("code-5").equals("")
+					&& request.getParameter("code-3").equals("") 
+					&& request.getParameter("code-5").equals("")
 					&& request.getParameter("code-4").equals("")) {
 				return "redirect:/thanh-toan?messageError=null-code";
 //				ModelAndView mav = new ModelAndView("web/thanh-toan");
@@ -182,16 +215,21 @@ public class DatVeController {
 			}
 		if (request.getParameter("radio") != null) {
 			if (request.getParameter("radio").equals("on")) {
-				if (code.equals("1234") || request.getParameter("code-2").equals("1234")
+				if (code.equals("1234") 
+						|| request.getParameter("code-2").equals("1234")
 						|| request.getParameter("code-3").equals("1234")
 						|| request.getParameter("code-4").equals("1234")
 						|| request.getParameter("code-5").equals("1234")) {
 					veService.save(vedto_se, ltdto.getIdLichTrinh());
 					khachHangService.save(khdto, veService.getTotalItem());
-//					khachHangService.save(khdto, vedto_se.getIdVe());
 					lichTrinhService.CapNhatGheTrong(ltdto, vedto_se.getSoVeDat());
 					HttpSession session = request.getSession();
-					session.setAttribute("idVe", veService.getTotalItem());
+					for(int i = 0 ; i < listCheck.size(); i++)
+					{
+						viTriGheNgoi.save(ltdto.getIdLichTrinh(), veService.getTotalItem(), listCheck.get(i));
+						
+					}
+					session.setAttribute("idVe", veService.getTotalItem());					
 				} else {
 					return "redirect:/thanh-toan?messageError=faild-code";
 				}
@@ -207,6 +245,7 @@ public class DatVeController {
 		session.removeAttribute("datave");
 		session.removeAttribute("dtokh");
 		session.removeAttribute("modelLichTrinh");
+	
 		return mav;
 	}
 

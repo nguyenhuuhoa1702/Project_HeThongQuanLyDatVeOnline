@@ -20,6 +20,8 @@ public interface ILichTrinhService {
 	Boolean CheckDataDiemDiVaDiemDen(LichTrinhDTO dto);
 
 	Boolean CheckDataXe(LichTrinhDTO dto);
+	
+	Boolean CheckCapNhat(LichTrinhDTO dto);
 
 	Boolean CheckNull(LichTrinhDTO dto);
 

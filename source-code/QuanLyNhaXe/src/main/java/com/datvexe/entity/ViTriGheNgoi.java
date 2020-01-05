@@ -21,8 +21,24 @@ public class ViTriGheNgoi {
 	@JoinColumn(name ="idVe")
 	private Ve idVe;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idLichTrinh")
+	private LichTrinh idLichTrinh;
+	
+	
 	@Column(name ="viTriGheNgoi")
 	private String viTriGheNgoi;
+
+	
+	
+	
+	public LichTrinh getIdLichTrinh() {
+		return idLichTrinh;
+	}
+
+	public void setIdLichTrinh(LichTrinh idLichTrinh) {
+		this.idLichTrinh = idLichTrinh;
+	}
 
 	public Long getIdGheNgoi() {
 		return idGheNgoi;

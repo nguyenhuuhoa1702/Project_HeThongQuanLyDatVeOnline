@@ -21,8 +21,8 @@ public class LichTrinhConverter {
 //		if(entity.getNgayDi().equals(""))
 //			result.setNgayDi(date);
 //		else
-			result.setNgayDi(entity.getNgayDi());
-			result.setThoiGianDen(entity.getThoiGianDen());
+		result.setNgayDi(entity.getNgayDi());
+		result.setThoiGianDen(entity.getThoiGianDen());
 		result.setThoiGian(entity.getThoiGian());
 		result.setDiemDen(entity.getDiemDen());
 		result.setDiemDi(entity.getDiemDi());

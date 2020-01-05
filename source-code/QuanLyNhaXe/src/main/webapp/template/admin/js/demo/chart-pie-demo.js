@@ -7,7 +7,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
+    labels: ["đủ 18 tuổi", "Tuổi 18 - 24", "Tuổi 24-35", "Trên 35 tuổi"],
     datasets: [{
       data: [12.21, 15.58, 11.25, 8.32],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],

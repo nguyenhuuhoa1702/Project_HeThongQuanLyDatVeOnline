@@ -43,7 +43,7 @@ public class NewAPI {
 			return new ResponseEntity<>( HttpStatus.LOCKED);
 		if(lichTrinh.CheckDataDiemDiVaDiemDen(dto) == false)
 			return new ResponseEntity<>( HttpStatus.FORBIDDEN);
-		if(lichTrinh.CheckDataXe(dto) == false)
+		if(lichTrinh.CheckCapNhat(dto) == false)
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		if(lichTrinh.CheckDonGia(dto) == false)
 			return new ResponseEntity<>(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED);

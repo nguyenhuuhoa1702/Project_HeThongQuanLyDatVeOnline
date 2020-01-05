@@ -16,6 +16,26 @@ public class MyUser extends User {
 	}
 	
 	private int active;
+	private String username;
+	private String tenTaiKhoan;
+	
+	
+
+	public String getTenTaiKhoan() {
+		return tenTaiKhoan;
+	}
+
+	public void setTenTaiKhoan(String tenTaiKhoan) {
+		this.tenTaiKhoan = tenTaiKhoan;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public int getActive() {
 		return active;

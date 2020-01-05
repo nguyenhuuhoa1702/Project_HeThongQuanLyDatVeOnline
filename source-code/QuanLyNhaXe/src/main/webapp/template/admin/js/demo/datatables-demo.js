@@ -34,7 +34,8 @@ $(document).ready(
 									+ '<option value="50">50</option>'
 									+ '<option value="-1">All</option>'
 									+ '</select> kết quả ||  '
-									+ '<a href="../quan-ly-lich-trinh/chinh-sua" > Thêm lịch trình mới </a>'
+									+ '<a href="../quan-ly-lich-trinh/chinh-sua" > Thêm lịch trình mới </a> || '
+									+ '<button id="btnDeleteALot">Xóa nhiều lịch trình</button>'
 						}
 					});
 		});

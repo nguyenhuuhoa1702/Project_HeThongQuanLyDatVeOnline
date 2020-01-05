@@ -75,6 +75,10 @@
 	<script
 		src="<c:url value='/template/admin/js/demo/chart-area-demo.js'/>"></script>
 	<script
+		src="<c:url value='/template/admin/js/demo/chart-bar-demo.js'/>"></script>
+	<script
+		src="<c:url value='/template/admin/js/demo/chart-pie-demo.js'/>"></script>
+	<script
 		src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>

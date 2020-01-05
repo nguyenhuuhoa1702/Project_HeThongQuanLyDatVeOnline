@@ -15,6 +15,17 @@ public class TestController {
 		long millis=System.currentTimeMillis();  
 		java.sql.Date date=new java.sql.Date(millis);
 		System.out.println(date);
+
+			for(int i = 1 ; i<4 ; i ++)
+			{
+					
+				boolean a = req.getParameterValues("A"+1) != null;
+				System.out.println(req.getParameterValues("A1"));
+			}
+			
+
+			
+		
 		return mav;
 	}
 	@RequestMapping(value = "/test-2", method = RequestMethod.POST)

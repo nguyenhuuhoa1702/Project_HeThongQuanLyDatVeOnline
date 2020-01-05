@@ -381,93 +381,93 @@
 		</div>
 	</section>
 
-	<section class="ftco-section testimony-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5">
-				<div class="col-md-7 text-center heading-section ftco-animate">
-					<span class="subheading">ĐÁNH GIÁ VỀ DỊCH VỤ</span>
-					<h2 class="mb-3">Đánh giá về dịch vụ</h2>
-				</div>
-			</div>
-			<div class="row ftco-animate">
-				<div class="col-md-12">
-					<div class="carousel-testimony owl-carousel ftco-owl">
-						<div class="item">
-							<div class="testimony-wrap text-center py-4 pb-5">
-								<div class="user-img mb-4"
-									style="background-image: url('template/web/images/person_3.jpg')">
-								</div>
-								<div class="text pt-4">
-									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì
-										phàn nàn</p>
-									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p>
-									<span class="position">Chủ tịch liên hiệp nhà máy thuốc
-										nổ</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap text-center py-4 pb-5">
-								<div class="user-img mb-4"
-									style="background-image: url('template/web/images/person_1.jpg')">
-								</div>
-								<div class="text pt-4">
-									<p class="mb-4">Rất tuyệt. Không còn gì tuyệt vời hơn. Đặt
-										vé rõ ràng và nhanh chóng. Đi đúng nơi về đúng chỗ. Đây là
-										điều làm t khá hài lòng</p>
-									<p class="name">Nguyễn Thái Dương</p>
-									<span class="position">Nhân viên văn phòng</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap text-center py-4 pb-5">
-								<div class="user-img mb-4"
-									style="background-image: url('template/web/images/person_2.jpg')">
-								</div>
-								<div class="text pt-4">
-									<p class="mb-4">Thật sự dịch vụ không chê vào đâu được. Tài
-										xe thì nhiệt tình. Xe chạy rất êm, khá hẳn mấy cái xe đón ven
-										đường. Đúng là xe ven đường sao với được tới xe đặt trước</p>
-									<p class="name">Phương Phưởng Phường Phượng</p>
-									<span class="position">CEO CAVE</span>
-								</div>
-							</div>
-						</div>
+<!-- 	<section class="ftco-section testimony-section"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="row justify-content-center mb-5"> -->
+<!-- 				<div class="col-md-7 text-center heading-section ftco-animate"> -->
+<!-- 					<span class="subheading">ĐÁNH GIÁ VỀ DỊCH VỤ</span> -->
+<!-- 					<h2 class="mb-3">Đánh giá về dịch vụ</h2> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="row ftco-animate"> -->
+<!-- 				<div class="col-md-12"> -->
+<!-- 					<div class="carousel-testimony owl-carousel ftco-owl"> -->
+<!-- 						<div class="item"> -->
+<!-- 							<div class="testimony-wrap text-center py-4 pb-5"> -->
+<!-- 								<div class="user-img mb-4" -->
+<!-- 									style="background-image: url('template/web/images/person_3.jpg')"> -->
+<!-- 								</div> -->
+<!-- 								<div class="text pt-4"> -->
+<!-- 									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì -->
+<!-- 										phàn nàn</p> -->
+<!-- 									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p> -->
+<!-- 									<span class="position">Chủ tịch liên hiệp nhà máy thuốc -->
+<!-- 										nổ</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="item"> -->
+<!-- 							<div class="testimony-wrap text-center py-4 pb-5"> -->
+<!-- 								<div class="user-img mb-4" -->
+<!-- 									style="background-image: url('template/web/images/person_1.jpg')"> -->
+<!-- 								</div> -->
+<!-- 								<div class="text pt-4"> -->
+<!-- 									<p class="mb-4">Rất tuyệt. Không còn gì tuyệt vời hơn. Đặt -->
+<!-- 										vé rõ ràng và nhanh chóng. Đi đúng nơi về đúng chỗ. Đây là -->
+<!-- 										điều làm t khá hài lòng</p> -->
+<!-- 									<p class="name">Nguyễn Thái Dương</p> -->
+<!-- 									<span class="position">Nhân viên văn phòng</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="item"> -->
+<!-- 							<div class="testimony-wrap text-center py-4 pb-5"> -->
+<!-- 								<div class="user-img mb-4" -->
+<!-- 									style="background-image: url('template/web/images/person_2.jpg')"> -->
+<!-- 								</div> -->
+<!-- 								<div class="text pt-4"> -->
+<!-- 									<p class="mb-4">Thật sự dịch vụ không chê vào đâu được. Tài -->
+<!-- 										xe thì nhiệt tình. Xe chạy rất êm, khá hẳn mấy cái xe đón ven -->
+<!-- 										đường. Đúng là xe ven đường sao với được tới xe đặt trước</p> -->
+<!-- 									<p class="name">Phương Phưởng Phường Phượng</p> -->
+<!-- 									<span class="position">CEO CAVE</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 
-						<div class="item">
-							<div class="testimony-wrap text-center py-4 pb-5">
-								<div class="user-img mb-4"
-									style="background-image: url('template/web/images/person_3.jpg')">
-								</div>
-								<div class="text pt-4">
-									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì
-										phàn nàn</p>
-									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p>
-									<span class="position">Chủ tịch liên hiệp nhà máy thuốc
-										nổ</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap text-center py-4 pb-5">
-								<div class="user-img mb-4"
-									style="background-image: url('template/web/images/person_3.jpg')">
-								</div>
-								<div class="text pt-4">
-									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì
-										phàn nàn</p>
-									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p>
-									<span class="position">Chủ tịch liên hiệp nhà máy thuốc
-										nổ</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<!-- 						<div class="item"> -->
+<!-- 							<div class="testimony-wrap text-center py-4 pb-5"> -->
+<!-- 								<div class="user-img mb-4" -->
+<!-- 									style="background-image: url('template/web/images/person_3.jpg')"> -->
+<!-- 								</div> -->
+<!-- 								<div class="text pt-4"> -->
+<!-- 									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì -->
+<!-- 										phàn nàn</p> -->
+<!-- 									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p> -->
+<!-- 									<span class="position">Chủ tịch liên hiệp nhà máy thuốc -->
+<!-- 										nổ</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="item"> -->
+<!-- 							<div class="testimony-wrap text-center py-4 pb-5"> -->
+<!-- 								<div class="user-img mb-4" -->
+<!-- 									style="background-image: url('template/web/images/person_3.jpg')"> -->
+<!-- 								</div> -->
+<!-- 								<div class="text pt-4"> -->
+<!-- 									<p class="mb-4">Ngoại trừ mọi thứ đều tốt, tôi không gì -->
+<!-- 										phàn nàn</p> -->
+<!-- 									<p class="name">Công Tằng Tôn Nữ Đinh Thị Cỏ Hâm</p> -->
+<!-- 									<span class="position">Chủ tịch liên hiệp nhà máy thuốc -->
+<!-- 										nổ</span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</section> -->
 
 <!-- 	<section class="ftco-section ftco-no-pt ftco-no-pb"> -->
 <!-- 		<div class="container"> -->

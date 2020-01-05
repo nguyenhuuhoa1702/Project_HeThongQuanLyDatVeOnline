@@ -39,14 +39,15 @@ input[type="checkbox"]:checked { &+label { span { background:url('template/web/i
 			<div class="">
 				<div class="">
 					<br> <br>
-					<form class="request-form ftco-animate" action="test-2"
-						method="post" style="margin-top: 100px; box-sizing: border-box;">
+					<form class="request-form ftco-animate" action="test"
+						method="get" style="margin-top: 100px; box-sizing: border-box;">
 						<div class="row">
 							<div class="col-lg align-items-end">
 								<div class="form-group">
 									<div>
-										<input type="checkbox" name="abc" value="A1"> ABC
-										<input type="checkbox" name="abc" value="A1"> ABC
+										<input type="checkbox" name="A1" value="A1"> a
+										<input type="checkbox" name="A2" value="A2"> b
+										<input type="checkbox" name="A3" value="A3"> c
 										<button type="submit">ok</button>
 									</div>
 									<div style="display: none;" id="notiError-5">abc</div>

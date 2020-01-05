@@ -47,7 +47,7 @@
 										text-align: center;">
 								<thead>
 									<tr>
-										<th style="display: none"><input type="checkbox"
+										<th id="checkbox" style="width:0px;vertical-align:middle;display: none;"><input type="checkbox"
 											id="checkAll"></th>
 										<th style="width: 10px;vertical-align: middle;">ID</th>
 										<th style="width: 120px;vertical-align: middle;">Biển Số Xe</th>	
@@ -58,13 +58,13 @@
 										<th style="width: 100px;vertical-align: middle;">Ngày Đi</th>
 										<th style="width: 50px;vertical-align: middle;">Đơn giá vé</th>
 										<th style="width: 10px;vertical-align: middle;">Ghế Trống</th>
-										<th>Thao tác</th>
+										<th style="vertical-align: middle;">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="item" items="${model.listResult}">
 										<tr>
-											<td style="display: none"><input type="checkbox"
+											<td id="checkbox-2" style="width:1px;vertical-align:middle;display: none;"><input type="checkbox"
 												id="checkbox_${item.idLichTrinh}"
 												value="${item.idLichTrinh}"></td>
 											<td style="width: 10px;vertical-align: middle;">${item.idLichTrinh}</td>
@@ -151,8 +151,7 @@
 			}).then(
 					function(isConfirm) {
 						if (isConfirm) {
-							var ids = $('tbody input[type=checkbox]:checked')
-									.map(function() {
+							var ids = $('tbody input[type=checkbox]:checked').map(function() {
 										return $(this).val();
 									}).get();
 							deleteData(ids);
@@ -173,9 +172,11 @@
 				}
 			});
 		}
+		document.getElementById('btnDeleteALot').onclick = function(e) {
+				document.getElementById("checkbox").style.display = 'block'
+				document.getElementById("checkbox-2").style.display = 'block'
+			
+		}
 	</script>
-
-
 </body>
-
 </html>
