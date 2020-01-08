@@ -13,8 +13,11 @@
     + 1 file bảng phân công việc (.doc)
     + 1 file testcase (.doc)
 # Ngôn ngữ: 
-- Website viết bàng: java (Spring MVC + Spring Data JPA + Spring Security)	
+- Website viết bằng: java (Spring MVC + Spring Data JPA + Spring Security)	
 - DÙng hệ quản trị CSDL: MySql.
+# Phần mềm hỗ trợ:
+- Phần mềm Eclipse
+- MySQL Workbech 8.0 QE
 # Các chú thích:
   - Để chạy được phần mềm, vui lòng thực hiện đúng trình tự trong file word báo cáo trong Chương IX mục 3 : Hướng dẫn sử dụng phần mềm
   - Lưu ý : Đây là dự án còn trong quá trình phát triển. Không chịu trách nhiệm cá nhân hay pháp lý gì nếu ai tự ý lấy làm việc riêng.
