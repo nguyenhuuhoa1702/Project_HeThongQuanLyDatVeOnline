@@ -20,13 +20,13 @@
 		</a>
 	</li>
 	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-vi-tri-don-tra/danh-sach">
+		<a class="nav-link dropdown-toggle" href="#">
 			<i class="fas fa-fw fa-folder"></i> 
 			<span>Quản lý nơi đón - trả</span>
 		</a>
 	</li>
 	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-xe/danh-sach">
+		<a class="nav-link dropdown-toggle" href="#">
 			<i class="fas fa-fw fa-folder"></i> 
 			<span>Quản lý xe</span>
 		</a>
@@ -38,13 +38,14 @@
 		</a>
 	</li>
 	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-tai-khoan/danh-sach">
+		<a class="nav-link dropdown-toggle" href="#">
 			<i class="fas fa-fw fa-folder"></i> 
 			<span>Quản lý tài khoản</span>
 		</a>
 	</li>
 	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-nhan-su/danh-sach">
+<!-- 		<a class="nav-link dropdown-toggle" href="/QuanLyNhaXe/admin/quan-ly-nhan-su/danh-sach"> -->
+<a class="nav-link dropdown-toggle" href="#">	
 			<i class="fas fa-fw fa-folder"></i> 
 			<span>Quản lý nhân sự</span>
 		</a>

@@ -116,9 +116,22 @@
 													</c:if>
 												</tr>
 											</c:forEach>
+											<tr>
+												<td colspan="5">
+													<div style="background-image: url('template/web/images/vi-tri-cho-ngoi.jpg'); 
+													background-repeat: no-repeat;
+													 background-size: 300px;	
+													width:300px;height:200px;
+													
+														">
+										</div>
+												</td>
+											</tr>
 
 										</table>
+										
 									</div>
+								
 									<div style="float: left; width: 500px">
 										<table style="width: 100%; margin-left: 10px">
 											<tr

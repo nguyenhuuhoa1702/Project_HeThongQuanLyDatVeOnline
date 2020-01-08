@@ -219,7 +219,7 @@
 													</td>
 													<td>&nbsp;</td>
 													<td>
-														<div><label>18-12-2019</label></div>
+														<div><label>11-01-2020</label></div>
 													</td>
 												</tr>
 											</table>

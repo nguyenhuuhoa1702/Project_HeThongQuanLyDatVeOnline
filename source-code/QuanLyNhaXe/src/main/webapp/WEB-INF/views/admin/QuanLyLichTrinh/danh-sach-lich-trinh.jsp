@@ -98,9 +98,9 @@
 						</div>
 					</div>
 					<c:url var="themURL" value="/admin/quan-ly-lich-trinh/chinh-sua" />
-					<div>
-						<a href='${themURL}'>Thêm</a>
-					</div>
+<!-- 					<div> -->
+<!-- 						<button id="abc">abc</button> -->
+<!-- 					</div> -->
 
 					<div class="card-footer small text-muted">Đây là một thông
 						báo vớ vẩn nào đó ! Đừng bận tâm</div>
@@ -175,7 +175,7 @@
 		document.getElementById('btnDeleteALot').onclick = function(e) {
 				document.getElementById("checkbox").style.display = 'block'
 				document.getElementById("checkbox-2").style.display = 'block'
-			
+						
 		}
 	</script>
 </body>

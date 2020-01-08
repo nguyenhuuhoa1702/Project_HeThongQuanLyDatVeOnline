@@ -185,8 +185,8 @@ public class LichTrinhService implements ILichTrinhService {
 		java.sql.Date date = new java.sql.Date(millis);
 
 		if (dto.getNgayDi().after(date)) {
-			List<LichTrinh> entity = LichTrinhRepository.findByDiemDiAndDiemDenAndNgayDi(dto.getDiemDi(),
-					dto.getDiemDen(), dto.getNgayDi());
+			List<LichTrinh> entity = LichTrinhRepository.findByDiemDiAndDiemDenAndNgayDiAndTrangThai(dto.getDiemDi(),
+					dto.getDiemDen(), dto.getNgayDi(),1);
 			for (LichTrinh item : entity) {
 				LichTrinhDTO lichTrinhDTO = lichTrinhConverter.toDTO(item);
 				models.add(lichTrinhDTO);
