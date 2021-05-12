@@ -16,7 +16,7 @@
 		<!-- jsp có thể sử dụng thêm 1 số Libary - hỗ trợ nhiều thứ jsp cung cấp 
 			thư viện cung cấp vòng lặp Hỗ trợ 1 số xử lý logic mà bootrap hoặc html không 
 			làm được -->
-		<springsecurity.version>3.2.8.RELEASE</springsecurity.version>
+		<springsecurity.version>5.2.10.RELEASE</springsecurity.version>
 		<jsp.api.version>2.3.1</jsp.api.version>
 		<jstl.version>1.2</jstl.version>
 		<!-- Định nghĩa lại jdk sẽ thực hiện, vì trong máy là 1.8 nhưng trên System 
