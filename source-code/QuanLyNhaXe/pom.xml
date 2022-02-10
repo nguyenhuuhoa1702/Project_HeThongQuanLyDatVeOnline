@@ -21,7 +21,7 @@
 		<jstl.version>1.2</jstl.version>
 		<!-- Định nghĩa lại jdk sẽ thực hiện, vì trong máy là 1.8 nhưng trên System 
 			Libray là 1.5 -->
-		<hibernate.version>4.3.6.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<spring.data>1.11.5.RELEASE</spring.data>
 		<mysql.version>8.0.18</mysql.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
