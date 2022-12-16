@@ -12,7 +12,7 @@
 		<!-- Khai báo 1 từ khóa version servlet servlet.api.version -->
 		<servlet.api.version>3.1.0</servlet.api.version>
 		<!-- Khai báo từ khóa phiên bản spring : springframework.version -->
-		<springframework.version>4.3.13.RELEASE</springframework.version>
+		<springframework.version>5.2.20.RELEASE</springframework.version>
 		<!-- jsp có thể sử dụng thêm 1 số Libary - hỗ trợ nhiều thứ jsp cung cấp 
 			thư viện cung cấp vòng lặp Hỗ trợ 1 số xử lý logic mà bootrap hoặc html không 
 			làm được -->
